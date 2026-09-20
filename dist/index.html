@@ -18,7 +18,10 @@
         <p>Satellites measure whether the project moved.</p>
       </div>
     </div>
-    <p class="stats" id="stats">Loading archive…</p>
+    <div class="top-meta">
+      <p class="eyebrow" id="today"></p>
+      <p class="stats" id="stats">Loading archive…</p>
+    </div>
   </header>
 
   <main class="app">
@@ -30,6 +33,7 @@
         <button data-cat="forests">Forests</button>
         <button data-cat="reefs">Reefs</button>
         <button data-cat="energy">Energy</button>
+        <button data-cat="saved">Saved</button>
       </nav>
       <div class="legend">
         <span><i class="up"></i>On track</span>
@@ -53,9 +57,9 @@
           <li><b>1</b><span>Browse coasts, forests, reefs, and energy sites worldwide.</span></li>
           <li><b>2</b><span>Open a site to scrub its Sentinel-2 timeline.</span></li>
           <li><b>3</b><span>See how close each milestone is to the stated goal.</span></li>
-          <li><b>4</b><span>Run an automatic check. Agents read the pixels. No human queue.</span></li>
+          <li><b>4</b><span>Run an automatic check. Optionally sign the readout locally.</span></li>
         </ol>
-        <p class="fine">Index is a preview-image green / water / brightness score from public Sentinel-2 L2A scenes — not a full NDVI product. Weather is context, not proof.</p>
+        <p class="fine">Index is a preview-image green / water / brightness score from public Sentinel-2 L2A scenes — not a full NDVI product. Weather, SST, and irradiance are context, not proof. The SHA is local; nothing is written to Solana.</p>
       </div>
 
       <div id="detail" hidden>
@@ -69,6 +73,9 @@
         </div>
         <div class="bar"><i id="pBar"></i></div>
         <small class="bar-label" id="pBarLabel"></small>
+        <div id="followRegion">
+          <button class="watch project-save" id="watchBtn" type="button">Save</button>
+        </div>
 
         <h2>Satellite timeline</h2>
         <div class="stage">
@@ -79,6 +86,12 @@
         </div>
         <div class="years" id="years"></div>
         <div class="spark" id="spark" aria-label="Index over time"></div>
+
+        <div class="obs" id="obs" hidden>
+          <h2 id="obsTitle">Observation</h2>
+          <svg id="obsChart" viewBox="0 0 280 64" preserveAspectRatio="none" aria-hidden="true"></svg>
+          <p class="obs-cap" id="obsCap"></p>
+        </div>
 
         <h2>Milestones</h2>
         <ol class="miles" id="miles"></ol>
@@ -91,11 +104,42 @@
           <figure><img id="beforeImg" alt="Baseline scene" /><figcaption id="beforeCap">Baseline</figcaption></figure>
           <figure><img id="afterImg" alt="Latest scene" /><figcaption id="afterCap">Latest</figcaption></figure>
         </div>
-        <p class="result" id="result" hidden></p>
+
+        <div id="evidenceResult">
+          <p class="result" id="result" hidden></p>
+          <div class="post" id="postCheck" hidden>
+            <button class="ghost" id="manifestBtn" type="button">Evidence manifest</button>
+            <pre id="manifest" hidden></pre>
+            <p class="sha" id="sha"></p>
+            <button class="ghost" id="signOpen" type="button">Sign decision (local)</button>
+            <p class="signed" id="signed" hidden></p>
+          </div>
+        </div>
         <p class="live" id="live"></p>
+
+        <h2>Activity</h2>
+        <ol class="ledger" id="activity"></ol>
       </div>
     </aside>
   </main>
+
+  <dialog class="sign" id="signDlg" aria-labelledby="signTitle">
+    <h2 id="signTitle">Sign this readout</h2>
+    <p>Local only. Does not call a backend and does not release funds. Vaults are not deployed.</p>
+    <label>Reviewer name
+      <input id="signName" type="text" autocomplete="name" placeholder="Your name" />
+    </label>
+    <fieldset>
+      <legend>Decision</legend>
+      <label><input type="radio" name="decision" value="accept" checked /> Accept recommendation</label>
+      <label><input type="radio" name="decision" value="hold" /> Hold — more evidence</label>
+      <label><input type="radio" name="decision" value="refuse" /> Refuse claim</label>
+    </fieldset>
+    <div class="sign-actions">
+      <button type="button" class="ghost" id="signCancel">Cancel</button>
+      <button type="button" class="run" id="signGo">Sign</button>
+    </div>
+  </dialog>
 
   <script src="https://cdn.jsdelivr.net/npm/globe.gl@2.45.0/dist/globe.gl.min.js"></script>
   <script src="app.js"></script>
