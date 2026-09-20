@@ -1,0 +1,12 @@
+{
+  "name": "verdant-impact",
+  "private": true,
+  "scripts": {
+    "start": "python3 -m http.server 3000 --directory dist",
+    "test": "playwright test",
+    "test:classify": "python3 scripts/test_classify.py"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.0"
+  }
+}
