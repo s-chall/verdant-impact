@@ -1,8 +1,8 @@
 const COLORS = {
-  'On track': '#b8ff6a',
-  Watching: '#5fdde5',
-  Shifting: '#69f0bd',
-  'Off track': '#ff9d7a',
+  'On track': '#58cc02',
+  Watching: '#1cb0f6',
+  Shifting: '#ffc800',
+  'Off track': '#ff4b4b',
 };
 
 const ALIAS = {
@@ -14,6 +14,7 @@ const ALIAS = {
 
 const SESSION_KEY = 'verdant.session';
 const SAVED_KEY = 'verdant.saved';
+const PLEDGE_KEY = 'verdant.pledges';
 let seenSearch = typeof location !== 'undefined' ? location.search : '';
 
 const globeEl = document.getElementById('globe');
@@ -32,6 +33,7 @@ let currentCat = 'all';
 let lastManifest = null;
 let lastSha = '';
 let lastCheck = null;
+let fundAmt = 100;
 
 function todayLabel() {
   return new Date().toLocaleDateString('en-GB', {
@@ -53,6 +55,89 @@ function readSaved() {
 
 function writeSaved(ids) {
   localStorage.setItem(SAVED_KEY, JSON.stringify(ids));
+}
+
+function readPledges() {
+  try {
+    const o = JSON.parse(localStorage.getItem(PLEDGE_KEY) || '{}');
+    return o && typeof o === 'object' ? o : {};
+  } catch {
+    return {};
+  }
+}
+
+function vaultGoal(id) {
+  let n = 0;
+  for (const c of id) n += c.charCodeAt(0);
+  return 8000 + (n % 17) * 500;
+}
+
+function pledgedFor(id) {
+  return Number(readPledges()[id] || 0);
+}
+
+function totalPledged() {
+  return Object.values(readPledges()).reduce((a, b) => a + Number(b || 0), 0);
+}
+
+function refreshXp() {
+  if ($('xpChip')) $('xpChip').textContent = `💎 ${totalPledged()} USDC previewed`;
+}
+
+function paintVault(p) {
+  const goal = vaultGoal(p.id);
+  const raised = pledgedFor(p.id);
+  $('vaultGoal').textContent = goal.toLocaleString();
+  $('vaultRaised').textContent = raised.toLocaleString();
+  $('vaultTitle').textContent = 'Milestone vault · locked';
+  $('vaultCopy').textContent =
+    'USDC would sit on Solana until evidence + a signed decision say the milestone moved. Preview only — nothing is sent.';
+  if ($('vaultMeter')) {
+    $('vaultMeter').style.width = `${Math.min(100, (raised / goal) * 100)}%`;
+  }
+}
+
+async function pingSolana() {
+  const chip = $('solChip');
+  if (!chip) return;
+  try {
+    const res = await fetch('https://api.devnet.solana.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        jsonrpc: '2.0',
+        id: 1,
+        method: 'getLatestBlockhash',
+        params: [{ commitment: 'finalized' }],
+      }),
+    });
+    const data = await res.json();
+    const slot = data?.result?.context?.slot;
+    chip.textContent = slot ? `◎ Solana devnet · slot ${slot}` : '◎ Solana devnet live';
+  } catch {
+    chip.textContent = '◎ Solana delayed';
+  }
+}
+
+function burst() {
+  const box = $('burst');
+  if (!box) return;
+  box.hidden = false;
+  box.replaceChildren();
+  const colors = ['#58cc02', '#ffc800', '#1cb0f6', '#ff4b4b', '#ce82ff'];
+  for (let i = 0; i < 18; i += 1) {
+    const d = document.createElement('i');
+    const ang = (Math.PI * 2 * i) / 18;
+    d.style.left = '50%';
+    d.style.top = '40%';
+    d.style.background = colors[i % colors.length];
+    d.style.setProperty('--x', `${Math.cos(ang) * 160}px`);
+    d.style.setProperty('--y', `${Math.sin(ang) * 120}px`);
+    box.appendChild(d);
+  }
+  setTimeout(() => {
+    box.hidden = true;
+  }, 900);
 }
 
 function isSaved(id) {
@@ -142,6 +227,8 @@ async function load() {
     const n = projects.length;
     const scenes = data.scenes || projects.reduce((a, p) => a + (p.scenes?.length || 0), 0);
     $('stats').textContent = `${n} sites · ${scenes} Sentinel-2 scenes · no login`;
+    refreshXp();
+    pingSolana();
     const params = new URLSearchParams(location.search);
     const session = readSession();
     const urlProject = params.get('project');
@@ -154,7 +241,7 @@ async function load() {
     });
     setFilter(currentCat, { persist: false });
     try {
-      buildGlobe();
+      await buildGlobe();
     } catch (err) {
       console.warn('Globe failed; list still works.', err);
     }
@@ -202,8 +289,9 @@ function renderList() {
       b.innerHTML = `<span class="row"><strong></strong><span class="pct"></span></span><span class="meta"></span>`;
       b.querySelector('strong').textContent = p.name;
       b.querySelector('.pct').textContent = `${Math.round(p.progress)}%`;
-      b.querySelector('.pct').style.color = COLORS[p.status] || '#b8ff6a';
+      b.querySelector('.pct').style.color = COLORS[p.status] || '#58cc02';
       b.querySelector('.meta').textContent = `${p.place} · ${p.status}`;
+      b.style.setProperty('--status', COLORS[p.status] || '#58cc02');
       b.insertAdjacentHTML('beforeend', sparkSvg(p.series || p.scenes, COLORS[p.status]));
       b.onclick = () => openProject(p);
       li.appendChild(b);
@@ -212,49 +300,110 @@ function renderList() {
   );
 }
 
-function buildGlobe() {
+const LAND_GREENS = ['#58cc02', '#89e219', '#46a302', '#6fde05', '#7ac70c'];
+
+function toyOceanUrl() {
+  const c = document.createElement('canvas');
+  c.width = 2048;
+  c.height = 1024;
+  const ctx = c.getContext('2d');
+  const g = ctx.createLinearGradient(0, 0, 0, 1024);
+  g.addColorStop(0, '#f4fdff');
+  g.addColorStop(0.1, '#9ae4ff');
+  g.addColorStop(0.5, '#1cb0f6');
+  g.addColorStop(0.9, '#9ae4ff');
+  g.addColorStop(1, '#f4fdff');
+  ctx.fillStyle = g;
+  ctx.fillRect(0, 0, 2048, 1024);
+  ctx.strokeStyle = 'rgba(255,255,255,0.3)';
+  ctx.lineWidth = 3;
+  for (let i = 1; i < 12; i += 1) {
+    const x = (i / 12) * 2048;
+    ctx.beginPath();
+    ctx.moveTo(x, 0);
+    ctx.lineTo(x, 1024);
+    ctx.stroke();
+  }
+  for (let i = 1; i < 6; i += 1) {
+    const y = (i / 6) * 1024;
+    ctx.beginPath();
+    ctx.moveTo(0, y);
+    ctx.lineTo(2048, y);
+    ctx.stroke();
+  }
+  return c.toDataURL('image/png');
+}
+
+async function paintCartoonLand() {
+  if (!globe || typeof topojson === 'undefined') return;
+  try {
+    const topo = await fetch('data/countries-110m.json').then((r) => r.json());
+    const fc = topojson.feature(topo, topo.objects.countries);
+    globe
+      .hexPolygonsData(fc.features || [])
+      .hexPolygonGeoJsonGeometry((d) => d.geometry)
+      .hexPolygonColor((d) => LAND_GREENS[Number(d.id || 0) % LAND_GREENS.length])
+      .hexPolygonAltitude(0.02)
+      .hexPolygonMargin(0.12)
+      .hexPolygonResolution(3);
+  } catch (err) {
+    console.warn('Cartoon land failed; pins still work.', err);
+  }
+}
+
+async function buildGlobe() {
   if (typeof Globe !== 'function') return;
   globe = Globe()(globeEl)
     .backgroundColor('rgba(0,0,0,0)')
     .showAtmosphere(true)
-    .atmosphereColor('#69f0bd')
-    .atmosphereAltitude(0.15)
-    .globeImageUrl('https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-dark.jpg')
+    .atmosphereColor('#7ad6ff')
+    .atmosphereAltitude(0.28)
+    .globeImageUrl(toyOceanUrl())
     .pointsData(filtered)
     .pointLat('lat')
     .pointLng('lng')
-    .pointAltitude(0.02)
-    .pointRadius(0.42)
-    .pointColor((d) => COLORS[d.status] || '#b8ff6a')
+    .pointAltitude(0.07)
+    .pointRadius(0.95)
+    .pointColor((d) => COLORS[d.status] || '#58cc02')
     .pointLabel((d) => `<b>${d.name}</b><br/>${d.place}<br/>${d.status} · ${Math.round(d.progress)}%`)
     .ringsData(filtered)
     .ringLat('lat')
     .ringLng('lng')
     .ringColor((d) => {
       const rgb = {
-        'On track': '184,255,106',
-        Watching: '95,221,229',
-        Shifting: '105,240,189',
-        'Off track': '255,157,122',
-      }[d.status] || '184,255,106';
+        'On track': '88,204,2',
+        Watching: '28,176,246',
+        Shifting: '255,200,0',
+        'Off track': '255,75,75',
+      }[d.status] || '88,204,2';
       return (t) => `rgba(${rgb},${1 - t})`;
     })
-    .ringMaxRadius(2.2)
-    .ringPropagationSpeed(1.05)
-    .ringRepeatPeriod(1700)
+    .ringMaxRadius(3.6)
+    .ringPropagationSpeed(1.5)
+    .ringRepeatPeriod(1100)
     .onPointClick((d) => {
       const proj = projects.find((p) => p.id === d.id) || d;
       openProject(proj);
     })
     .width(globeEl.clientWidth)
     .height(globeEl.clientHeight)
-    .pointOfView({ lat: 8, lng: 20, altitude: 2.15 }, 0);
+    .pointOfView({ lat: 8, lng: 20, altitude: 2.05 }, 0);
+  try {
+    const mat = globe.globeMaterial?.();
+    if (mat) {
+      mat.shininess = 12;
+      if (mat.specular) mat.specular.set('#b7f0ff');
+    }
+  } catch {
+    /* material optional */
+  }
   const controls = globe.controls?.();
   if (controls) {
     controls.autoRotate = true;
-    controls.autoRotateSpeed = 0.32;
+    controls.autoRotateSpeed = 0.7;
     controls.enableDamping = true;
   }
+  await paintCartoonLand();
 }
 
 function setFilter(cat, { persist = true } = {}) {
@@ -350,6 +499,9 @@ function openProject(p) {
   $('grid').classList.remove('on');
   $('runBtn').disabled = false;
   $('runBtn').textContent = 'Run satellite check';
+  paintVault(p);
+  document.querySelectorAll('.amt').forEach((b) => b.classList.toggle('on', b.dataset.amt === String(fundAmt)));
+  $('consequence').hidden = true;
   syncWatch();
   resetLedger();
   addLedger('Opened archive', `${p.name} · ${p.scenes.length} Sentinel-2 scenes`);
@@ -417,8 +569,8 @@ function drawObs(values) {
   const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
   path.setAttribute('d', d);
   path.setAttribute('fill', 'none');
-  path.setAttribute('stroke', '#69f0bd');
-  path.setAttribute('stroke-width', '2');
+  path.setAttribute('stroke', '#1cb0f6');
+  path.setAttribute('stroke-width', '3');
   svg.appendChild(path);
 }
 
@@ -655,13 +807,46 @@ async function runCheck() {
   const sign = liveDelta >= 0 ? '+' : '';
   lastCheck = { status: p.status, liveDelta };
   $('result').hidden = false;
-  $('result').textContent = `${p.status}. Automatic check compared ${p.scenes[0].year} → ${p.scenes[p.scenes.length - 1].year} (${p.signal} index ${sign}${liveDelta.toFixed(3)}). No human review required for this readout. Vaults are not part of this demo.`;
+  $('result').textContent = `${p.status}. Automatic check compared ${p.scenes[0].year} → ${p.scenes[p.scenes.length - 1].year} (${p.signal} index ${sign}${liveDelta.toFixed(3)}).`;
+  const locked =
+    p.status === 'Off track'
+      ? 'Funding consequence: vault would stay locked. Off-track sites do not unlock USDC.'
+      : 'Funding consequence: vault still locked. A real Solana program would wait for a signed decision before any release.';
+  $('consequence').hidden = false;
+  $('consequence').textContent = locked;
   addLedger('Automatic check', `${p.status} · ${p.scenes[0].year} → ${p.scenes[p.scenes.length - 1].year}`);
   await publishManifest(p, liveDelta);
+  burst();
   btn.textContent = 'Run again';
   btn.disabled = false;
   checking = false;
 }
+
+function openFund() {
+  if (!selected) return;
+  $('fundAmt').textContent = String(fundAmt);
+  $('fundBlurb').textContent = `Preview ${fundAmt} USDC toward ${selected.name}. A real vault on Solana would hold it for ${selected.operator} until the satellite check plus a signed decision agree.`;
+  $('fundDlg').showModal();
+}
+
+function confirmFund() {
+  if (!selected) return;
+  const all = readPledges();
+  all[selected.id] = pledgedFor(selected.id) + fundAmt;
+  localStorage.setItem(PLEDGE_KEY, JSON.stringify(all));
+  paintVault(selected);
+  refreshXp();
+  addLedger('USDC preview', `${fundAmt} USDC · vault locked · not sent`);
+  $('fundDlg').close();
+  burst();
+}
+
+document.querySelectorAll('.amt').forEach((b) => {
+  b.onclick = () => {
+    fundAmt = Number(b.dataset.amt);
+    document.querySelectorAll('.amt').forEach((x) => x.classList.toggle('on', x === b));
+  };
+});
 
 function openSign() {
   if (!lastManifest) return;
@@ -686,7 +871,13 @@ async function signDecision() {
   $('signed').hidden = false;
   $('signed').textContent = `${name} · ${decision} · sig ${sig.slice(0, 16)} · vault remains locked`;
   addLedger(`${name} signed`, `${decision} · vault locked`);
+  $('consequence').hidden = false;
+  $('consequence').textContent =
+    decision === 'accept'
+      ? 'Signed locally. Vault still locked — the Solana program is not deployed, so USDC cannot release yet. The SHA is ready to anchor.'
+      : 'Signed locally. Vault stays locked. No USDC moves.';
   $('signDlg').close();
+  burst();
 }
 
 document.querySelectorAll('.filters button').forEach((b) => {
@@ -705,6 +896,9 @@ $('manifestBtn').onclick = () => {
 $('signOpen').onclick = openSign;
 $('signCancel').onclick = () => $('signDlg').close();
 $('signGo').onclick = signDecision;
+$('fundBtn').onclick = openFund;
+$('fundCancel').onclick = () => $('fundDlg').close();
+$('fundGo').onclick = confirmFund;
 window.addEventListener('resize', () => {
   if (globe && globeEl.clientWidth) globe.width(globeEl.clientWidth).height(globeEl.clientHeight);
 });

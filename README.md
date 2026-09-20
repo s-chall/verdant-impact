@@ -1,8 +1,10 @@
 # Verdant
 
-**See environmental projects worldwide. Click one. Watch the satellite record. Run an automatic check.**
+**Fund a nonprofit milestone. Watch satellites prove it. USDC stays locked on Solana until the evidence checks out.**
 
-Verdant is a no-login globe of coastal, forest, reef, and energy sites. Each site is backed by a **Sentinel-2 timeline** pulled from the public Earth Search STAC catalog. A check compares the first and latest scene with a simple index — no wallet, no human-review queue for judges.
+Verdant is a no-login **cartoon globe** of coastal, forest, reef, and energy sites. Preview USDC into a **milestone vault** (demo — nothing is sent). Each site has a **Sentinel-2 timeline**. A check can refuse to unlock funds.
+
+The playground uses a Duolingo-style toy Earth (hex land, candy pins) plus [Anthropic’s frontend-design skill](https://github.com/anthropics/skills/tree/main/skills/frontend-design): one signature object (the globe), pressable 4px buttons, Nunito, and honest copy.
 
 ## Open the demo
 
@@ -16,7 +18,7 @@ npx --yes serve dist
 - [http://localhost:3000/?project=noor](http://localhost:3000/?project=noor) — any project id
 - [http://localhost:3000/?project=demak&check=1](http://localhost:3000/?project=demak&check=1) — opens Demak and runs the check
 
-**Judge path:** scan the list or globe → filter Coasts / Forests / Reefs / Energy → open a site → scrub the year timeline → read milestone bars → **Run satellite check** → optional local sign.
+**Judge path:** spin the globe → open a nonprofit → **Preview USDC (demo)** → scrub years → **Run satellite check** → vault stays locked.
 
 ```bash
 npm test
