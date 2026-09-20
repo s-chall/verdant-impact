@@ -37,6 +37,15 @@ test('home puts Solana nonprofit funding on the first screen', async ({ page }) 
   await expect(page.getByText('Pick a quest')).toBeVisible();
 });
 
+test('session reefs does not override mangrove deep link', async ({ page }) => {
+  await page.goto('/');
+  await page.evaluate(() => {
+    sessionStorage.setItem('verdant.session', JSON.stringify({ project: 'gbr', cat: 'reefs' }));
+  });
+  await page.goto('/?project=mangrove&studio=1');
+  await expect(page.locator('#pName')).toHaveText('Demak Coastal Recovery');
+});
+
 test('preview USDC stays locked and does not claim a send', async ({ page }) => {
   await page.goto('/?demo=1');
   await expect(page.locator('#vaultCard')).toContainText(/locked/i);
@@ -48,3 +57,4 @@ test('preview USDC stays locked and does not claim a send', async ({ page }) => 
   await expect(page.locator('#vaultCard')).toContainText(/locked/i);
   await expect(page.locator('#activity li').first()).toContainText(/USDC preview/i);
 });
+
