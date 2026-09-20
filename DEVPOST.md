@@ -6,15 +6,15 @@ Paste these blocks into Devpost. Keep the honesty: agents are a visible pipeline
 
 ## Tagline (≤60 characters)
 
-See projects worldwide. Watch satellites measure the milestone.
+USDC for nonprofits. Sentinel-2 decides if it unlocks.
 
-**Backup:** Proof-of-impact, measured from Sentinel-2.
+**Backup:** The planet signs for the grant.
 
 ---
 
 ## Elevator pitch (2–3 sentences)
 
-Environmental giving usually ends with a receipt. Verdant puts **ongoing sites worldwide** on one globe. Click a coast, forest, reef, or energy project: you get a real **Sentinel-2 timeline**, milestone progress, and an **automatic satellite check** — no login, no human-review queue. Agents read the pixels; the readout can come back on track, watching, shifting, or off track.
+Environmental giving usually ends with a receipt. Verdant puts **USDC with a named nonprofit** in a Solana milestone vault, then lets **Sentinel-2** decide whether the land moved. If a mangrove, forest, reef, or solar site is off track, the vault **refuses**. The demo is honest: the program is not deployed, nothing is sent, and the index is a preview-image score — but the STAC scenes, the grantee list, and the refuse logic are real.
 
 ---
 
@@ -22,22 +22,22 @@ Environmental giving usually ends with a receipt. Verdant puts **ongoing sites w
 
 Philanthropy can move money. Satellites can observe the planet. Those two systems almost never meet in a way a judge can *see*.
 
-The wow is not a wallet. It is being able to scan many live projects, open one, watch years of imagery, and run a check that measures whether the milestone moved.
+Everyone else ships a donate button, a carbon NFT, or a map of pins. The wow is **who is getting the money**, **what the satellite saw**, and **a vault that can say no**.
 
 ---
 
 ## What it does
 
-Verdant is a **satellite-measured project map**.
+Verdant is **programmable philanthropy**.
 
-1. Browse coasts, forests, reefs, and energy sites worldwide (list + globe).
-2. Open a site. Goal in one sentence. Status is computed from the archive.
-3. Scrub the **Sentinel-2 timeline** (2018 → 2026, low-cloud scenes from Earth Search STAC).
-4. Read **milestone bars**: baseline mapped, monitoring cadence, halfway to goal, stated goal.
-5. **Run satellite check** — scan animation, pixel grid, year-by-year index, automatic score.
+1. A board of **nonprofits receiving USDC** — operator, site, locked vault, refuse/hold status.
+2. Open a grantee. Goal in one sentence. Drag **2018 vs latest Sentinel-2** (Earth Search STAC).
+3. Preview USDC into that org’s milestone vault (demo — not sent; program not deployed).
+4. **Run Earth Oracle** — STAC id, cloud filter, pixel sample, index, milestone rule, vault instruction.
+5. Off-track sites **would not be paid**. On-track sites still stay locked until a signed decision and a real program.
 6. Live Open-Meteo at that coordinate is labeled as observation, not proof.
 
-No login. `/?demo=1` opens Demak. `/?project=noor` opens any site.
+No login. `/?demo=1` opens Building with Nature / Demak.
 
 ---
 
@@ -60,7 +60,7 @@ Status + milestone % (on track / watching / shifting / off track)
         ↓
 Static publish: dist/data/projects.json + dist/assets/sat/
         ↓
-Browser: globe + list + timeline + Run satellite check
+Browser: grantee board + satellite cinema + Earth Oracle + vault preview
 ```
 
 Each check step is a **specialist with a stop condition**: load scenes, sample pixels, compute index, read trend, emit score. Later steps do not pretend to be a trained remote-sensing model.
@@ -74,7 +74,7 @@ Each check step is a **specialist with a stop condition**: load scenes, sample p
 | Index | Preview-image green / water / brightness | **Simplified**, not full NDVI |
 | Check animation | Sequential agents + canvas grid | Visible pipeline, not a trained model |
 | Live intel | Open-Meteo at the clicked site | Observation, **not** impact proof |
-| Funding | Not in this demo | **No USDC, no vault program** |
+| Funding | Preview USDC to named org, vault UI, live devnet slot | **No send. Program not deployed.** |
 
 ### Why this is “agentic” without faking AGI
 
@@ -88,8 +88,8 @@ Each check step is a **specialist with a stop condition**: load scenes, sample p
 
 ## Challenges we ran into
 
-- **Pretty vs true.** A globe of only “thriving” sites would be a lie. The archive is allowed to come back off track.
-- **Clicking a 3D Earth is a poor judge UX.** The list is the reliable path; the globe is the wow.
+- **Pretty vs true.** A board of only “thriving” sites would be a lie. Twenty vaults would refuse today.
+- **A globe of pins hid the Solana story.** The product is who gets the money and whether the oracle pays.
 - **Preview JPEG is not NDVI.** We say so on first look, in the check result, and in the README.
 - **Humans in the loop added work for judges.** The demo scores automatically. Custody and reviewer consoles stay in “what’s next.”
 
@@ -97,7 +97,7 @@ Each check step is a **specialist with a stop condition**: load scenes, sample p
 
 ## Accomplishments we’re proud of
 
-- A 150-second path: **many sites → one timeline → milestone bars → automatic check**.
+- A 90-second path: **who gets paid → 2018/2026 satellite proof → preview USDC → Earth Oracle → vault refuses or holds**.
 - Real Sentinel-2 assets in the product, not stock-photo “satellites.”
 - An aggregator that can be re-run to grow the archive.
 - Live weather that **disclaims itself**.
@@ -121,7 +121,7 @@ Impact products die when they confuse a dashboard score with a claim. The durabl
 
 ## Built with
 
-HTML/CSS/JS · Python aggregator · Sentinel-2 L2A · Element84 Earth Search STAC · Open-Meteo · globe.gl · Pillow / NumPy
+HTML/CSS/JS · Python aggregator · Sentinel-2 L2A · Element84 Earth Search STAC · Open-Meteo · Solana JSON-RPC (devnet slot) · Pillow / NumPy
 
 ---
 
@@ -133,7 +133,7 @@ npx --yes serve dist
 
 Then open [http://localhost:3000/?demo=1](http://localhost:3000/?demo=1)
 
-Happy path: **list or globe → filter a biome → open a site → scrub years → Run satellite check**.
+Happy path: **nonprofit board → open a grantee → drag satellite proof → Preview USDC → Run Earth Oracle**.
 
 Pitch beats: [DEMO_SCRIPT.md](DEMO_SCRIPT.md)
 

@@ -3,160 +3,165 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#58CC02" />
-  <title>Verdant — Fund a nonprofit. Watch satellites prove it.</title>
-  <meta name="description" content="Spin a cartoon Earth of nonprofit climate projects. Fund a milestone in USDC on Solana. Watch the Sentinel-2 record. Vault stays locked until evidence checks out." />
+  <meta name="theme-color" content="#10231a" />
+  <title>Verdant — USDC for nonprofits. Sentinel-2 is the oracle.</title>
+  <meta name="description" content="Programmable philanthropy: USDC locks with a named environmental nonprofit on Solana until Sentinel-2 proves the milestone. If the land did not move, the money does not." />
   <link rel="icon" type="image/png" href="assets/pip-mascot.png" />
   <link rel="stylesheet" href="app.css" />
 </head>
 <body>
-  <div class="sky" aria-hidden="true">
-    <i class="cloud c1"></i>
-    <i class="cloud c2"></i>
-    <i class="cloud c3"></i>
-  </div>
-
   <header class="top">
     <div class="brand">
-      <img class="pip" src="assets/pip-mascot.png" width="56" height="56" alt="" />
+      <img class="mark" src="assets/pip-mascot.png" width="32" height="32" alt="" />
       <div>
         <strong>Verdant</strong>
-        <p>Fund a nonprofit. Watch satellites prove it.</p>
+        <p>The planet signs for the grant.</p>
       </div>
     </div>
+    <p class="thesis-mini" id="thesis">USDC sits with a nonprofit on Solana until Sentinel-2 proves the work.</p>
     <div class="top-meta">
       <p class="eyebrow" id="today"></p>
       <p class="stats" id="stats">Loading archive…</p>
       <div class="chips">
-        <span class="chip gem" id="xpChip">💎 0 USDC previewed</span>
-        <span class="chip sol" id="solChip">◎ Solana…</span>
+        <span class="chip money" id="xpChip">0 USDC previewed</span>
+        <span class="chip sol" id="solChip">Solana…</span>
       </div>
     </div>
   </header>
 
   <main class="app">
-    <section class="rail" aria-label="Projects">
-      <p class="rail-title">Pick a quest</p>
-      <nav class="filters" aria-label="Project type">
-        <button class="on" data-cat="all">🌍 All</button>
-        <button data-cat="coasts">🌊 Coasts</button>
-        <button data-cat="forests">🌲 Forests</button>
-        <button data-cat="reefs">🪸 Reefs</button>
-        <button data-cat="energy">☀️ Energy</button>
-        <button data-cat="saved">⭐ Saved</button>
+    <aside class="board" aria-label="Nonprofits receiving USDC">
+      <header class="board-head">
+        <p class="kicker">Solana treasuries</p>
+        <h2>Nonprofits getting the money</h2>
+        <p class="lede">Each org holds a milestone vault. USDC stays locked until the Earth Oracle reads Sentinel-2. Off-track sites would not be paid.</p>
+      </header>
+      <nav class="filters" aria-label="Filter grantees">
+        <button class="on" data-cat="all">All</button>
+        <button data-cat="coasts">Coasts</button>
+        <button data-cat="forests">Forests</button>
+        <button data-cat="reefs">Reefs</button>
+        <button data-cat="energy">Energy</button>
+        <button data-cat="refuse">Would refuse</button>
+        <button data-cat="saved">Watching</button>
       </nav>
-      <div class="legend">
-        <span><i class="up"></i>On track</span>
-        <span><i class="mid"></i>Watching</span>
-        <span><i class="shift"></i>Shifting</span>
-        <span><i class="down"></i>Off track</span>
-      </div>
-      <ul class="list" id="list"></ul>
-    </section>
+      <p class="board-count" id="boardCount"></p>
+      <ul class="grantees" id="list"></ul>
+    </aside>
 
-    <section class="globe-wrap">
-      <div class="globe-toy">
-        <div id="globe" class="globe" role="img" aria-label="Toy globe of nonprofit projects"></div>
-      </div>
-      <div class="stand" aria-hidden="true"></div>
-      <p class="hint">Spin the toy Earth · tap a glow to fund a nonprofit</p>
-      <div class="yard" aria-hidden="true"></div>
-    </section>
-
-    <aside class="sheet" id="sheet">
-      <div id="intro">
-        <img class="pip-lg" src="assets/pip-mascot.png" width="120" height="120" alt="Pip, Verdant’s sprout mascot" />
-        <h1 class="speech">Give USDC to a nonprofit. Satellites keep the Solana vault locked until the work shows up.</h1>
-        <ol class="steps">
-          <li><b>1</b><span>Spin the globe and pick a live coast, forest, reef, or energy site.</span></li>
-          <li><b>2</b><span>Preview USDC into that nonprofit’s Solana milestone vault — money stays locked.</span></li>
-          <li><b>3</b><span>Scrub the Sentinel-2 timeline and see how close each goal is.</span></li>
-          <li><b>4</b><span>Run a check. Evidence can refuse to unlock. That’s the product.</span></li>
-        </ol>
-        <p class="fine">Vaults are not deployed yet. Preview contributions do not send USDC. The SHA is local. Index is a preview-image score, not full NDVI.</p>
+    <section class="studio">
+      <div id="intro" class="intro">
+        <img class="intro-sat" src="assets/sat/demak/2026.jpg" alt="Sentinel-2 scene of Demak mangroves" />
+        <div class="intro-veil"></div>
+        <div class="intro-copy">
+          <p class="kicker">Philanthropy · Solana · Environment</p>
+          <h1>Pay a named nonprofit in USDC on Solana. Let Sentinel-2 decide if the grant unlocks.</h1>
+          <p>Everyone else ships a donate button or a carbon NFT. Verdant holds USDC with the org that does the work, then runs the same Sentinel-2 record scientists use. If the mangrove did not grow, the vault refuses.</p>
+          <dl class="pulses">
+            <div><dt id="pulseGrantees">50</dt><dd>grantees on-chain in this demo</dd></div>
+            <div><dt id="pulseRefuse">20</dt><dd>vaults that would refuse today</dd></div>
+            <div><dt id="pulseScenes">237</dt><dd>Sentinel-2 scenes in the oracle</dd></div>
+          </dl>
+          <div class="intro-actions">
+            <button class="run" id="openDemo" type="button">Open Building with Nature</button>
+            <p class="fine">Demo preview. Vault program is not deployed. Nothing is sent.</p>
+          </div>
+        </div>
       </div>
 
       <div id="detail" hidden>
-        <button class="x" id="closePanel" aria-label="Close project">×</button>
-        <p class="kicker" id="pPlace"></p>
-        <h1 id="pName"></h1>
-        <p class="goal" id="pGoal"></p>
-        <div class="stateline">
-          <b id="pStatus"></b>
-          <span id="pOperator"></span>
-        </div>
-        <div class="bar"><i id="pBar"></i></div>
-        <small class="bar-label" id="pBarLabel"></small>
-        <div id="followRegion">
-          <button class="watch project-save" id="watchBtn" type="button">Save</button>
-        </div>
-
-        <div class="vault-card" id="vaultCard">
-          <div class="vault-lock" aria-hidden="true">🔒</div>
-          <div>
-            <strong id="vaultTitle">Milestone vault · locked</strong>
-            <p id="vaultCopy">USDC would sit on Solana until evidence + a signed decision say the milestone moved.</p>
-            <p class="vault-amt"><span id="vaultRaised">0</span> / <span id="vaultGoal">0</span> USDC previewed</p>
-            <div class="vault-meter" aria-hidden="true"><i id="vaultMeter"></i></div>
+        <div class="cinema" id="cinema">
+          <img id="afterImg" class="layer" alt="Latest Sentinel-2 observation" />
+          <div class="before-wrap" id="beforeWrap">
+            <img id="beforeImg" alt="Baseline Sentinel-2 observation" />
           </div>
-        </div>
-        <div class="fund-row" id="fundRow">
-          <button type="button" class="amt" data-amt="5">5 USDC</button>
-          <button type="button" class="amt" data-amt="25">25 USDC</button>
-          <button type="button" class="amt on" data-amt="100">100 USDC</button>
-        </div>
-        <button class="run fund" id="fundBtn" type="button">Preview USDC (demo)</button>
-        <p class="fund-note">No wallet send. Program not on-chain yet.</p>
-
-        <h2>Satellite timeline</h2>
-        <div class="stage">
-          <img id="satImg" alt="Sentinel-2 observation" />
+          <input id="split" type="range" min="0" max="100" value="50" aria-label="Compare baseline and latest" />
+          <span class="yr left" id="beforeCap">2018</span>
+          <span class="yr right" id="afterCap">2026</span>
           <canvas id="grid" class="grid" width="240" height="180" aria-hidden="true"></canvas>
           <div class="scan" id="scan"></div>
-          <div class="cap"><span id="satDate"></span><span id="satMeta"></span></div>
-        </div>
-        <div class="years" id="years"></div>
-        <div class="spark" id="spark" aria-label="Index over time"></div>
-
-        <div class="obs" id="obs" hidden>
-          <h2 id="obsTitle">Observation</h2>
-          <svg id="obsChart" viewBox="0 0 280 64" preserveAspectRatio="none" aria-hidden="true"></svg>
-          <p class="obs-cap" id="obsCap"></p>
+          <p class="stamp" id="stamp" hidden></p>
+          <p class="cap-float"><span id="satDate"></span><span id="satMeta"></span></p>
         </div>
 
-        <h2>Milestones</h2>
-        <ol class="miles" id="miles"></ol>
+        <div class="instrument">
+          <div class="who">
+            <p class="kicker" id="pPlace"></p>
+            <h1 id="pName"></h1>
+            <p class="org" id="pOperator"></p>
+            <p class="goal" id="pGoal"></p>
+            <div class="stateline">
+              <b id="pStatus"></b>
+              <span id="pBarLabel"></span>
+            </div>
+            <div class="bar"><i id="pBar"></i></div>
+            <svg class="locator" id="locator" viewBox="0 0 220 90" aria-hidden="true"></svg>
+            <div class="row-actions">
+              <button class="watch" id="watchBtn" type="button">Watch</button>
+              <button class="ghost" id="closePanel" type="button">All grantees</button>
+            </div>
+          </div>
 
-        <button class="run" id="runBtn">Run satellite check</button>
-        <ul class="agents" id="agents" hidden>
-          <li>Scenes</li><li>Pixels</li><li>Index</li><li>Trend</li><li>Score</li>
-        </ul>
-        <div class="compare" id="compare" hidden>
-          <figure><img id="beforeImg" alt="Baseline scene" /><figcaption id="beforeCap">Baseline</figcaption></figure>
-          <figure><img id="afterImg" alt="Latest scene" /><figcaption id="afterCap">Latest</figcaption></figure>
-        </div>
+          <div class="vault-card" id="vaultCard">
+            <p class="kicker">Solana milestone vault</p>
+            <strong id="vaultTitle">Locked · program not deployed</strong>
+            <p class="addr" id="vaultAddr"></p>
+            <p id="vaultCopy"></p>
+            <p class="vault-amt"><span id="vaultRaised">0</span> / <span id="vaultGoal">0</span> USDC previewed</p>
+            <div class="vault-meter"><i id="vaultMeter"></i></div>
+            <p class="release" id="releaseRule"></p>
+            <div class="fund-row" id="fundRow">
+              <button type="button" class="amt" data-amt="100">100</button>
+              <button type="button" class="amt on" data-amt="1000">1,000</button>
+              <button type="button" class="amt" data-amt="5000">5,000</button>
+            </div>
+            <button class="run fund" id="fundBtn" type="button">Preview USDC to this nonprofit</button>
+            <p class="fund-note">No wallet send. USDC does not leave your machine.</p>
+          </div>
 
-        <div id="evidenceResult">
-          <p class="result" id="result" hidden></p>
-          <p class="consequence" id="consequence" hidden></p>
-          <div class="post" id="postCheck" hidden>
-            <button class="ghost" id="manifestBtn" type="button">Evidence manifest</button>
-            <pre id="manifest" hidden></pre>
-            <p class="sha" id="sha"></p>
-            <button class="ghost" id="signOpen" type="button">Sign decision (local)</button>
-            <p class="signed" id="signed" hidden></p>
+          <div class="oracle-card">
+            <p class="kicker">Earth Oracle</p>
+            <h2>How satellites decide the money</h2>
+            <p class="lede">This is the product. Earth Search STAC → Sentinel-2 L2A → pixel index → milestone rule → vault instruction. A donate button cannot do this.</p>
+            <div class="years" id="years"></div>
+            <div class="spark" id="spark" aria-label="Index over time"></div>
+            <div class="obs" id="obs" hidden>
+              <h3 id="obsTitle">Observation</h3>
+              <svg id="obsChart" viewBox="0 0 280 64" preserveAspectRatio="none" aria-hidden="true"></svg>
+              <p class="obs-cap" id="obsCap"></p>
+            </div>
+            <ol class="miles" id="miles"></ol>
+            <button class="run" id="runBtn" type="button">Run Earth Oracle</button>
+            <ol class="oracle" id="agents" hidden>
+              <li>STAC</li>
+              <li>Cloud</li>
+              <li>Pixels</li>
+              <li>Index</li>
+              <li>Rule</li>
+              <li>Vault</li>
+            </ol>
+            <div id="evidenceResult">
+              <p class="result" id="result" hidden></p>
+              <p class="consequence" id="consequence" hidden></p>
+              <div class="post" id="postCheck" hidden>
+                <button class="ghost" id="manifestBtn" type="button">Evidence pack</button>
+                <pre id="manifest" hidden></pre>
+                <p class="sha" id="sha"></p>
+                <button class="ghost" id="signOpen" type="button">Sign oracle decision (local)</button>
+                <p class="signed" id="signed" hidden></p>
+              </div>
+            </div>
+            <p class="live" id="live"></p>
+            <h3>Treasury activity</h3>
+            <ol class="ledger" id="activity"></ol>
           </div>
         </div>
-        <p class="live" id="live"></p>
-
-        <h2>Activity</h2>
-        <ol class="ledger" id="activity"></ol>
       </div>
-    </aside>
+    </section>
   </main>
 
-  <dialog class="sign" id="signDlg" aria-labelledby="signTitle">
-    <h2 id="signTitle">Sign this readout</h2>
+  <dialog class="sheet" id="signDlg" aria-labelledby="signTitle">
+    <h2 id="signTitle">Sign the oracle readout</h2>
     <p>Local only. Does not call a backend and does not release funds.</p>
     <label>Reviewer name
       <input id="signName" type="text" autocomplete="name" placeholder="Your name" />
@@ -167,27 +172,24 @@
       <label><input type="radio" name="decision" value="hold" /> Hold — more evidence</label>
       <label><input type="radio" name="decision" value="refuse" /> Refuse claim</label>
     </fieldset>
-    <div class="sign-actions">
+    <div class="dlg-actions">
       <button type="button" class="ghost" id="signCancel">Cancel</button>
       <button type="button" class="run" id="signGo">Sign</button>
     </div>
   </dialog>
 
-  <dialog class="sign fund-dlg" id="fundDlg" aria-labelledby="fundTitle">
-    <h2 id="fundTitle">Preview a contribution</h2>
-    <p id="fundBlurb">USDC would go into this nonprofit’s Solana milestone vault and stay locked until satellites plus a signed decision agree the work moved.</p>
-    <p class="fund-amt-line"><b id="fundAmt">100</b> USDC · demo preview</p>
+  <dialog class="sheet" id="fundDlg" aria-labelledby="fundTitle">
+    <h2 id="fundTitle">Preview USDC to this nonprofit</h2>
+    <p id="fundBlurb"></p>
+    <p class="fund-amt-line"><b id="fundAmt">1000</b> USDC · demo preview</p>
     <div class="vault-mini">Vault status: <strong>LOCKED</strong> · program not deployed</div>
-    <div class="sign-actions">
+    <div class="dlg-actions">
       <button type="button" class="ghost" id="fundCancel">Cancel</button>
       <button type="button" class="run" id="fundGo">Preview contribution</button>
     </div>
   </dialog>
 
-  <div class="burst" id="burst" hidden></div>
-
-  <script src="https://cdn.jsdelivr.net/npm/globe.gl@2.45.0/dist/globe.gl.min.js"></script>
-  <script src="vendor/topojson-client.min.js"></script>
+  <div class="toast" id="toast" hidden></div>
   <script src="app.js"></script>
 </body>
 </html>

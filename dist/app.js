@@ -1,8 +1,15 @@
 const COLORS = {
-  'On track': '#58cc02',
-  Watching: '#1cb0f6',
-  Shifting: '#ffc800',
-  'Off track': '#ff4b4b',
+  'On track': '#1a6b43',
+  Watching: '#185fa5',
+  Shifting: '#9a6700',
+  'Off track': '#b42318',
+};
+
+const PILL = {
+  'On track': 'ok',
+  Watching: 'watch',
+  Shifting: 'hold',
+  'Off track': 'refuse',
 };
 
 const ALIAS = {
@@ -15,9 +22,9 @@ const ALIAS = {
 const SESSION_KEY = 'verdant.session';
 const SAVED_KEY = 'verdant.saved';
 const PLEDGE_KEY = 'verdant.pledges';
-let seenSearch = typeof location !== 'undefined' ? location.search : '';
+const B58 = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz';
 
-const globeEl = document.getElementById('globe');
+let seenSearch = typeof location !== 'undefined' ? location.search : '';
 const listEl = document.getElementById('list');
 const intro = document.getElementById('intro');
 const detail = document.getElementById('detail');
@@ -26,14 +33,13 @@ const $ = (id) => document.getElementById(id);
 let projects = [];
 let filtered = [];
 let selected = null;
-let globe = null;
 let sceneIndex = 0;
 let checking = false;
 let currentCat = 'all';
 let lastManifest = null;
 let lastSha = '';
 let lastCheck = null;
-let fundAmt = 100;
+let fundAmt = 1000;
 
 function todayLabel() {
   return new Date().toLocaleDateString('en-GB', {
@@ -57,6 +63,10 @@ function writeSaved(ids) {
   localStorage.setItem(SAVED_KEY, JSON.stringify(ids));
 }
 
+function isSaved(id) {
+  return readSaved().includes(id);
+}
+
 function readPledges() {
   try {
     const o = JSON.parse(localStorage.getItem(PLEDGE_KEY) || '{}');
@@ -69,7 +79,7 @@ function readPledges() {
 function vaultGoal(id) {
   let n = 0;
   for (const c of id) n += c.charCodeAt(0);
-  return 8000 + (n % 17) * 500;
+  return 25000 + (n % 23) * 2500;
 }
 
 function pledgedFor(id) {
@@ -80,8 +90,41 @@ function totalPledged() {
   return Object.values(readPledges()).reduce((a, b) => a + Number(b || 0), 0);
 }
 
+function vaultPda(id) {
+  let h = 2166136261;
+  const s = `verdant.vault.v1.${id}`;
+  for (let i = 0; i < s.length; i += 1) h = Math.imul(h ^ s.charCodeAt(i), 16777619);
+  let out = '';
+  let n = Math.abs(h) || 1;
+  for (let i = 0; i < 44; i += 1) {
+    n = Math.imul(n, 1103515245) + 12345 + s.charCodeAt(i % s.length);
+    out += B58[Math.abs(n) % 58];
+  }
+  return out;
+}
+
 function refreshXp() {
-  if ($('xpChip')) $('xpChip').textContent = `💎 ${totalPledged()} USDC previewed`;
+  if ($('xpChip')) $('xpChip').textContent = `${totalPledged().toLocaleString()} USDC previewed`;
+}
+
+function toast(msg) {
+  const el = $('toast');
+  if (!el) return;
+  el.hidden = false;
+  el.textContent = msg;
+  setTimeout(() => {
+    el.hidden = true;
+  }, 2200);
+}
+
+function releaseCopy(p) {
+  if (p.status === 'Off track') {
+    return `Release rule: refuse. ${p.operator} would not receive this USDC — the site did not move enough.`;
+  }
+  if (p.status === 'On track') {
+    return `Release rule: recommend unlock after a signed decision. Program is not deployed, so the vault stays locked.`;
+  }
+  return `Release rule: hold. The oracle is not sure enough to pay ${p.operator} yet.`;
 }
 
 function paintVault(p) {
@@ -89,12 +132,12 @@ function paintVault(p) {
   const raised = pledgedFor(p.id);
   $('vaultGoal').textContent = goal.toLocaleString();
   $('vaultRaised').textContent = raised.toLocaleString();
-  $('vaultTitle').textContent = 'Milestone vault · locked';
+  $('vaultTitle').textContent = 'Locked · program not deployed';
+  $('vaultAddr').textContent = vaultPda(p.id);
   $('vaultCopy').textContent =
-    'USDC would sit on Solana until evidence + a signed decision say the milestone moved. Preview only — nothing is sent.';
-  if ($('vaultMeter')) {
-    $('vaultMeter').style.width = `${Math.min(100, (raised / goal) * 100)}%`;
-  }
+    `USDC would sit with ${p.operator} on Solana until Sentinel-2 plus a signed decision agree. Preview only — nothing is sent.`;
+  $('releaseRule').textContent = releaseCopy(p);
+  if ($('vaultMeter')) $('vaultMeter').style.width = `${Math.min(100, (raised / goal) * 100)}%`;
 }
 
 async function pingSolana() {
@@ -113,35 +156,10 @@ async function pingSolana() {
     });
     const data = await res.json();
     const slot = data?.result?.context?.slot;
-    chip.textContent = slot ? `◎ Solana devnet · slot ${slot}` : '◎ Solana devnet live';
+    chip.textContent = slot ? `Solana devnet · slot ${slot}` : 'Solana devnet live';
   } catch {
-    chip.textContent = '◎ Solana delayed';
+    chip.textContent = 'Solana delayed';
   }
-}
-
-function burst() {
-  const box = $('burst');
-  if (!box) return;
-  box.hidden = false;
-  box.replaceChildren();
-  const colors = ['#58cc02', '#ffc800', '#1cb0f6', '#ff4b4b', '#ce82ff'];
-  for (let i = 0; i < 18; i += 1) {
-    const d = document.createElement('i');
-    const ang = (Math.PI * 2 * i) / 18;
-    d.style.left = '50%';
-    d.style.top = '40%';
-    d.style.background = colors[i % colors.length];
-    d.style.setProperty('--x', `${Math.cos(ang) * 160}px`);
-    d.style.setProperty('--y', `${Math.sin(ang) * 120}px`);
-    box.appendChild(d);
-  }
-  setTimeout(() => {
-    box.hidden = true;
-  }, 900);
-}
-
-function isSaved(id) {
-  return readSaved().includes(id);
 }
 
 function readSession() {
@@ -226,7 +244,11 @@ async function load() {
     projects = data.projects || [];
     const n = projects.length;
     const scenes = data.scenes || projects.reduce((a, p) => a + (p.scenes?.length || 0), 0);
-    $('stats').textContent = `${n} sites · ${scenes} Sentinel-2 scenes · no login`;
+    const refuse = projects.filter((p) => p.status === 'Off track').length;
+    $('stats').textContent = `${n} nonprofits · ${scenes} Sentinel-2 scenes · ${refuse} vaults would refuse`;
+    $('pulseGrantees').textContent = String(n);
+    $('pulseRefuse').textContent = String(refuse);
+    $('pulseScenes').textContent = String(scenes);
     refreshXp();
     pingSolana();
     const params = new URLSearchParams(location.search);
@@ -240,11 +262,6 @@ async function load() {
       b.classList.toggle('on', b.dataset.cat === currentCat);
     });
     setFilter(currentCat, { persist: false });
-    try {
-      await buildGlobe();
-    } catch (err) {
-      console.warn('Globe failed; list still works.', err);
-    }
     const openId = resolveProjectId(
       urlProject || (urlDemo ? 'demak' : null) || (urlLocks ? null : urlStudio ? 'demak' : session.project),
     );
@@ -261,38 +278,30 @@ async function load() {
   }
 }
 
-function sparkSvg(series, color) {
-  if (!series?.length) return '';
-  const w = 220;
-  const h = 22;
-  const vals = series.map((s) => s.index);
-  const min = Math.min(...vals);
-  const max = Math.max(...vals);
-  const span = max - min || 0.01;
-  const pts = vals
-    .map((v, i) => {
-      const x = (i / Math.max(1, vals.length - 1)) * w;
-      const y = h - 2 - ((v - min) / span) * (h - 4);
-      return `${x.toFixed(1)},${y.toFixed(1)}`;
-    })
-    .join(' ');
-  return `<svg class="sparkline" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none"><polyline fill="none" stroke="${color}" stroke-width="2" points="${pts}"/></svg>`;
+function latestThumb(p) {
+  return p.scenes?.[p.scenes.length - 1]?.image || '';
 }
 
 function renderList() {
+  $('boardCount').textContent = `${filtered.length} treasuries · USDC previewed stays with the named org`;
   listEl.replaceChildren(
     ...filtered.map((p) => {
       const li = document.createElement('li');
       const b = document.createElement('button');
       b.type = 'button';
-      b.className = `${selected?.id === p.id ? 'on' : ''} ${isSaved(p.id) ? 'saved' : ''}`.trim();
-      b.innerHTML = `<span class="row"><strong></strong><span class="pct"></span></span><span class="meta"></span>`;
+      b.className = selected?.id === p.id ? 'on' : '';
+      const raised = pledgedFor(p.id);
+      const goal = vaultGoal(p.id);
+      b.innerHTML = `<img alt=""><span><span class="org"></span><strong></strong><span class="meta"></span><span class="moneyline"><span></span><span class="pill"></span></span></span>`;
+      b.querySelector('img').src = latestThumb(p);
+      b.querySelector('img').alt = '';
+      b.querySelector('.org').textContent = p.operator;
       b.querySelector('strong').textContent = p.name;
-      b.querySelector('.pct').textContent = `${Math.round(p.progress)}%`;
-      b.querySelector('.pct').style.color = COLORS[p.status] || '#58cc02';
-      b.querySelector('.meta').textContent = `${p.place} · ${p.status}`;
-      b.style.setProperty('--status', COLORS[p.status] || '#58cc02');
-      b.insertAdjacentHTML('beforeend', sparkSvg(p.series || p.scenes, COLORS[p.status]));
+      b.querySelector('.meta').textContent = `${p.place} · ${p.goal}`;
+      b.querySelector('.moneyline span').textContent = `${raised.toLocaleString()} / ${goal.toLocaleString()} USDC`;
+      const pill = b.querySelector('.pill');
+      pill.textContent = p.status === 'Off track' ? 'Would refuse' : 'Locked';
+      pill.classList.add(PILL[p.status] || 'hold');
       b.onclick = () => openProject(p);
       li.appendChild(b);
       return li;
@@ -300,128 +309,23 @@ function renderList() {
   );
 }
 
-const LAND_GREENS = ['#58cc02', '#89e219', '#46a302', '#6fde05', '#7ac70c'];
-
-function toyOceanUrl() {
-  const c = document.createElement('canvas');
-  c.width = 2048;
-  c.height = 1024;
-  const ctx = c.getContext('2d');
-  const g = ctx.createLinearGradient(0, 0, 0, 1024);
-  g.addColorStop(0, '#f4fdff');
-  g.addColorStop(0.1, '#9ae4ff');
-  g.addColorStop(0.5, '#1cb0f6');
-  g.addColorStop(0.9, '#9ae4ff');
-  g.addColorStop(1, '#f4fdff');
-  ctx.fillStyle = g;
-  ctx.fillRect(0, 0, 2048, 1024);
-  ctx.strokeStyle = 'rgba(255,255,255,0.3)';
-  ctx.lineWidth = 3;
-  for (let i = 1; i < 12; i += 1) {
-    const x = (i / 12) * 2048;
-    ctx.beginPath();
-    ctx.moveTo(x, 0);
-    ctx.lineTo(x, 1024);
-    ctx.stroke();
-  }
-  for (let i = 1; i < 6; i += 1) {
-    const y = (i / 6) * 1024;
-    ctx.beginPath();
-    ctx.moveTo(0, y);
-    ctx.lineTo(2048, y);
-    ctx.stroke();
-  }
-  return c.toDataURL('image/png');
-}
-
-async function paintCartoonLand() {
-  if (!globe || typeof topojson === 'undefined') return;
-  try {
-    const topo = await fetch('data/countries-110m.json').then((r) => r.json());
-    const fc = topojson.feature(topo, topo.objects.countries);
-    globe
-      .hexPolygonsData(fc.features || [])
-      .hexPolygonGeoJsonGeometry((d) => d.geometry)
-      .hexPolygonColor((d) => LAND_GREENS[Number(d.id || 0) % LAND_GREENS.length])
-      .hexPolygonAltitude(0.02)
-      .hexPolygonMargin(0.12)
-      .hexPolygonResolution(3);
-  } catch (err) {
-    console.warn('Cartoon land failed; pins still work.', err);
-  }
-}
-
-async function buildGlobe() {
-  if (typeof Globe !== 'function') return;
-  globe = Globe()(globeEl)
-    .backgroundColor('rgba(0,0,0,0)')
-    .showAtmosphere(true)
-    .atmosphereColor('#7ad6ff')
-    .atmosphereAltitude(0.28)
-    .globeImageUrl(toyOceanUrl())
-    .pointsData(filtered)
-    .pointLat('lat')
-    .pointLng('lng')
-    .pointAltitude(0.07)
-    .pointRadius(0.95)
-    .pointColor((d) => COLORS[d.status] || '#58cc02')
-    .pointLabel((d) => `<b>${d.name}</b><br/>${d.place}<br/>${d.status} · ${Math.round(d.progress)}%`)
-    .ringsData(filtered)
-    .ringLat('lat')
-    .ringLng('lng')
-    .ringColor((d) => {
-      const rgb = {
-        'On track': '88,204,2',
-        Watching: '28,176,246',
-        Shifting: '255,200,0',
-        'Off track': '255,75,75',
-      }[d.status] || '88,204,2';
-      return (t) => `rgba(${rgb},${1 - t})`;
-    })
-    .ringMaxRadius(3.6)
-    .ringPropagationSpeed(1.5)
-    .ringRepeatPeriod(1100)
-    .onPointClick((d) => {
-      const proj = projects.find((p) => p.id === d.id) || d;
-      openProject(proj);
-    })
-    .width(globeEl.clientWidth)
-    .height(globeEl.clientHeight)
-    .pointOfView({ lat: 8, lng: 20, altitude: 2.05 }, 0);
-  try {
-    const mat = globe.globeMaterial?.();
-    if (mat) {
-      mat.shininess = 12;
-      if (mat.specular) mat.specular.set('#b7f0ff');
-    }
-  } catch {
-    /* material optional */
-  }
-  const controls = globe.controls?.();
-  if (controls) {
-    controls.autoRotate = true;
-    controls.autoRotateSpeed = 0.7;
-    controls.enableDamping = true;
-  }
-  await paintCartoonLand();
-}
-
 function setFilter(cat, { persist = true } = {}) {
   currentCat = cat;
   if (cat === 'saved') {
     const saved = new Set(readSaved());
     filtered = projects.filter((p) => saved.has(p.id));
+  } else if (cat === 'refuse') {
+    filtered = projects.filter((p) => p.status === 'Off track');
   } else {
     filtered = cat === 'all' ? projects : projects.filter((p) => p.category === cat);
   }
   renderList();
-  if (globe) globe.pointsData(filtered).ringsData(filtered);
   if (persist) persistUrl();
 }
 
 function syncWatch() {
   const on = selected && isSaved(selected.id);
-  $('watchBtn').textContent = on ? 'Saved' : 'Save';
+  $('watchBtn').textContent = on ? 'Watching' : 'Watch';
   $('watchBtn').classList.toggle('on', Boolean(on));
 }
 
@@ -435,13 +339,70 @@ function toggleWatch() {
   syncWatch();
   if (currentCat === 'saved') setFilter('saved');
   else renderList();
-  addLedger(i >= 0 ? 'Removed from saved' : 'Saved locally', selected.name);
+  addLedger(i >= 0 ? 'Removed from watching' : 'Watching this nonprofit', selected.operator);
+}
+
+function paintLocator(p) {
+  const svg = $('locator');
+  if (!svg) return;
+  const w = 220;
+  const h = 90;
+  const dots = projects
+    .map((x) => {
+      const px = ((x.lng + 180) / 360) * w;
+      const py = ((90 - x.lat) / 180) * h;
+      const r = x.id === p.id ? 3.4 : 1.35;
+      const fill = x.id === p.id ? COLORS[x.status] : '#9aab9d';
+      return `<circle cx="${px.toFixed(1)}" cy="${py.toFixed(1)}" r="${r}" fill="${fill}"/>`;
+    })
+    .join('');
+  svg.innerHTML = dots;
+}
+
+function syncSplit() {
+  const cinema = $('cinema');
+  const wrap = $('beforeWrap');
+  const img = $('beforeImg');
+  if (!cinema || !wrap || !img) return;
+  const pct = Number($('split').value);
+  wrap.style.width = `${pct}%`;
+  img.style.width = `${cinema.clientWidth}px`;
+  img.style.height = `${cinema.clientHeight}px`;
+  cinema.style.setProperty('--cinema-w', `${cinema.clientWidth}px`);
+}
+
+function renderScene() {
+  if (!selected) return;
+  const first = selected.scenes[0];
+  const s = selected.scenes[sceneIndex];
+  $('beforeImg').src = first.image;
+  $('afterImg').src = s.image;
+  $('beforeCap').textContent = String(first.year);
+  $('afterCap').textContent = String(s.year);
+  $('satDate').textContent = s.date;
+  $('satMeta').textContent = `${s.cloud}% cloud · ${s.stacId}`;
+  requestAnimationFrame(syncSplit);
+}
+
+function renderSpark() {
+  const series = selected.series || selected.scenes;
+  const vals = series.map((s) => s.index);
+  const min = Math.min(...vals);
+  const max = Math.max(...vals);
+  const span = max - min || 0.01;
+  $('spark').replaceChildren(
+    ...series.map((s, i) => {
+      const el = document.createElement('i');
+      el.style.height = `${10 + ((s.index - min) / span) * 32}px`;
+      if (i === sceneIndex) el.classList.add('on');
+      el.title = `${s.year}: ${s.index}`;
+      return el;
+    }),
+  );
 }
 
 function openProject(p) {
-  if (!p?.scenes?.length) {
-    p = projects.find((x) => x.id === p?.id);
-  }
+  if (!p?.scenes?.length) p = projects.find((x) => x.id === p?.id);
   if (!p?.scenes?.length) return;
   selected = p;
   sceneIndex = p.scenes.length - 1;
@@ -451,14 +412,16 @@ function openProject(p) {
   lastCheck = null;
   intro.hidden = true;
   detail.hidden = false;
-  $('pPlace').textContent = `${p.place} · ${p.category}`;
+  $('pPlace').textContent = `${p.place} · ${p.category} · ${p.intent}`;
   $('pName').textContent = p.name;
   $('pGoal').textContent = p.goal;
   $('pStatus').textContent = p.status;
   $('pStatus').style.color = COLORS[p.status];
   $('pOperator').textContent = p.operator;
   $('pBar').style.width = `${Math.max(4, p.progress)}%`;
+  $('pBar').style.background = COLORS[p.status];
   $('pBarLabel').textContent = `${p.progress}% of measured change · ${p.unit}`;
+  $('stamp').hidden = true;
   renderScene();
   $('years').replaceChildren(
     ...p.scenes.map((s, i) => {
@@ -491,29 +454,25 @@ function openProject(p) {
   renderSpark();
   $('result').hidden = true;
   $('agents').hidden = true;
-  $('compare').hidden = true;
   $('postCheck').hidden = true;
   $('manifest').hidden = true;
   $('signed').hidden = true;
   $('scan').classList.remove('on');
   $('grid').classList.remove('on');
   $('runBtn').disabled = false;
-  $('runBtn').textContent = 'Run satellite check';
+  $('runBtn').textContent = 'Run Earth Oracle';
+  $('consequence').hidden = true;
+  $('consequence').classList.remove('refuse');
   paintVault(p);
   document.querySelectorAll('.amt').forEach((b) => b.classList.toggle('on', b.dataset.amt === String(fundAmt)));
-  $('consequence').hidden = true;
   syncWatch();
   resetLedger();
-  addLedger('Opened archive', `${p.name} · ${p.scenes.length} Sentinel-2 scenes`);
+  addLedger(`Opened ${p.operator}`, `${p.name} · ${p.scenes.length} Sentinel-2 scenes · vault locked`);
+  paintLocator(p);
   renderList();
   persistUrl();
   loadWeather(p);
   loadObservation(p);
-  try {
-    globe?.pointOfView({ lat: p.lat, lng: p.lng, altitude: 1.4 }, 900);
-  } catch {
-    /* globe optional */
-  }
 }
 
 function closeProject() {
@@ -522,33 +481,6 @@ function closeProject() {
   intro.hidden = false;
   renderList();
   persistUrl();
-}
-
-function renderScene() {
-  const s = selected.scenes[sceneIndex];
-  $('satImg').src = s.image;
-  $('satDate').textContent = s.date;
-  $('satMeta').textContent = `${s.cloud}% cloud · ${s.source.split('·')[0].trim()}`;
-}
-
-function renderSpark() {
-  const series = selected.series || selected.scenes;
-  const vals = series.map((s) => s.index);
-  const min = Math.min(...vals);
-  const max = Math.max(...vals);
-  const span = max - min || 0.01;
-  $('spark').replaceChildren(
-    ...series.map((s, i) => {
-      const el = document.createElement('i');
-      el.style.height = `${12 + ((s.index - min) / span) * 40}px`;
-      if (i === sceneIndex) el.classList.add('on');
-      const lab = document.createElement('b');
-      lab.textContent = String(s.year);
-      el.appendChild(lab);
-      el.title = `${s.year}: ${s.index}`;
-      return el;
-    }),
-  );
 }
 
 function drawObs(values) {
@@ -569,8 +501,8 @@ function drawObs(values) {
   const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
   path.setAttribute('d', d);
   path.setAttribute('fill', 'none');
-  path.setAttribute('stroke', '#1cb0f6');
-  path.setAttribute('stroke-width', '3');
+  path.setAttribute('stroke', '#185fa5');
+  path.setAttribute('stroke-width', '2.5');
   svg.appendChild(path);
 }
 
@@ -681,9 +613,9 @@ function paintGrid(imageData) {
       const r = src[i];
       const g = src[i + 1];
       const b = src[i + 2];
-      ctx.strokeStyle = 'rgba(184,255,106,0.28)';
+      ctx.strokeStyle = 'rgba(155,231,184,0.35)';
       ctx.strokeRect(x * cw + 1, y * ch + 1, cw - 2, ch - 2);
-      ctx.fillStyle = `rgba(${r},${g},${b},0.18)`;
+      ctx.fillStyle = `rgba(${r},${g},${b},0.16)`;
       ctx.fillRect(x * cw + 2, y * ch + 2, cw - 4, ch - 4);
     }
   }
@@ -701,9 +633,9 @@ async function animateGrid(imageData) {
   for (let i = 0; i < cols * rows; i += 6) {
     const x = i % cols;
     const y = Math.floor(i / cols) % rows;
-    ctx.fillStyle = 'rgba(184,255,106,0.35)';
+    ctx.fillStyle = 'rgba(155,231,184,0.32)';
     ctx.fillRect(x * cw + 2, y * ch + 2, cw - 4, ch - 4);
-    await new Promise((r) => setTimeout(r, 28));
+    await new Promise((r) => setTimeout(r, 24));
   }
 }
 
@@ -711,6 +643,7 @@ function buildManifest(p, liveDelta) {
   return {
     product: 'verdant-impact',
     schema: 'evidence-manifest/v1',
+    grantee: p.operator,
     project: {
       id: p.id,
       name: p.name,
@@ -737,7 +670,13 @@ function buildManifest(p, liveDelta) {
       unit: p.unit,
     },
     checkedAt: new Date().toISOString(),
-    vault: { deployed: false, state: 'locked', note: 'No Solana program in this demo' },
+    vault: {
+      deployed: false,
+      state: 'locked',
+      pdaPreview: vaultPda(p.id),
+      instruction: p.status === 'Off track' ? 'refuse' : 'hold',
+      note: 'No Solana program in this demo',
+    },
     chain: { written: false, note: 'SHA-256 is computed locally and is not an on-chain transaction' },
   };
 }
@@ -749,7 +688,7 @@ async function publishManifest(p, liveDelta) {
   $('manifest').textContent = raw;
   $('sha').textContent = `SHA-256 ${lastSha} · local only · not written to Solana`;
   $('postCheck').hidden = false;
-  addLedger('Evidence manifest hashed', lastSha.slice(0, 16));
+  addLedger('Evidence pack hashed', lastSha.slice(0, 16));
 }
 
 async function runCheck() {
@@ -758,18 +697,18 @@ async function runCheck() {
   checking = true;
   const btn = $('runBtn');
   btn.disabled = true;
-  btn.textContent = 'Reading scenes…';
+  btn.textContent = 'Oracle reading scenes…';
   $('agents').hidden = false;
   $('result').hidden = true;
-  $('compare').hidden = true;
   $('postCheck').hidden = true;
   $('signed').hidden = true;
+  $('stamp').hidden = true;
   $('scan').classList.add('on');
   const steps = [...$('agents').children];
   steps.forEach((el) => el.classList.remove('go'));
   for (let i = 0; i < steps.length; i += 1) {
     steps[i].classList.add('go');
-    if (i === 1) {
+    if (i === 2) {
       try {
         const latest = await raster(p.scenes[p.scenes.length - 1].image);
         await animateGrid(latest.imageData);
@@ -777,7 +716,7 @@ async function runCheck() {
         await new Promise((r) => setTimeout(r, 400));
       }
     } else {
-      await new Promise((r) => setTimeout(r, 380));
+      await new Promise((r) => setTimeout(r, 340));
     }
     if (i < p.scenes.length) {
       sceneIndex = i;
@@ -799,33 +738,33 @@ async function runCheck() {
   sceneIndex = p.scenes.length - 1;
   renderScene();
   renderSpark();
-  $('beforeImg').src = p.scenes[0].image;
-  $('afterImg').src = p.scenes[p.scenes.length - 1].image;
-  $('beforeCap').textContent = String(p.scenes[0].year);
-  $('afterCap').textContent = String(p.scenes[p.scenes.length - 1].year);
-  $('compare').hidden = false;
+  $('split').value = 50;
+  syncSplit();
   const sign = liveDelta >= 0 ? '+' : '';
   lastCheck = { status: p.status, liveDelta };
   $('result').hidden = false;
-  $('result').textContent = `${p.status}. Automatic check compared ${p.scenes[0].year} → ${p.scenes[p.scenes.length - 1].year} (${p.signal} index ${sign}${liveDelta.toFixed(3)}).`;
-  const locked =
-    p.status === 'Off track'
-      ? 'Funding consequence: vault would stay locked. Off-track sites do not unlock USDC.'
-      : 'Funding consequence: vault still locked. A real Solana program would wait for a signed decision before any release.';
+  $('result').textContent = `Automatic check compared ${p.scenes[0].year} → ${p.scenes[p.scenes.length - 1].year} for ${p.operator} (${p.signal} index ${sign}${liveDelta.toFixed(3)}). Status: ${p.status}.`;
+  const refuse = p.status === 'Off track';
   $('consequence').hidden = false;
-  $('consequence').textContent = locked;
-  addLedger('Automatic check', `${p.status} · ${p.scenes[0].year} → ${p.scenes[p.scenes.length - 1].year}`);
+  $('consequence').classList.toggle('refuse', refuse);
+  $('consequence').textContent = refuse
+    ? `Funding consequence: ${p.operator} would not be paid. Off-track land does not unlock USDC. Vault stays locked.`
+    : `Funding consequence: vault still locked. A real Solana program would wait for a signed decision before any release to ${p.operator}.`;
+  const stampEl = $('stamp');
+  stampEl.hidden = false;
+  stampEl.className = `stamp ${refuse ? '' : p.status === 'On track' ? 'ok' : 'hold'}`.trim();
+  stampEl.textContent = refuse ? 'REFUSE' : p.status === 'On track' ? 'HOLD TO SIGN' : 'HOLD';
+  addLedger('Earth Oracle', `${p.status} · ${p.operator} · vault locked`);
   await publishManifest(p, liveDelta);
-  burst();
-  btn.textContent = 'Run again';
+  btn.textContent = 'Run oracle again';
   btn.disabled = false;
   checking = false;
 }
 
 function openFund() {
   if (!selected) return;
-  $('fundAmt').textContent = String(fundAmt);
-  $('fundBlurb').textContent = `Preview ${fundAmt} USDC toward ${selected.name}. A real vault on Solana would hold it for ${selected.operator} until the satellite check plus a signed decision agree.`;
+  $('fundAmt').textContent = Number(fundAmt).toLocaleString();
+  $('fundBlurb').textContent = `Preview ${Number(fundAmt).toLocaleString()} USDC toward ${selected.operator} for ${selected.name}. A real vault on Solana would hold it until the Earth Oracle plus a signed decision agree.`;
   $('fundDlg').showModal();
 }
 
@@ -836,17 +775,11 @@ function confirmFund() {
   localStorage.setItem(PLEDGE_KEY, JSON.stringify(all));
   paintVault(selected);
   refreshXp();
-  addLedger('USDC preview', `${fundAmt} USDC · vault locked · not sent`);
+  renderList();
+  addLedger('USDC preview', `${fundAmt.toLocaleString()} USDC → ${selected.operator} · vault locked · not sent`);
   $('fundDlg').close();
-  burst();
+  toast(`${fundAmt.toLocaleString()} USDC previewed to ${selected.operator} · still locked`);
 }
-
-document.querySelectorAll('.amt').forEach((b) => {
-  b.onclick = () => {
-    fundAmt = Number(b.dataset.amt);
-    document.querySelectorAll('.amt').forEach((x) => x.classList.toggle('on', x === b));
-  };
-});
 
 function openSign() {
   if (!lastManifest) return;
@@ -863,21 +796,21 @@ async function signDecision() {
     decision,
     manifestSha: lastSha,
     project: selected.id,
+    grantee: selected.operator,
     signedAt: new Date().toISOString(),
     vault: 'locked',
     note: 'Local signature. No backend. Funds do not move.',
   };
   const sig = await sha256(JSON.stringify(payload));
   $('signed').hidden = false;
-  $('signed').textContent = `${name} · ${decision} · sig ${sig.slice(0, 16)} · vault remains locked`;
-  addLedger(`${name} signed`, `${decision} · vault locked`);
+  $('signed').textContent = `${name} · ${decision} · sig ${sig.slice(0, 16)} · ${selected.operator} vault remains locked`;
+  addLedger(`${name} signed`, `${decision} · ${selected.operator} · vault locked`);
   $('consequence').hidden = false;
   $('consequence').textContent =
     decision === 'accept'
-      ? 'Signed locally. Vault still locked — the Solana program is not deployed, so USDC cannot release yet. The SHA is ready to anchor.'
-      : 'Signed locally. Vault stays locked. No USDC moves.';
+      ? `Signed locally. ${selected.operator} still does not receive USDC — the Solana program is not deployed. The SHA is ready to anchor.`
+      : `Signed locally. Vault stays locked. No USDC moves to ${selected.operator}.`;
   $('signDlg').close();
-  burst();
 }
 
 document.querySelectorAll('.filters button').forEach((b) => {
@@ -885,6 +818,12 @@ document.querySelectorAll('.filters button').forEach((b) => {
     document.querySelectorAll('.filters button').forEach((x) => x.classList.remove('on'));
     b.classList.add('on');
     setFilter(b.dataset.cat);
+  };
+});
+document.querySelectorAll('.amt').forEach((b) => {
+  b.onclick = () => {
+    fundAmt = Number(b.dataset.amt);
+    document.querySelectorAll('.amt').forEach((x) => x.classList.toggle('on', x === b));
   };
 });
 $('closePanel').onclick = closeProject;
@@ -899,9 +838,12 @@ $('signGo').onclick = signDecision;
 $('fundBtn').onclick = openFund;
 $('fundCancel').onclick = () => $('fundDlg').close();
 $('fundGo').onclick = confirmFund;
-window.addEventListener('resize', () => {
-  if (globe && globeEl.clientWidth) globe.width(globeEl.clientWidth).height(globeEl.clientHeight);
-});
+$('openDemo').onclick = () => {
+  const hit = projects.find((p) => p.id === 'demak');
+  if (hit) openProject(hit);
+};
+$('split').addEventListener('input', syncSplit);
+window.addEventListener('resize', syncSplit);
 
 load();
 window.addEventListener('popstate', applyRoute);
