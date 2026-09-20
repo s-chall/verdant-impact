@@ -15,11 +15,12 @@ npx --yes serve dist
 Then open:
 
 - [http://localhost:3000/?demo=1](http://localhost:3000/?demo=1) — skips login, lands as Demo Explorer, opens Demak
+- [http://localhost:3000/?demo=1&studio=1](http://localhost:3000/?demo=1&studio=1) — jumps straight into Evidence Studio
 - or [http://localhost:3000/](http://localhost:3000/) → **Explore the demo**
 
 **Happy path:** Explore the demo → Demak Coastal Recovery → **Run evidence check** → flip **2017 / 2021 / NDVI** → **Run evidence agents**.
 
-Pitch timing: [DEMO_SCRIPT.md](DEMO_SCRIPT.md)
+Pitch timing: [DEMO_SCRIPT.md](DEMO_SCRIPT.md) · Devpost paste: [DEVPOST.md](DEVPOST.md)
 
 ## What is real vs simulated
 
@@ -35,3 +36,4 @@ Pitch timing: [DEMO_SCRIPT.md](DEMO_SCRIPT.md)
 - [Product specification](PROJECT_SPEC.md)
 - [Hackathon presentation review](HACKATHON_PRESENTATION_REVIEW.md)
 - [150-second demo script](DEMO_SCRIPT.md)
+- [Devpost write-up + agentic architecture](DEVPOST.md)
