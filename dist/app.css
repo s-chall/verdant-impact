@@ -272,7 +272,7 @@ h2 { font: 900 0.78rem Nunito; text-transform: uppercase; letter-spacing: 0.06em
 .spark { display: grid; grid-auto-flow: column; gap: 6px; align-items: end; height: 54px; margin-top: 10px; }
 .spark i { display: block; border-radius: 8px 8px 4px 4px; background: #c6f59a; min-height: 4px; position: relative; }
 .spark i.on { background: var(--feather); }
-.spark i b { position: absolute; left: 50%; bottom: 100%; transform: translate(-50%, -4px); font-size: 0.62rem; color: var(--wolf); }
+.spark i b { display: none; }
 .obs { margin-top: 8px; }
 .obs svg { display: block; width: 100%; height: 64px; background: #e8f9ff; border: 3px solid #ccefff; border-radius: 14px; }
 .obs-cap { color: var(--wolf); font-size: 0.72rem; margin: 6px 0 0; }
