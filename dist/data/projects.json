@@ -1,6 +1,15 @@
 {
   "generated": true,
   "source": "https://earth-search.aws.element84.com/v1/search",
+  "years": [
+    2018,
+    2020,
+    2022,
+    2024,
+    2026
+  ],
+  "count": 50,
+  "scenes": 237,
   "projects": [
     {
       "id": "demak",
@@ -11,12 +20,18 @@
       "lng": 110.64,
       "goal": "Grow a mangrove barrier that holds the sinking coast.",
       "signal": "greenness",
+      "direction": "up",
       "target": 25,
       "unit": "% canopy vs 2018",
       "operator": "Building with Nature",
-      "progress": 63.6,
+      "intent": "restore",
+      "progress": 100.0,
       "baseline": 0.0955,
-      "current": 0.1464,
+      "current": 0.128,
+      "delta": 0.0325,
+      "relPct": 34.0,
+      "status": "Shifting",
+      "trend": "reversing",
       "scenes": [
         {
           "year": 2018,
@@ -53,31 +68,70 @@
           "image": "assets/sat/demak/2024.jpg",
           "index": 0.1464,
           "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2026,
+          "date": "2026-06-11",
+          "cloud": 0.1,
+          "stacId": "S2C_49MDN_20260611_0_L2A",
+          "image": "assets/sat/demak/2026.jpg",
+          "index": 0.128,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        }
+      ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.0955,
+          "cloud": 0.07
+        },
+        {
+          "year": 2020,
+          "index": 0.1382,
+          "cloud": 1.77
+        },
+        {
+          "year": 2022,
+          "index": 0.1246,
+          "cloud": 1.05
+        },
+        {
+          "year": 2024,
+          "index": 0.1464,
+          "cloud": 0.0
+        },
+        {
+          "year": 2026,
+          "index": 0.128,
+          "cloud": 0.1
         }
       ],
       "milestones": [
         {
           "name": "Baseline mapped",
-          "detail": "Sentinel-2 2018-08-17",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-08-17",
           "pct": 100,
           "state": "done"
         },
         {
-          "name": "Cadence held",
-          "detail": "4 clear scenes in archive",
-          "pct": 100,
+          "name": "Monitoring cadence",
+          "detail": "5 of 5 target years in the archive",
+          "pct": 100.0,
           "state": "done"
         },
         {
-          "name": "Measured change",
-          "detail": "On track \u00b7 \u0394 index +0.051",
-          "pct": 63.6,
-          "state": "active"
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "Shifting \u00b7 greenness \u0394 +0.033 (+34.0% vs 2018)",
+          "pct": 100.0,
+          "state": "done"
         }
-      ],
-      "trend": "advancing",
-      "delta": 0.0509,
-      "status": "On track"
+      ]
     },
     {
       "id": "sundarbans",
@@ -88,12 +142,18 @@
       "lng": 89.55,
       "goal": "Restore mangrove fringe that shields delta villages.",
       "signal": "greenness",
+      "direction": "up",
       "target": 20,
       "unit": "% canopy vs 2018",
       "operator": "Bangladesh Forest Department",
-      "progress": 6.2,
+      "intent": "restore",
+      "progress": 100.0,
       "baseline": 0.0461,
-      "current": 0.0511,
+      "current": 0.105,
+      "delta": 0.0589,
+      "relPct": 73.6,
+      "status": "On track",
+      "trend": "advancing",
       "scenes": [
         {
           "year": 2018,
@@ -130,31 +190,70 @@
           "image": "assets/sat/sundarbans/2024.jpg",
           "index": 0.0511,
           "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2026,
+          "date": "2026-02-09",
+          "cloud": 0.0,
+          "stacId": "S2A_45QYE_20260209_1_L2A",
+          "image": "assets/sat/sundarbans/2026.jpg",
+          "index": 0.105,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        }
+      ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.0461,
+          "cloud": 0.0
+        },
+        {
+          "year": 2020,
+          "index": 0.1241,
+          "cloud": 0.0
+        },
+        {
+          "year": 2022,
+          "index": 0.1488,
+          "cloud": 0.0
+        },
+        {
+          "year": 2024,
+          "index": 0.0511,
+          "cloud": 0.0
+        },
+        {
+          "year": 2026,
+          "index": 0.105,
+          "cloud": 0.0
         }
       ],
       "milestones": [
         {
           "name": "Baseline mapped",
-          "detail": "Sentinel-2 2018-02-24",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-02-24",
           "pct": 100,
           "state": "done"
         },
         {
-          "name": "Cadence held",
-          "detail": "4 clear scenes in archive",
-          "pct": 100,
+          "name": "Monitoring cadence",
+          "detail": "5 of 5 target years in the archive",
+          "pct": 100.0,
           "state": "done"
         },
         {
-          "name": "Measured change",
-          "detail": "Watching \u00b7 \u0394 index +0.005",
-          "pct": 6.2,
-          "state": "active"
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "On track \u00b7 greenness \u0394 +0.059 (+73.6% vs 2018)",
+          "pct": 100.0,
+          "state": "done"
         }
-      ],
-      "trend": "stable",
-      "delta": 0.005,
-      "status": "Watching"
+      ]
     },
     {
       "id": "mekong",
@@ -165,12 +264,18 @@
       "lng": 106.55,
       "goal": "Replant eroded Mekong shoreline.",
       "signal": "greenness",
+      "direction": "up",
       "target": 22,
       "unit": "% canopy vs 2018",
       "operator": "MARD / IUCN",
-      "progress": 24.3,
+      "intent": "restore",
+      "progress": 24.1,
       "baseline": 0.1056,
-      "current": 0.0593,
+      "current": 0.1112,
+      "delta": 0.0056,
+      "relPct": 5.3,
+      "status": "Watching",
+      "trend": "flat",
       "scenes": [
         {
           "year": 2018,
@@ -198,31 +303,65 @@
           "image": "assets/sat/mekong/2024.jpg",
           "index": 0.0593,
           "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2026,
+          "date": "2026-04-23",
+          "cloud": 4.14,
+          "stacId": "S2A_48PXR_20260423_0_L2A",
+          "image": "assets/sat/mekong/2026.jpg",
+          "index": 0.1112,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        }
+      ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.1056,
+          "cloud": 1.29
+        },
+        {
+          "year": 2020,
+          "index": 0.1229,
+          "cloud": 0.12
+        },
+        {
+          "year": 2024,
+          "index": 0.0593,
+          "cloud": 0.0
+        },
+        {
+          "year": 2026,
+          "index": 0.1112,
+          "cloud": 4.14
         }
       ],
       "milestones": [
         {
           "name": "Baseline mapped",
-          "detail": "Sentinel-2 2018-03-09",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-03-09",
           "pct": 100,
           "state": "done"
         },
         {
-          "name": "Cadence held",
-          "detail": "3 clear scenes in archive",
-          "pct": 75.0,
+          "name": "Monitoring cadence",
+          "detail": "4 of 5 target years in the archive",
+          "pct": 80.0,
           "state": "done"
         },
         {
-          "name": "Measured change",
-          "detail": "Off track \u00b7 \u0394 index -0.046",
-          "pct": 24.3,
-          "state": "wait"
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 48.2,
+          "state": "active"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "Watching \u00b7 greenness \u0394 +0.006 (+5.3% vs 2018)",
+          "pct": 24.1,
+          "state": "active"
         }
-      ],
-      "trend": "declining",
-      "delta": -0.0463,
-      "status": "Off track"
+      ]
     },
     {
       "id": "everglades",
@@ -233,12 +372,18 @@
       "lng": -80.93,
       "goal": "Recover coastal wetland vegetation after saltwater push.",
       "signal": "greenness",
+      "direction": "up",
       "target": 15,
       "unit": "% green cover vs 2018",
       "operator": "NPS / SFWMD",
-      "progress": 8.9,
+      "intent": "restore",
+      "progress": 0.0,
       "baseline": -0.0,
-      "current": 0.0071,
+      "current": -0.0109,
+      "delta": -0.0109,
+      "relPct": -13.6,
+      "status": "Off track",
+      "trend": "declining",
       "scenes": [
         {
           "year": 2020,
@@ -266,31 +411,65 @@
           "image": "assets/sat/everglades/2024.jpg",
           "index": 0.0071,
           "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2026,
+          "date": "2026-02-06",
+          "cloud": 0.0,
+          "stacId": "S2B_17RNJ_20260206_0_L2A",
+          "image": "assets/sat/everglades/2026.jpg",
+          "index": -0.0109,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        }
+      ],
+      "series": [
+        {
+          "year": 2020,
+          "index": -0.0,
+          "cloud": 0.0
+        },
+        {
+          "year": 2022,
+          "index": 0.0,
+          "cloud": 0.0
+        },
+        {
+          "year": 2024,
+          "index": 0.0071,
+          "cloud": 0.0
+        },
+        {
+          "year": 2026,
+          "index": -0.0109,
+          "cloud": 0.0
         }
       ],
       "milestones": [
         {
           "name": "Baseline mapped",
-          "detail": "Sentinel-2 2020-02-23",
+          "detail": "First clear Sentinel-2 scene \u00b7 2020-02-23",
           "pct": 100,
           "state": "done"
         },
         {
-          "name": "Cadence held",
-          "detail": "3 clear scenes in archive",
-          "pct": 75.0,
+          "name": "Monitoring cadence",
+          "detail": "4 of 5 target years in the archive",
+          "pct": 80.0,
           "state": "done"
         },
         {
-          "name": "Measured change",
-          "detail": "Watching \u00b7 \u0394 index +0.007",
-          "pct": 8.9,
-          "state": "active"
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 0.0,
+          "state": "wait"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "Off track \u00b7 greenness \u0394 -0.011 (-13.6% vs 2018)",
+          "pct": 0.0,
+          "state": "wait"
         }
-      ],
-      "trend": "stable",
-      "delta": 0.0071,
-      "status": "Watching"
+      ]
     },
     {
       "id": "rufiji",
@@ -301,12 +480,18 @@
       "lng": 39.28,
       "goal": "Protect East Africa\u2019s largest mangrove stand.",
       "signal": "greenness",
+      "direction": "up",
       "target": 18,
       "unit": "% canopy vs 2018",
       "operator": "WWF Tanzania",
-      "progress": 26.1,
+      "intent": "hold",
+      "progress": 0.0,
       "baseline": 0.1452,
-      "current": 0.1209,
+      "current": 0.0696,
+      "delta": -0.0756,
+      "relPct": -52.1,
+      "status": "Off track",
+      "trend": "declining",
       "scenes": [
         {
           "year": 2018,
@@ -343,31 +528,70 @@
           "image": "assets/sat/rufiji/2024.jpg",
           "index": 0.1209,
           "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2026,
+          "date": "2026-07-18",
+          "cloud": 2.61,
+          "stacId": "S2C_37MEM_20260718_0_L2A",
+          "image": "assets/sat/rufiji/2026.jpg",
+          "index": 0.0696,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        }
+      ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.1452,
+          "cloud": 0.01
+        },
+        {
+          "year": 2020,
+          "index": 0.1015,
+          "cloud": 0.51
+        },
+        {
+          "year": 2022,
+          "index": 0.0938,
+          "cloud": 1.59
+        },
+        {
+          "year": 2024,
+          "index": 0.1209,
+          "cloud": 0.32
+        },
+        {
+          "year": 2026,
+          "index": 0.0696,
+          "cloud": 2.61
         }
       ],
       "milestones": [
         {
           "name": "Baseline mapped",
-          "detail": "Sentinel-2 2018-06-05",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-06-05",
           "pct": 100,
           "state": "done"
         },
         {
-          "name": "Cadence held",
-          "detail": "4 clear scenes in archive",
-          "pct": 100,
+          "name": "Monitoring cadence",
+          "detail": "5 of 5 target years in the archive",
+          "pct": 100.0,
           "state": "done"
         },
         {
-          "name": "Measured change",
-          "detail": "Off track \u00b7 \u0394 index -0.024",
-          "pct": 26.1,
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 0.0,
+          "state": "wait"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "Off track \u00b7 greenness \u0394 -0.076 (-52.1% vs 2018)",
+          "pct": 0.0,
           "state": "wait"
         }
-      ],
-      "trend": "declining",
-      "delta": -0.0243,
-      "status": "Off track"
+      ]
     },
     {
       "id": "guayas",
@@ -378,12 +602,18 @@
       "lng": -79.92,
       "goal": "Reconnect shrimp-pond edges to living mangrove.",
       "signal": "greenness",
+      "direction": "up",
       "target": 16,
       "unit": "% canopy vs 2018",
       "operator": "MAE Ecuador",
-      "progress": 15.1,
+      "intent": "restore",
+      "progress": 0.0,
       "baseline": 0.1763,
-      "current": 0.0146,
+      "current": 0.02,
+      "delta": -0.1563,
+      "relPct": -88.7,
+      "status": "Off track",
+      "trend": "declining",
       "scenes": [
         {
           "year": 2018,
@@ -420,31 +650,1168 @@
           "image": "assets/sat/guayas/2024.jpg",
           "index": 0.0146,
           "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2026,
+          "date": "2026-04-28",
+          "cloud": 2.61,
+          "stacId": "S2B_17MPT_20260428_0_L2A",
+          "image": "assets/sat/guayas/2026.jpg",
+          "index": 0.02,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        }
+      ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.1763,
+          "cloud": 0.23
+        },
+        {
+          "year": 2020,
+          "index": 0.0138,
+          "cloud": 0.02
+        },
+        {
+          "year": 2022,
+          "index": 0.0071,
+          "cloud": 0.64
+        },
+        {
+          "year": 2024,
+          "index": 0.0146,
+          "cloud": 0.18
+        },
+        {
+          "year": 2026,
+          "index": 0.02,
+          "cloud": 2.61
         }
       ],
       "milestones": [
         {
           "name": "Baseline mapped",
-          "detail": "Sentinel-2 2018-04-20",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-04-20",
           "pct": 100,
           "state": "done"
         },
         {
-          "name": "Cadence held",
-          "detail": "4 clear scenes in archive",
-          "pct": 100,
+          "name": "Monitoring cadence",
+          "detail": "5 of 5 target years in the archive",
+          "pct": 100.0,
           "state": "done"
         },
         {
-          "name": "Measured change",
-          "detail": "Off track \u00b7 \u0394 index -0.162",
-          "pct": 15.1,
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 0.0,
+          "state": "wait"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "Off track \u00b7 greenness \u0394 -0.156 (-88.7% vs 2018)",
+          "pct": 0.0,
           "state": "wait"
         }
-      ],
+      ]
+    },
+    {
+      "id": "danube",
+      "name": "Danube Delta",
+      "place": "Romania",
+      "category": "coasts",
+      "lat": 45.16,
+      "lng": 29.38,
+      "goal": "Recover reed and wetland vegetation.",
+      "signal": "greenness",
+      "direction": "up",
+      "target": 14,
+      "unit": "% green cover vs 2018",
+      "operator": "DDBRA",
+      "intent": "restore",
+      "progress": 0.0,
+      "baseline": 0.1763,
+      "current": 0.0274,
+      "delta": -0.1489,
+      "relPct": -84.5,
+      "status": "Off track",
       "trend": "declining",
-      "delta": -0.1617,
-      "status": "Off track"
+      "scenes": [
+        {
+          "year": 2018,
+          "date": "2018-08-21",
+          "cloud": 0.0,
+          "stacId": "S2B_35TQK_20180821_1_L2A",
+          "image": "assets/sat/danube/2018.jpg",
+          "index": 0.1763,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2020,
+          "date": "2020-07-11",
+          "cloud": 0.0,
+          "stacId": "S2B_35TQK_20200711_1_L2A",
+          "image": "assets/sat/danube/2020.jpg",
+          "index": 0.1193,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2022,
+          "date": "2022-07-26",
+          "cloud": 0.0,
+          "stacId": "S2A_35TQK_20220726_0_L2A",
+          "image": "assets/sat/danube/2022.jpg",
+          "index": 0.2565,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2024,
+          "date": "2024-06-30",
+          "cloud": 0.0,
+          "stacId": "S2B_35TQK_20240630_0_L2A",
+          "image": "assets/sat/danube/2024.jpg",
+          "index": 0.0966,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2026,
+          "date": "2026-06-05",
+          "cloud": 0.0,
+          "stacId": "S2C_35TQL_20260605_0_L2A",
+          "image": "assets/sat/danube/2026.jpg",
+          "index": 0.0274,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        }
+      ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.1763,
+          "cloud": 0.0
+        },
+        {
+          "year": 2020,
+          "index": 0.1193,
+          "cloud": 0.0
+        },
+        {
+          "year": 2022,
+          "index": 0.2565,
+          "cloud": 0.0
+        },
+        {
+          "year": 2024,
+          "index": 0.0966,
+          "cloud": 0.0
+        },
+        {
+          "year": 2026,
+          "index": 0.0274,
+          "cloud": 0.0
+        }
+      ],
+      "milestones": [
+        {
+          "name": "Baseline mapped",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-08-21",
+          "pct": 100,
+          "state": "done"
+        },
+        {
+          "name": "Monitoring cadence",
+          "detail": "5 of 5 target years in the archive",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 0.0,
+          "state": "wait"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "Off track \u00b7 greenness \u0394 -0.149 (-84.5% vs 2018)",
+          "pct": 0.0,
+          "state": "wait"
+        }
+      ]
+    },
+    {
+      "id": "chesapeake",
+      "name": "Chesapeake Shore",
+      "place": "Maryland, USA",
+      "category": "coasts",
+      "lat": 38.74,
+      "lng": -76.33,
+      "goal": "Restore shoreline marsh.",
+      "signal": "greenness",
+      "direction": "up",
+      "target": 13,
+      "unit": "% marsh cover vs 2018",
+      "operator": "Chesapeake Conservancy",
+      "intent": "restore",
+      "progress": 0.0,
+      "baseline": 0.0906,
+      "current": 0.0025,
+      "delta": -0.0881,
+      "relPct": -97.2,
+      "status": "Off track",
+      "trend": "declining",
+      "scenes": [
+        {
+          "year": 2018,
+          "date": "2018-01-26",
+          "cloud": 0.08,
+          "stacId": "S2B_18SUH_20180126_0_L2A",
+          "image": "assets/sat/chesapeake/2018.jpg",
+          "index": 0.0906,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2020,
+          "date": "2020-10-07",
+          "cloud": 0.0,
+          "stacId": "S2A_18SUJ_20201007_1_L2A",
+          "image": "assets/sat/chesapeake/2020.jpg",
+          "index": 0.1247,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2022,
+          "date": "2022-08-13",
+          "cloud": 0.0,
+          "stacId": "S2B_18SVJ_20220813_0_L2A",
+          "image": "assets/sat/chesapeake/2022.jpg",
+          "index": 0.1546,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2024,
+          "date": "2024-02-04",
+          "cloud": 0.0,
+          "stacId": "S2B_18SUJ_20240204_0_L2A",
+          "image": "assets/sat/chesapeake/2024.jpg",
+          "index": 0.0249,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2026,
+          "date": "2026-02-28",
+          "cloud": 0.0,
+          "stacId": "S2C_18SUH_20260228_0_L2A",
+          "image": "assets/sat/chesapeake/2026.jpg",
+          "index": 0.0025,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        }
+      ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.0906,
+          "cloud": 0.08
+        },
+        {
+          "year": 2020,
+          "index": 0.1247,
+          "cloud": 0.0
+        },
+        {
+          "year": 2022,
+          "index": 0.1546,
+          "cloud": 0.0
+        },
+        {
+          "year": 2024,
+          "index": 0.0249,
+          "cloud": 0.0
+        },
+        {
+          "year": 2026,
+          "index": 0.0025,
+          "cloud": 0.0
+        }
+      ],
+      "milestones": [
+        {
+          "name": "Baseline mapped",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-01-26",
+          "pct": 100,
+          "state": "done"
+        },
+        {
+          "name": "Monitoring cadence",
+          "detail": "5 of 5 target years in the archive",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 0.0,
+          "state": "wait"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "Off track \u00b7 greenness \u0394 -0.088 (-97.2% vs 2018)",
+          "pct": 0.0,
+          "state": "wait"
+        }
+      ]
+    },
+    {
+      "id": "wadden",
+      "name": "Wadden Sea Fringe",
+      "place": "Netherlands",
+      "category": "coasts",
+      "lat": 53.48,
+      "lng": 6.3,
+      "goal": "Hold salt-marsh vegetation on the Wadden fringe.",
+      "signal": "greenness",
+      "direction": "up",
+      "target": 12,
+      "unit": "% marsh cover vs 2018",
+      "operator": "Rijkswaterstaat",
+      "intent": "hold",
+      "progress": 100.0,
+      "baseline": 0.2087,
+      "current": 0.2297,
+      "delta": 0.021,
+      "relPct": 10.1,
+      "status": "On track",
+      "trend": "advancing",
+      "scenes": [
+        {
+          "year": 2018,
+          "date": "2018-07-02",
+          "cloud": 0.01,
+          "stacId": "S2B_32ULE_20180702_1_L2A",
+          "image": "assets/sat/wadden/2018.jpg",
+          "index": 0.2087,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2020,
+          "date": "2020-04-22",
+          "cloud": 0.0,
+          "stacId": "S2B_31UFV_20200422_1_L2A",
+          "image": "assets/sat/wadden/2020.jpg",
+          "index": 0.095,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2022,
+          "date": "2022-03-08",
+          "cloud": 0.01,
+          "stacId": "S2A_31UFV_20220308_0_L2A",
+          "image": "assets/sat/wadden/2022.jpg",
+          "index": 0.1063,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2024,
+          "date": "2024-05-14",
+          "cloud": 0.01,
+          "stacId": "S2B_31UFV_20240514_0_L2A",
+          "image": "assets/sat/wadden/2024.jpg",
+          "index": 0.1912,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2026,
+          "date": "2026-05-01",
+          "cloud": 0.01,
+          "stacId": "S2A_31UFV_20260501_1_L2A",
+          "image": "assets/sat/wadden/2026.jpg",
+          "index": 0.2297,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        }
+      ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.2087,
+          "cloud": 0.01
+        },
+        {
+          "year": 2020,
+          "index": 0.095,
+          "cloud": 0.0
+        },
+        {
+          "year": 2022,
+          "index": 0.1063,
+          "cloud": 0.01
+        },
+        {
+          "year": 2024,
+          "index": 0.1912,
+          "cloud": 0.01
+        },
+        {
+          "year": 2026,
+          "index": 0.2297,
+          "cloud": 0.01
+        }
+      ],
+      "milestones": [
+        {
+          "name": "Baseline mapped",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-07-02",
+          "pct": 100,
+          "state": "done"
+        },
+        {
+          "name": "Monitoring cadence",
+          "detail": "5 of 5 target years in the archive",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "On track \u00b7 greenness \u0394 +0.021 (+10.1% vs 2018)",
+          "pct": 100.0,
+          "state": "done"
+        }
+      ]
+    },
+    {
+      "id": "saloum",
+      "name": "Saloum Delta",
+      "place": "Senegal",
+      "category": "coasts",
+      "lat": 13.84,
+      "lng": -16.62,
+      "goal": "Recover West African mangrove that buffers the delta.",
+      "signal": "greenness",
+      "direction": "up",
+      "target": 18,
+      "unit": "% canopy vs 2018",
+      "operator": "DAMCP",
+      "intent": "restore",
+      "progress": 0.0,
+      "baseline": 0.0899,
+      "current": 0.0318,
+      "delta": -0.0581,
+      "relPct": -64.6,
+      "status": "Off track",
+      "trend": "declining",
+      "scenes": [
+        {
+          "year": 2018,
+          "date": "2018-03-14",
+          "cloud": 0.0,
+          "stacId": "S2A_28PBA_20180314_0_L2A",
+          "image": "assets/sat/saloum/2018.jpg",
+          "index": 0.0899,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2020,
+          "date": "2020-02-27",
+          "cloud": 0.0,
+          "stacId": "S2B_28PBA_20200227_1_L2A",
+          "image": "assets/sat/saloum/2020.jpg",
+          "index": 0.1504,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2022,
+          "date": "2022-02-06",
+          "cloud": 0.0,
+          "stacId": "S2B_28PBA_20220206_0_L2A",
+          "image": "assets/sat/saloum/2022.jpg",
+          "index": 0.1537,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2024,
+          "date": "2024-11-27",
+          "cloud": 0.0,
+          "stacId": "S2C_28PBA_20241127_1_L2A",
+          "image": "assets/sat/saloum/2024.jpg",
+          "index": 0.0555,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2026,
+          "date": "2026-02-20",
+          "cloud": 0.0,
+          "stacId": "S2C_28PBA_20260220_1_L2A",
+          "image": "assets/sat/saloum/2026.jpg",
+          "index": 0.0318,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        }
+      ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.0899,
+          "cloud": 0.0
+        },
+        {
+          "year": 2020,
+          "index": 0.1504,
+          "cloud": 0.0
+        },
+        {
+          "year": 2022,
+          "index": 0.1537,
+          "cloud": 0.0
+        },
+        {
+          "year": 2024,
+          "index": 0.0555,
+          "cloud": 0.0
+        },
+        {
+          "year": 2026,
+          "index": 0.0318,
+          "cloud": 0.0
+        }
+      ],
+      "milestones": [
+        {
+          "name": "Baseline mapped",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-03-14",
+          "pct": 100,
+          "state": "done"
+        },
+        {
+          "name": "Monitoring cadence",
+          "detail": "5 of 5 target years in the archive",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 0.0,
+          "state": "wait"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "Off track \u00b7 greenness \u0394 -0.058 (-64.6% vs 2018)",
+          "pct": 0.0,
+          "state": "wait"
+        }
+      ]
+    },
+    {
+      "id": "irrawaddy",
+      "name": "Irrawaddy Mouth",
+      "place": "Myanmar",
+      "category": "coasts",
+      "lat": 16.1,
+      "lng": 95.2,
+      "goal": "Track mangrove change at the Ayeyarwady mouth.",
+      "signal": "greenness",
+      "direction": "up",
+      "target": 16,
+      "unit": "% canopy vs 2018",
+      "operator": "Forest Department Myanmar",
+      "intent": "restore",
+      "progress": 0.0,
+      "baseline": 0.1111,
+      "current": 0.0586,
+      "delta": -0.0525,
+      "relPct": -47.3,
+      "status": "Off track",
+      "trend": "declining",
+      "scenes": [
+        {
+          "year": 2018,
+          "date": "2018-11-24",
+          "cloud": 0.0,
+          "stacId": "S2A_46PGC_20181124_1_L2A",
+          "image": "assets/sat/irrawaddy/2018.jpg",
+          "index": 0.1111,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2020,
+          "date": "2020-01-16",
+          "cloud": 0.0,
+          "stacId": "S2B_46PGC_20200116_1_L2A",
+          "image": "assets/sat/irrawaddy/2020.jpg",
+          "index": 0.0471,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2022,
+          "date": "2022-02-26",
+          "cloud": 0.0,
+          "stacId": "S2A_46PGC_20220226_0_L2A",
+          "image": "assets/sat/irrawaddy/2022.jpg",
+          "index": 0.1579,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2024,
+          "date": "2024-02-24",
+          "cloud": 0.0,
+          "stacId": "S2B_46QGD_20240224_0_L2A",
+          "image": "assets/sat/irrawaddy/2024.jpg",
+          "index": 0.071,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2026,
+          "date": "2026-02-13",
+          "cloud": 0.0,
+          "stacId": "S2B_46PGC_20260213_0_L2A",
+          "image": "assets/sat/irrawaddy/2026.jpg",
+          "index": 0.0586,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        }
+      ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.1111,
+          "cloud": 0.0
+        },
+        {
+          "year": 2020,
+          "index": 0.0471,
+          "cloud": 0.0
+        },
+        {
+          "year": 2022,
+          "index": 0.1579,
+          "cloud": 0.0
+        },
+        {
+          "year": 2024,
+          "index": 0.071,
+          "cloud": 0.0
+        },
+        {
+          "year": 2026,
+          "index": 0.0586,
+          "cloud": 0.0
+        }
+      ],
+      "milestones": [
+        {
+          "name": "Baseline mapped",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-11-24",
+          "pct": 100,
+          "state": "done"
+        },
+        {
+          "name": "Monitoring cadence",
+          "detail": "5 of 5 target years in the archive",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 0.0,
+          "state": "wait"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "Off track \u00b7 greenness \u0394 -0.052 (-47.3% vs 2018)",
+          "pct": 0.0,
+          "state": "wait"
+        }
+      ]
+    },
+    {
+      "id": "yellowriver",
+      "name": "Yellow River Delta",
+      "place": "Shandong, China",
+      "category": "coasts",
+      "lat": 37.78,
+      "lng": 119.03,
+      "goal": "Watch wetland green-up on the new delta lobes.",
+      "signal": "greenness",
+      "direction": "up",
+      "target": 15,
+      "unit": "% green cover vs 2018",
+      "operator": "YRDCNR",
+      "intent": "restore",
+      "progress": 0.0,
+      "baseline": 0.1893,
+      "current": 0.1821,
+      "delta": -0.0072,
+      "relPct": -3.8,
+      "status": "Watching",
+      "trend": "flat",
+      "scenes": [
+        {
+          "year": 2018,
+          "date": "2018-09-22",
+          "cloud": 0.01,
+          "stacId": "S2B_50SPH_20180922_1_L2A",
+          "image": "assets/sat/yellowriver/2018.jpg",
+          "index": 0.1893,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2020,
+          "date": "2020-07-20",
+          "cloud": 0.02,
+          "stacId": "S2B_50SPH_20200720_1_L2A",
+          "image": "assets/sat/yellowriver/2020.jpg",
+          "index": 0.1391,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2022,
+          "date": "2022-08-17",
+          "cloud": 0.0,
+          "stacId": "S2A_50SPH_20220817_0_L2A",
+          "image": "assets/sat/yellowriver/2022.jpg",
+          "index": 0.1717,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2024,
+          "date": "2024-05-08",
+          "cloud": 0.01,
+          "stacId": "S2A_50SPH_20240508_0_L2A",
+          "image": "assets/sat/yellowriver/2024.jpg",
+          "index": 0.1359,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2026,
+          "date": "2026-04-08",
+          "cloud": 0.01,
+          "stacId": "S2C_50SPH_20260408_0_L2A",
+          "image": "assets/sat/yellowriver/2026.jpg",
+          "index": 0.1821,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        }
+      ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.1893,
+          "cloud": 0.01
+        },
+        {
+          "year": 2020,
+          "index": 0.1391,
+          "cloud": 0.02
+        },
+        {
+          "year": 2022,
+          "index": 0.1717,
+          "cloud": 0.0
+        },
+        {
+          "year": 2024,
+          "index": 0.1359,
+          "cloud": 0.01
+        },
+        {
+          "year": 2026,
+          "index": 0.1821,
+          "cloud": 0.01
+        }
+      ],
+      "milestones": [
+        {
+          "name": "Baseline mapped",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-09-22",
+          "pct": 100,
+          "state": "done"
+        },
+        {
+          "name": "Monitoring cadence",
+          "detail": "5 of 5 target years in the archive",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 0.0,
+          "state": "wait"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "Watching \u00b7 greenness \u0394 -0.007 (-3.8% vs 2018)",
+          "pct": 0.0,
+          "state": "wait"
+        }
+      ]
+    },
+    {
+      "id": "magdalena",
+      "name": "Magdalena Mouth",
+      "place": "Colombia",
+      "category": "coasts",
+      "lat": 10.99,
+      "lng": -74.76,
+      "goal": "Restore mangrove at the Caribbean river mouth.",
+      "signal": "greenness",
+      "direction": "up",
+      "target": 16,
+      "unit": "% canopy vs 2018",
+      "operator": "INVEMAR",
+      "intent": "restore",
+      "progress": 100.0,
+      "baseline": 0.0051,
+      "current": 0.0937,
+      "delta": 0.0886,
+      "relPct": 110.8,
+      "status": "On track",
+      "trend": "advancing",
+      "scenes": [
+        {
+          "year": 2018,
+          "date": "2018-02-21",
+          "cloud": 0.0,
+          "stacId": "S2A_18PWS_20180221_1_L2A",
+          "image": "assets/sat/magdalena/2018.jpg",
+          "index": 0.0051,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2020,
+          "date": "2020-01-12",
+          "cloud": 0.0,
+          "stacId": "S2A_18PWS_20200112_1_L2A",
+          "image": "assets/sat/magdalena/2020.jpg",
+          "index": 0.0192,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2022,
+          "date": "2022-02-25",
+          "cloud": 0.0,
+          "stacId": "S2B_18PWS_20220225_0_L2A",
+          "image": "assets/sat/magdalena/2022.jpg",
+          "index": 0.0029,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2024,
+          "date": "2024-01-26",
+          "cloud": 0.0,
+          "stacId": "S2B_18PWS_20240126_0_L2A",
+          "image": "assets/sat/magdalena/2024.jpg",
+          "index": 0.017,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2026,
+          "date": "2026-06-28",
+          "cloud": 0.0,
+          "stacId": "S2A_18PWS_20260628_0_L2A",
+          "image": "assets/sat/magdalena/2026.jpg",
+          "index": 0.0937,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        }
+      ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.0051,
+          "cloud": 0.0
+        },
+        {
+          "year": 2020,
+          "index": 0.0192,
+          "cloud": 0.0
+        },
+        {
+          "year": 2022,
+          "index": 0.0029,
+          "cloud": 0.0
+        },
+        {
+          "year": 2024,
+          "index": 0.017,
+          "cloud": 0.0
+        },
+        {
+          "year": 2026,
+          "index": 0.0937,
+          "cloud": 0.0
+        }
+      ],
+      "milestones": [
+        {
+          "name": "Baseline mapped",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-02-21",
+          "pct": 100,
+          "state": "done"
+        },
+        {
+          "name": "Monitoring cadence",
+          "detail": "5 of 5 target years in the archive",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "On track \u00b7 greenness \u0394 +0.089 (+110.8% vs 2018)",
+          "pct": 100.0,
+          "state": "done"
+        }
+      ]
+    },
+    {
+      "id": "rewa",
+      "name": "Rewa Delta",
+      "place": "Fiji",
+      "category": "coasts",
+      "lat": -18.15,
+      "lng": 178.53,
+      "goal": "Rebuild mangrove that shields Suva\u2019s river mouth.",
+      "signal": "greenness",
+      "direction": "up",
+      "target": 14,
+      "unit": "% canopy vs 2018",
+      "operator": "Fiji Forestry",
+      "intent": "restore",
+      "progress": 100.0,
+      "baseline": 0.0769,
+      "current": 0.1425,
+      "delta": 0.0656,
+      "relPct": 82.0,
+      "status": "Shifting",
+      "trend": "reversing",
+      "scenes": [
+        {
+          "year": 2018,
+          "date": "2018-08-20",
+          "cloud": 0.02,
+          "stacId": "S2A_60KXE_20180820_0_L2A",
+          "image": "assets/sat/rewa/2018.jpg",
+          "index": 0.0769,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2020,
+          "date": "2020-11-29",
+          "cloud": 0.96,
+          "stacId": "S2B_60KXE_20201129_0_L2A",
+          "image": "assets/sat/rewa/2020.jpg",
+          "index": 0.1786,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2022,
+          "date": "2022-09-05",
+          "cloud": 0.31,
+          "stacId": "S2A_60KXF_20220905_0_L2A",
+          "image": "assets/sat/rewa/2022.jpg",
+          "index": 0.2398,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2024,
+          "date": "2024-04-12",
+          "cloud": 1.0,
+          "stacId": "S2B_60KXE_20240412_0_L2A",
+          "image": "assets/sat/rewa/2024.jpg",
+          "index": 0.3067,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2026,
+          "date": "2026-06-24",
+          "cloud": 0.82,
+          "stacId": "S2B_60KXE_20260624_0_L2A",
+          "image": "assets/sat/rewa/2026.jpg",
+          "index": 0.1425,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        }
+      ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.0769,
+          "cloud": 0.02
+        },
+        {
+          "year": 2020,
+          "index": 0.1786,
+          "cloud": 0.96
+        },
+        {
+          "year": 2022,
+          "index": 0.2398,
+          "cloud": 0.31
+        },
+        {
+          "year": 2024,
+          "index": 0.3067,
+          "cloud": 1.0
+        },
+        {
+          "year": 2026,
+          "index": 0.1425,
+          "cloud": 0.82
+        }
+      ],
+      "milestones": [
+        {
+          "name": "Baseline mapped",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-08-20",
+          "pct": 100,
+          "state": "done"
+        },
+        {
+          "name": "Monitoring cadence",
+          "detail": "5 of 5 target years in the archive",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "Shifting \u00b7 greenness \u0394 +0.066 (+82.0% vs 2018)",
+          "pct": 100.0,
+          "state": "done"
+        }
+      ]
+    },
+    {
+      "id": "amazonest",
+      "name": "Amazon Estuary",
+      "place": "Par\u00e1, Brazil",
+      "category": "coasts",
+      "lat": -0.45,
+      "lng": -48.5,
+      "goal": "Hold tidal-forest green along the Amazon mouth.",
+      "signal": "greenness",
+      "direction": "up",
+      "target": 12,
+      "unit": "% canopy vs 2018",
+      "operator": "ICMBio",
+      "intent": "hold",
+      "progress": 0.0,
+      "baseline": 0.0916,
+      "current": -0.0286,
+      "delta": -0.1202,
+      "relPct": -131.2,
+      "status": "Off track",
+      "trend": "declining",
+      "scenes": [
+        {
+          "year": 2018,
+          "date": "2018-05-31",
+          "cloud": 10.34,
+          "stacId": "S2B_22MGE_20180531_0_L2A",
+          "image": "assets/sat/amazonest/2018.jpg",
+          "index": 0.0916,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2020,
+          "date": "2020-08-08",
+          "cloud": 0.24,
+          "stacId": "S2B_22MGE_20200808_0_L2A",
+          "image": "assets/sat/amazonest/2020.jpg",
+          "index": 0.0758,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2022,
+          "date": "2022-06-24",
+          "cloud": 7.3,
+          "stacId": "S2A_22MGE_20220624_0_L2A",
+          "image": "assets/sat/amazonest/2022.jpg",
+          "index": 0.0878,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2024,
+          "date": "2024-07-18",
+          "cloud": 2.86,
+          "stacId": "S2B_22MGE_20240718_0_L2A",
+          "image": "assets/sat/amazonest/2024.jpg",
+          "index": 0.121,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2026,
+          "date": "2026-09-03",
+          "cloud": 11.18,
+          "stacId": "S2A_22MGE_20260903_0_L2A",
+          "image": "assets/sat/amazonest/2026.jpg",
+          "index": -0.0286,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        }
+      ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.0916,
+          "cloud": 10.34
+        },
+        {
+          "year": 2020,
+          "index": 0.0758,
+          "cloud": 0.24
+        },
+        {
+          "year": 2022,
+          "index": 0.0878,
+          "cloud": 7.3
+        },
+        {
+          "year": 2024,
+          "index": 0.121,
+          "cloud": 2.86
+        },
+        {
+          "year": 2026,
+          "index": -0.0286,
+          "cloud": 11.18
+        }
+      ],
+      "milestones": [
+        {
+          "name": "Baseline mapped",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-05-31",
+          "pct": 100,
+          "state": "done"
+        },
+        {
+          "name": "Monitoring cadence",
+          "detail": "5 of 5 target years in the archive",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 0.0,
+          "state": "wait"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "Off track \u00b7 greenness \u0394 -0.120 (-131.2% vs 2018)",
+          "pct": 0.0,
+          "state": "wait"
+        }
+      ]
     },
     {
       "id": "gbr",
@@ -455,12 +1822,18 @@
       "lng": 147.06,
       "goal": "Track reef-flat brightness after restoration pilots.",
       "signal": "water",
+      "direction": "down",
       "target": 12,
-      "unit": "% brightness shift vs 2018",
+      "unit": "% less glare vs 2018",
       "operator": "RRAP",
-      "progress": 100,
+      "intent": "restore",
+      "progress": 0.0,
       "baseline": 0.4196,
       "current": 0.577,
+      "delta": 0.1574,
+      "relPct": -37.5,
+      "status": "Off track",
+      "trend": "declining",
       "scenes": [
         {
           "year": 2018,
@@ -499,29 +1872,54 @@
           "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
         }
       ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.4196,
+          "cloud": 0.0
+        },
+        {
+          "year": 2020,
+          "index": 0.445,
+          "cloud": 0.0
+        },
+        {
+          "year": 2022,
+          "index": 0.4604,
+          "cloud": 0.05
+        },
+        {
+          "year": 2024,
+          "index": 0.577,
+          "cloud": 0.0
+        }
+      ],
       "milestones": [
         {
           "name": "Baseline mapped",
-          "detail": "Sentinel-2 2018-08-27",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-08-27",
           "pct": 100,
           "state": "done"
         },
         {
-          "name": "Cadence held",
-          "detail": "4 clear scenes in archive",
-          "pct": 100,
+          "name": "Monitoring cadence",
+          "detail": "4 of 5 target years in the archive",
+          "pct": 80.0,
           "state": "done"
         },
         {
-          "name": "Measured change",
-          "detail": "Shifting \u00b7 \u0394 index +0.157",
-          "pct": 100,
-          "state": "done"
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 0.0,
+          "state": "wait"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "Off track \u00b7 water \u0394 +0.157 (-37.5% vs 2018)",
+          "pct": 0.0,
+          "state": "wait"
         }
-      ],
-      "trend": "shifting",
-      "delta": 0.1574,
-      "status": "Shifting"
+      ]
     },
     {
       "id": "belize",
@@ -532,12 +1930,18 @@
       "lng": -87.53,
       "goal": "Watch reef crest after bleaching years.",
       "signal": "water",
+      "direction": "down",
       "target": 10,
-      "unit": "% brightness shift vs 2018",
+      "unit": "% less glare vs 2018",
       "operator": "Belize Coastal Zone",
-      "progress": 15.7,
+      "intent": "restore",
+      "progress": 0.0,
       "baseline": 0.4884,
       "current": 0.5072,
+      "delta": 0.0188,
+      "relPct": -3.8,
+      "status": "Off track",
+      "trend": "declining",
       "scenes": [
         {
           "year": 2018,
@@ -576,29 +1980,54 @@
           "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
         }
       ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.4884,
+          "cloud": 0.0
+        },
+        {
+          "year": 2020,
+          "index": 0.4756,
+          "cloud": 0.0
+        },
+        {
+          "year": 2022,
+          "index": 0.3497,
+          "cloud": 0.0
+        },
+        {
+          "year": 2024,
+          "index": 0.5072,
+          "cloud": 0.04
+        }
+      ],
       "milestones": [
         {
           "name": "Baseline mapped",
-          "detail": "Sentinel-2 2018-12-03",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-12-03",
           "pct": 100,
           "state": "done"
         },
         {
-          "name": "Cadence held",
-          "detail": "4 clear scenes in archive",
-          "pct": 100,
+          "name": "Monitoring cadence",
+          "detail": "4 of 5 target years in the archive",
+          "pct": 80.0,
           "state": "done"
         },
         {
-          "name": "Measured change",
-          "detail": "Shifting \u00b7 \u0394 index +0.019",
-          "pct": 15.7,
-          "state": "active"
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 0.0,
+          "state": "wait"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "Off track \u00b7 water \u0394 +0.019 (-3.8% vs 2018)",
+          "pct": 0.0,
+          "state": "wait"
         }
-      ],
-      "trend": "shifting",
-      "delta": 0.0188,
-      "status": "Shifting"
+      ]
     },
     {
       "id": "palawan",
@@ -609,12 +2038,18 @@
       "lng": 119.48,
       "goal": "Monitor shallow reef after local protection.",
       "signal": "water",
+      "direction": "down",
       "target": 11,
-      "unit": "% brightness shift vs 2018",
+      "unit": "% less glare vs 2018",
       "operator": "PCSD",
-      "progress": 13.2,
+      "intent": "restore",
+      "progress": 100.0,
       "baseline": 0.2759,
-      "current": 0.2917,
+      "current": 0.1254,
+      "delta": -0.1505,
+      "relPct": 54.5,
+      "status": "On track",
+      "trend": "advancing",
       "scenes": [
         {
           "year": 2018,
@@ -651,31 +2086,70 @@
           "image": "assets/sat/palawan/2024.jpg",
           "index": 0.2917,
           "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2026,
+          "date": "2026-04-16",
+          "cloud": 7.28,
+          "stacId": "S2C_50PQS_20260416_0_L2A",
+          "image": "assets/sat/palawan/2026.jpg",
+          "index": 0.1254,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        }
+      ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.2759,
+          "cloud": 10.49
+        },
+        {
+          "year": 2020,
+          "index": 0.2955,
+          "cloud": 4.94
+        },
+        {
+          "year": 2022,
+          "index": 0.2848,
+          "cloud": 8.26
+        },
+        {
+          "year": 2024,
+          "index": 0.2917,
+          "cloud": 8.32
+        },
+        {
+          "year": 2026,
+          "index": 0.1254,
+          "cloud": 7.28
         }
       ],
       "milestones": [
         {
           "name": "Baseline mapped",
-          "detail": "Sentinel-2 2018-11-09",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-11-09",
           "pct": 100,
           "state": "done"
         },
         {
-          "name": "Cadence held",
-          "detail": "4 clear scenes in archive",
-          "pct": 100,
+          "name": "Monitoring cadence",
+          "detail": "5 of 5 target years in the archive",
+          "pct": 100.0,
           "state": "done"
         },
         {
-          "name": "Measured change",
-          "detail": "Shifting \u00b7 \u0394 index +0.016",
-          "pct": 13.2,
-          "state": "active"
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "On track \u00b7 water \u0394 -0.150 (+54.5% vs 2018)",
+          "pct": 100.0,
+          "state": "done"
         }
-      ],
-      "trend": "shifting",
-      "delta": 0.0158,
-      "status": "Shifting"
+      ]
     },
     {
       "id": "maldives",
@@ -686,12 +2160,18 @@
       "lng": 73.51,
       "goal": "Measure atoll-lagoon change after coral planting.",
       "signal": "water",
+      "direction": "down",
       "target": 10,
-      "unit": "% brightness shift vs 2018",
+      "unit": "% less glare vs 2018",
       "operator": "Maldives MMA",
-      "progress": 40.3,
+      "intent": "restore",
+      "progress": 0.0,
       "baseline": 0.3629,
-      "current": 0.3146,
+      "current": 0.4845,
+      "delta": 0.1216,
+      "relPct": -33.5,
+      "status": "Off track",
+      "trend": "declining",
       "scenes": [
         {
           "year": 2018,
@@ -728,31 +2208,70 @@
           "image": "assets/sat/maldives/2024.jpg",
           "index": 0.3146,
           "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2026,
+          "date": "2026-02-24",
+          "cloud": 0.08,
+          "stacId": "S2B_43NCF_20260224_1_L2A",
+          "image": "assets/sat/maldives/2026.jpg",
+          "index": 0.4845,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        }
+      ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.3629,
+          "cloud": 0.13
+        },
+        {
+          "year": 2020,
+          "index": 0.4145,
+          "cloud": 0.07
+        },
+        {
+          "year": 2022,
+          "index": 0.361,
+          "cloud": 0.53
+        },
+        {
+          "year": 2024,
+          "index": 0.3146,
+          "cloud": 1.39
+        },
+        {
+          "year": 2026,
+          "index": 0.4845,
+          "cloud": 0.08
         }
       ],
       "milestones": [
         {
           "name": "Baseline mapped",
-          "detail": "Sentinel-2 2018-10-19",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-10-19",
           "pct": 100,
           "state": "done"
         },
         {
-          "name": "Cadence held",
-          "detail": "4 clear scenes in archive",
-          "pct": 100,
+          "name": "Monitoring cadence",
+          "detail": "5 of 5 target years in the archive",
+          "pct": 100.0,
           "state": "done"
         },
         {
-          "name": "Measured change",
-          "detail": "Shifting \u00b7 \u0394 index +0.048",
-          "pct": 40.3,
-          "state": "active"
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 0.0,
+          "state": "wait"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "Off track \u00b7 water \u0394 +0.122 (-33.5% vs 2018)",
+          "pct": 0.0,
+          "state": "wait"
         }
-      ],
-      "trend": "shifting",
-      "delta": 0.0483,
-      "status": "Shifting"
+      ]
     },
     {
       "id": "redsea",
@@ -763,12 +2282,18 @@
       "lng": 33.91,
       "goal": "Follow nursery-to-reef color return.",
       "signal": "water",
+      "direction": "down",
       "target": 9,
-      "unit": "% brightness shift vs 2018",
+      "unit": "% less glare vs 2018",
       "operator": "EEAA",
-      "progress": 100,
+      "intent": "restore",
+      "progress": 0.0,
       "baseline": 0.0555,
       "current": 0.2725,
+      "delta": 0.217,
+      "relPct": -271.3,
+      "status": "Off track",
+      "trend": "declining",
       "scenes": [
         {
           "year": 2020,
@@ -789,29 +2314,762 @@
           "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
         }
       ],
+      "series": [
+        {
+          "year": 2020,
+          "index": 0.0555,
+          "cloud": 0.0
+        },
+        {
+          "year": 2022,
+          "index": 0.2725,
+          "cloud": 0.0
+        }
+      ],
       "milestones": [
         {
           "name": "Baseline mapped",
-          "detail": "Sentinel-2 2020-04-05",
+          "detail": "First clear Sentinel-2 scene \u00b7 2020-04-05",
           "pct": 100,
           "state": "done"
         },
         {
-          "name": "Cadence held",
-          "detail": "2 clear scenes in archive",
-          "pct": 50.0,
+          "name": "Monitoring cadence",
+          "detail": "2 of 5 target years in the archive",
+          "pct": 40.0,
           "state": "active"
         },
         {
-          "name": "Measured change",
-          "detail": "Shifting \u00b7 \u0394 index +0.217",
-          "pct": 100,
-          "state": "done"
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 0.0,
+          "state": "wait"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "Off track \u00b7 water \u0394 +0.217 (-271.3% vs 2018)",
+          "pct": 0.0,
+          "state": "wait"
+        }
+      ]
+    },
+    {
+      "id": "hawaii",
+      "name": "K\u0101ne\u02bbohe Bay",
+      "place": "Hawai\u02bbi, USA",
+      "category": "reefs",
+      "lat": 21.45,
+      "lng": -157.8,
+      "goal": "Watch lagoon color after coral restoration.",
+      "signal": "water",
+      "direction": "down",
+      "target": 10,
+      "unit": "% less glare vs 2018",
+      "operator": "HIMB",
+      "intent": "restore",
+      "progress": 0.0,
+      "baseline": 0.0391,
+      "current": 0.1296,
+      "delta": 0.0905,
+      "relPct": -113.1,
+      "status": "Off track",
+      "trend": "declining",
+      "scenes": [
+        {
+          "year": 2018,
+          "date": "2018-02-20",
+          "cloud": 0.0,
+          "stacId": "S2A_4QFK_20180220_0_L2A",
+          "image": "assets/sat/hawaii/2018.jpg",
+          "index": 0.0391,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2020,
+          "date": "2020-12-01",
+          "cloud": 0.0,
+          "stacId": "S2B_4QFK_20201201_1_L2A",
+          "image": "assets/sat/hawaii/2020.jpg",
+          "index": 0.0576,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2022,
+          "date": "2022-02-04",
+          "cloud": 0.0,
+          "stacId": "S2B_4QFK_20220204_0_L2A",
+          "image": "assets/sat/hawaii/2022.jpg",
+          "index": 0.0629,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2024,
+          "date": "2024-08-17",
+          "cloud": 0.02,
+          "stacId": "S2A_4QFK_20240817_0_L2A",
+          "image": "assets/sat/hawaii/2024.jpg",
+          "index": 0.0662,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2026,
+          "date": "2026-02-03",
+          "cloud": 0.0,
+          "stacId": "S2B_4QFK_20260203_0_L2A",
+          "image": "assets/sat/hawaii/2026.jpg",
+          "index": 0.1296,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
         }
       ],
-      "trend": "shifting",
-      "delta": 0.217,
-      "status": "Shifting"
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.0391,
+          "cloud": 0.0
+        },
+        {
+          "year": 2020,
+          "index": 0.0576,
+          "cloud": 0.0
+        },
+        {
+          "year": 2022,
+          "index": 0.0629,
+          "cloud": 0.0
+        },
+        {
+          "year": 2024,
+          "index": 0.0662,
+          "cloud": 0.02
+        },
+        {
+          "year": 2026,
+          "index": 0.1296,
+          "cloud": 0.0
+        }
+      ],
+      "milestones": [
+        {
+          "name": "Baseline mapped",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-02-20",
+          "pct": 100,
+          "state": "done"
+        },
+        {
+          "name": "Monitoring cadence",
+          "detail": "5 of 5 target years in the archive",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 0.0,
+          "state": "wait"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "Off track \u00b7 water \u0394 +0.090 (-113.1% vs 2018)",
+          "pct": 0.0,
+          "state": "wait"
+        }
+      ]
+    },
+    {
+      "id": "seychelles",
+      "name": "Cousin Island Reef",
+      "place": "Seychelles",
+      "category": "reefs",
+      "lat": -4.33,
+      "lng": 55.66,
+      "goal": "Track shallow reef after no-take protection.",
+      "signal": "water",
+      "direction": "down",
+      "target": 10,
+      "unit": "% less glare vs 2018",
+      "operator": "Nature Seychelles",
+      "intent": "restore",
+      "progress": 100.0,
+      "baseline": 0.196,
+      "current": 0.1059,
+      "delta": -0.0901,
+      "relPct": 46.0,
+      "status": "Shifting",
+      "trend": "reversing",
+      "scenes": [
+        {
+          "year": 2018,
+          "date": "2018-08-08",
+          "cloud": 0.04,
+          "stacId": "S2A_40MCA_20180808_0_L2A",
+          "image": "assets/sat/seychelles/2018.jpg",
+          "index": 0.196,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2020,
+          "date": "2020-09-19",
+          "cloud": 0.47,
+          "stacId": "S2A_40MCA_20200919_0_L2A",
+          "image": "assets/sat/seychelles/2020.jpg",
+          "index": 0.0307,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2024,
+          "date": "2024-11-04",
+          "cloud": 0.01,
+          "stacId": "S2A_40MCA_20241104_1_L2A",
+          "image": "assets/sat/seychelles/2024.jpg",
+          "index": 0.0646,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2026,
+          "date": "2026-06-30",
+          "cloud": 0.2,
+          "stacId": "S2C_40MCA_20260630_0_L2A",
+          "image": "assets/sat/seychelles/2026.jpg",
+          "index": 0.1059,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        }
+      ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.196,
+          "cloud": 0.04
+        },
+        {
+          "year": 2020,
+          "index": 0.0307,
+          "cloud": 0.47
+        },
+        {
+          "year": 2024,
+          "index": 0.0646,
+          "cloud": 0.01
+        },
+        {
+          "year": 2026,
+          "index": 0.1059,
+          "cloud": 0.2
+        }
+      ],
+      "milestones": [
+        {
+          "name": "Baseline mapped",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-08-08",
+          "pct": 100,
+          "state": "done"
+        },
+        {
+          "name": "Monitoring cadence",
+          "detail": "4 of 5 target years in the archive",
+          "pct": 80.0,
+          "state": "done"
+        },
+        {
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "Shifting \u00b7 water \u0394 -0.090 (+46.0% vs 2018)",
+          "pct": 100.0,
+          "state": "done"
+        }
+      ]
+    },
+    {
+      "id": "moorea",
+      "name": "Moorea Lagoon",
+      "place": "French Polynesia",
+      "category": "reefs",
+      "lat": -17.54,
+      "lng": -149.83,
+      "goal": "Measure lagoon brightness after bleaching.",
+      "signal": "water",
+      "direction": "down",
+      "target": 11,
+      "unit": "% less glare vs 2018",
+      "operator": "CRIOBE",
+      "intent": "restore",
+      "progress": 100.0,
+      "baseline": 0.4952,
+      "current": 0.2821,
+      "delta": -0.2131,
+      "relPct": 43.0,
+      "status": "On track",
+      "trend": "advancing",
+      "scenes": [
+        {
+          "year": 2018,
+          "date": "2018-06-12",
+          "cloud": 0.76,
+          "stacId": "S2A_6KTF_20180612_0_L2A",
+          "image": "assets/sat/moorea/2018.jpg",
+          "index": 0.4952,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2020,
+          "date": "2020-03-08",
+          "cloud": 3.97,
+          "stacId": "S2B_5KRA_20200308_0_L2A",
+          "image": "assets/sat/moorea/2020.jpg",
+          "index": 0.4036,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2022,
+          "date": "2022-05-27",
+          "cloud": 4.18,
+          "stacId": "S2B_6KTF_20220527_0_L2A",
+          "image": "assets/sat/moorea/2022.jpg",
+          "index": 0.4528,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2024,
+          "date": "2024-05-11",
+          "cloud": 1.81,
+          "stacId": "S2A_6KTF_20240511_0_L2A",
+          "image": "assets/sat/moorea/2024.jpg",
+          "index": 0.478,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2026,
+          "date": "2026-06-10",
+          "cloud": 0.43,
+          "stacId": "S2C_5KRA_20260610_0_L2A",
+          "image": "assets/sat/moorea/2026.jpg",
+          "index": 0.2821,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        }
+      ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.4952,
+          "cloud": 0.76
+        },
+        {
+          "year": 2020,
+          "index": 0.4036,
+          "cloud": 3.97
+        },
+        {
+          "year": 2022,
+          "index": 0.4528,
+          "cloud": 4.18
+        },
+        {
+          "year": 2024,
+          "index": 0.478,
+          "cloud": 1.81
+        },
+        {
+          "year": 2026,
+          "index": 0.2821,
+          "cloud": 0.43
+        }
+      ],
+      "milestones": [
+        {
+          "name": "Baseline mapped",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-06-12",
+          "pct": 100,
+          "state": "done"
+        },
+        {
+          "name": "Monitoring cadence",
+          "detail": "5 of 5 target years in the archive",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "On track \u00b7 water \u0394 -0.213 (+43.0% vs 2018)",
+          "pct": 100.0,
+          "state": "done"
+        }
+      ]
+    },
+    {
+      "id": "jamaica",
+      "name": "Discovery Bay",
+      "place": "Jamaica",
+      "category": "reefs",
+      "lat": 18.47,
+      "lng": -77.41,
+      "goal": "Follow Caribbean reef color after restoration.",
+      "signal": "water",
+      "direction": "down",
+      "target": 10,
+      "unit": "% less glare vs 2018",
+      "operator": "UWI Discovery Bay",
+      "intent": "restore",
+      "progress": 100.0,
+      "baseline": 0.3324,
+      "current": 0.2301,
+      "delta": -0.1023,
+      "relPct": 30.8,
+      "status": "On track",
+      "trend": "advancing",
+      "scenes": [
+        {
+          "year": 2018,
+          "date": "2018-10-27",
+          "cloud": 4.44,
+          "stacId": "S2B_17QRA_20181027_0_L2A",
+          "image": "assets/sat/jamaica/2018.jpg",
+          "index": 0.3324,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2020,
+          "date": "2020-01-05",
+          "cloud": 1.1,
+          "stacId": "S2A_18QTF_20200105_0_L2A",
+          "image": "assets/sat/jamaica/2020.jpg",
+          "index": 0.4054,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2022,
+          "date": "2022-01-24",
+          "cloud": 4.65,
+          "stacId": "S2A_17QRA_20220124_0_L2A",
+          "image": "assets/sat/jamaica/2022.jpg",
+          "index": 0.3191,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2024,
+          "date": "2024-01-24",
+          "cloud": 0.29,
+          "stacId": "S2A_17QRA_20240124_0_L2A",
+          "image": "assets/sat/jamaica/2024.jpg",
+          "index": 0.3431,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2026,
+          "date": "2026-01-18",
+          "cloud": 4.51,
+          "stacId": "S2B_17QRA_20260118_0_L2A",
+          "image": "assets/sat/jamaica/2026.jpg",
+          "index": 0.2301,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        }
+      ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.3324,
+          "cloud": 4.44
+        },
+        {
+          "year": 2020,
+          "index": 0.4054,
+          "cloud": 1.1
+        },
+        {
+          "year": 2022,
+          "index": 0.3191,
+          "cloud": 4.65
+        },
+        {
+          "year": 2024,
+          "index": 0.3431,
+          "cloud": 0.29
+        },
+        {
+          "year": 2026,
+          "index": 0.2301,
+          "cloud": 4.51
+        }
+      ],
+      "milestones": [
+        {
+          "name": "Baseline mapped",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-10-27",
+          "pct": 100,
+          "state": "done"
+        },
+        {
+          "name": "Monitoring cadence",
+          "detail": "5 of 5 target years in the archive",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "On track \u00b7 water \u0394 -0.102 (+30.8% vs 2018)",
+          "pct": 100.0,
+          "state": "done"
+        }
+      ]
+    },
+    {
+      "id": "newcaledonia",
+      "name": "New Caledonia Barrier",
+      "place": "New Caledonia",
+      "category": "reefs",
+      "lat": -22.35,
+      "lng": 166.25,
+      "goal": "Watch one of the world\u2019s largest lagoon reefs.",
+      "signal": "water",
+      "direction": "down",
+      "target": 9,
+      "unit": "% less glare vs 2018",
+      "operator": "IFRECOR",
+      "intent": "restore",
+      "progress": 100.0,
+      "baseline": 0.3392,
+      "current": 0.2136,
+      "delta": -0.1256,
+      "relPct": 37.0,
+      "status": "On track",
+      "trend": "advancing",
+      "scenes": [
+        {
+          "year": 2018,
+          "date": "2018-02-18",
+          "cloud": 0.65,
+          "stacId": "S2B_58KFA_20180218_0_L2A",
+          "image": "assets/sat/newcaledonia/2018.jpg",
+          "index": 0.3392,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2020,
+          "date": "2020-10-25",
+          "cloud": 3.7,
+          "stacId": "S2B_58KFA_20201025_0_L2A",
+          "image": "assets/sat/newcaledonia/2020.jpg",
+          "index": 0.198,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2022,
+          "date": "2022-09-15",
+          "cloud": 1.38,
+          "stacId": "S2B_58KFA_20220915_0_L2A",
+          "image": "assets/sat/newcaledonia/2022.jpg",
+          "index": 0.364,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2024,
+          "date": "2024-10-04",
+          "cloud": 0.58,
+          "stacId": "S2B_58KFA_20241004_0_L2A",
+          "image": "assets/sat/newcaledonia/2024.jpg",
+          "index": 0.2982,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2026,
+          "date": "2026-05-22",
+          "cloud": 0.04,
+          "stacId": "S2C_58KFA_20260522_0_L2A",
+          "image": "assets/sat/newcaledonia/2026.jpg",
+          "index": 0.2136,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        }
+      ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.3392,
+          "cloud": 0.65
+        },
+        {
+          "year": 2020,
+          "index": 0.198,
+          "cloud": 3.7
+        },
+        {
+          "year": 2022,
+          "index": 0.364,
+          "cloud": 1.38
+        },
+        {
+          "year": 2024,
+          "index": 0.2982,
+          "cloud": 0.58
+        },
+        {
+          "year": 2026,
+          "index": 0.2136,
+          "cloud": 0.04
+        }
+      ],
+      "milestones": [
+        {
+          "name": "Baseline mapped",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-02-18",
+          "pct": 100,
+          "state": "done"
+        },
+        {
+          "name": "Monitoring cadence",
+          "detail": "5 of 5 target years in the archive",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "On track \u00b7 water \u0394 -0.126 (+37.0% vs 2018)",
+          "pct": 100.0,
+          "state": "done"
+        }
+      ]
+    },
+    {
+      "id": "rajaampat",
+      "name": "Raja Ampat",
+      "place": "West Papua, Indonesia",
+      "category": "reefs",
+      "lat": -0.58,
+      "lng": 130.51,
+      "goal": "Monitor high-diversity reef after local protection.",
+      "signal": "water",
+      "direction": "down",
+      "target": 10,
+      "unit": "% less glare vs 2018",
+      "operator": "KKP / MPA network",
+      "intent": "restore",
+      "progress": 100.0,
+      "baseline": 0.3761,
+      "current": 0.2653,
+      "delta": -0.1108,
+      "relPct": 29.5,
+      "status": "On track",
+      "trend": "advancing",
+      "scenes": [
+        {
+          "year": 2018,
+          "date": "2018-05-13",
+          "cloud": 6.3,
+          "stacId": "S2A_52MFE_20180513_0_L2A",
+          "image": "assets/sat/rajaampat/2018.jpg",
+          "index": 0.3761,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2020,
+          "date": "2020-01-28",
+          "cloud": 2.82,
+          "stacId": "S2B_52MFE_20200128_0_L2A",
+          "image": "assets/sat/rajaampat/2020.jpg",
+          "index": 0.4117,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2022,
+          "date": "2022-06-21",
+          "cloud": 4.22,
+          "stacId": "S2A_52MFE_20220621_0_L2A",
+          "image": "assets/sat/rajaampat/2022.jpg",
+          "index": 0.4517,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2024,
+          "date": "2024-04-21",
+          "cloud": 10.01,
+          "stacId": "S2A_52MFE_20240421_0_L2A",
+          "image": "assets/sat/rajaampat/2024.jpg",
+          "index": 0.3451,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2026,
+          "date": "2026-04-21",
+          "cloud": 7.76,
+          "stacId": "S2C_52MFE_20260421_0_L2A",
+          "image": "assets/sat/rajaampat/2026.jpg",
+          "index": 0.2653,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        }
+      ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.3761,
+          "cloud": 6.3
+        },
+        {
+          "year": 2020,
+          "index": 0.4117,
+          "cloud": 2.82
+        },
+        {
+          "year": 2022,
+          "index": 0.4517,
+          "cloud": 4.22
+        },
+        {
+          "year": 2024,
+          "index": 0.3451,
+          "cloud": 10.01
+        },
+        {
+          "year": 2026,
+          "index": 0.2653,
+          "cloud": 7.76
+        }
+      ],
+      "milestones": [
+        {
+          "name": "Baseline mapped",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-05-13",
+          "pct": 100,
+          "state": "done"
+        },
+        {
+          "name": "Monitoring cadence",
+          "detail": "5 of 5 target years in the archive",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "On track \u00b7 water \u0394 -0.111 (+29.5% vs 2018)",
+          "pct": 100.0,
+          "state": "done"
+        }
+      ]
     },
     {
       "id": "tapajos",
@@ -822,12 +3080,18 @@
       "lng": -54.95,
       "goal": "Regrow a cut forest corridor along the Tapaj\u00f3s.",
       "signal": "greenness",
+      "direction": "up",
       "target": 30,
       "unit": "% canopy vs 2018",
       "operator": "ICMBio",
-      "progress": 12.3,
+      "intent": "hold",
+      "progress": 96.4,
       "baseline": 0.2126,
-      "current": 0.0166,
+      "current": 0.2103,
+      "delta": -0.0023,
+      "relPct": -1.1,
+      "status": "On track",
+      "trend": "stable",
       "scenes": [
         {
           "year": 2018,
@@ -864,31 +3128,70 @@
           "image": "assets/sat/tapajos/2024.jpg",
           "index": 0.0166,
           "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2026,
+          "date": "2026-05-25",
+          "cloud": 3.36,
+          "stacId": "S2B_21MYS_20260525_0_L2A",
+          "image": "assets/sat/tapajos/2026.jpg",
+          "index": 0.2103,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        }
+      ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.2126,
+          "cloud": 0.27
+        },
+        {
+          "year": 2020,
+          "index": 0.0169,
+          "cloud": 0.0
+        },
+        {
+          "year": 2022,
+          "index": 0.0181,
+          "cloud": 0.07
+        },
+        {
+          "year": 2024,
+          "index": 0.0166,
+          "cloud": 0.0
+        },
+        {
+          "year": 2026,
+          "index": 0.2103,
+          "cloud": 3.36
         }
       ],
       "milestones": [
         {
           "name": "Baseline mapped",
-          "detail": "Sentinel-2 2018-07-21",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-07-21",
           "pct": 100,
           "state": "done"
         },
         {
-          "name": "Cadence held",
-          "detail": "4 clear scenes in archive",
-          "pct": 100,
+          "name": "Monitoring cadence",
+          "detail": "5 of 5 target years in the archive",
+          "pct": 100.0,
           "state": "done"
         },
         {
-          "name": "Measured change",
-          "detail": "Off track \u00b7 \u0394 index -0.196",
-          "pct": 12.3,
-          "state": "wait"
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "On track \u00b7 greenness \u0394 -0.002 (-1.1% vs 2018)",
+          "pct": 96.4,
+          "state": "active"
         }
-      ],
-      "trend": "declining",
-      "delta": -0.196,
-      "status": "Off track"
+      ]
     },
     {
       "id": "kalimantan",
@@ -899,12 +3202,18 @@
       "lng": 113.92,
       "goal": "Rewet and revegetate drained peat.",
       "signal": "greenness",
+      "direction": "up",
       "target": 28,
       "unit": "% canopy vs 2018",
       "operator": "BRGM",
-      "progress": 32.6,
+      "intent": "restore",
+      "progress": 100.0,
       "baseline": 0.0156,
-      "current": 0.0417,
+      "current": 0.0893,
+      "delta": 0.0737,
+      "relPct": 92.1,
+      "status": "On track",
+      "trend": "advancing",
       "scenes": [
         {
           "year": 2018,
@@ -941,31 +3250,70 @@
           "image": "assets/sat/kalimantan/2024.jpg",
           "index": 0.0417,
           "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2026,
+          "date": "2026-07-20",
+          "cloud": 0.02,
+          "stacId": "S2A_49MHT_20260720_0_L2A",
+          "image": "assets/sat/kalimantan/2026.jpg",
+          "index": 0.0893,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        }
+      ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.0156,
+          "cloud": 0.03
+        },
+        {
+          "year": 2020,
+          "index": 0.0446,
+          "cloud": 0.77
+        },
+        {
+          "year": 2022,
+          "index": 0.2331,
+          "cloud": 1.95
+        },
+        {
+          "year": 2024,
+          "index": 0.0417,
+          "cloud": 0.37
+        },
+        {
+          "year": 2026,
+          "index": 0.0893,
+          "cloud": 0.02
         }
       ],
       "milestones": [
         {
           "name": "Baseline mapped",
-          "detail": "Sentinel-2 2018-09-23",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-09-23",
           "pct": 100,
           "state": "done"
         },
         {
-          "name": "Cadence held",
-          "detail": "4 clear scenes in archive",
-          "pct": 100,
+          "name": "Monitoring cadence",
+          "detail": "5 of 5 target years in the archive",
+          "pct": 100.0,
           "state": "done"
         },
         {
-          "name": "Measured change",
-          "detail": "On track \u00b7 \u0394 index +0.026",
-          "pct": 32.6,
-          "state": "active"
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "On track \u00b7 greenness \u0394 +0.074 (+92.1% vs 2018)",
+          "pct": 100.0,
+          "state": "done"
         }
-      ],
-      "trend": "advancing",
-      "delta": 0.0261,
-      "status": "On track"
+      ]
     },
     {
       "id": "salonga",
@@ -976,12 +3324,18 @@
       "lng": 21.15,
       "goal": "Hold intact Congo canopy at the park edge.",
       "signal": "greenness",
+      "direction": "up",
       "target": 12,
       "unit": "% canopy held vs 2018",
       "operator": "ICCN",
-      "progress": 23.2,
+      "intent": "hold",
+      "progress": 0.0,
       "baseline": 0.1334,
-      "current": 0.0734,
+      "current": 0.0628,
+      "delta": -0.0706,
+      "relPct": -52.9,
+      "status": "Off track",
+      "trend": "declining",
       "scenes": [
         {
           "year": 2018,
@@ -1018,31 +3372,70 @@
           "image": "assets/sat/salonga/2024.jpg",
           "index": 0.0734,
           "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2026,
+          "date": "2026-01-05",
+          "cloud": 0.0,
+          "stacId": "S2B_34MDD_20260105_1_L2A",
+          "image": "assets/sat/salonga/2026.jpg",
+          "index": 0.0628,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        }
+      ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.1334,
+          "cloud": 0.0
+        },
+        {
+          "year": 2020,
+          "index": 0.0649,
+          "cloud": 0.0
+        },
+        {
+          "year": 2022,
+          "index": 0.0565,
+          "cloud": 0.0
+        },
+        {
+          "year": 2024,
+          "index": 0.0734,
+          "cloud": 0.0
+        },
+        {
+          "year": 2026,
+          "index": 0.0628,
+          "cloud": 0.0
         }
       ],
       "milestones": [
         {
           "name": "Baseline mapped",
-          "detail": "Sentinel-2 2018-07-21",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-07-21",
           "pct": 100,
           "state": "done"
         },
         {
-          "name": "Cadence held",
-          "detail": "4 clear scenes in archive",
-          "pct": 100,
+          "name": "Monitoring cadence",
+          "detail": "5 of 5 target years in the archive",
+          "pct": 100.0,
           "state": "done"
         },
         {
-          "name": "Measured change",
-          "detail": "Off track \u00b7 \u0394 index -0.060",
-          "pct": 23.2,
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 0.0,
+          "state": "wait"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "Off track \u00b7 greenness \u0394 -0.071 (-52.9% vs 2018)",
+          "pct": 0.0,
           "state": "wait"
         }
-      ],
-      "trend": "declining",
-      "delta": -0.06,
-      "status": "Off track"
+      ]
     },
     {
       "id": "atlantic",
@@ -1053,12 +3446,18 @@
       "lng": -47.97,
       "goal": "Reconnect fragments of Mata Atl\u00e2ntica.",
       "signal": "greenness",
+      "direction": "up",
       "target": 24,
       "unit": "% canopy vs 2018",
       "operator": "SOS Mata Atl\u00e2ntica",
-      "progress": 25.8,
+      "intent": "restore",
+      "progress": 20.1,
       "baseline": 0.1098,
-      "current": 0.0826,
+      "current": 0.1151,
+      "delta": 0.0053,
+      "relPct": 4.8,
+      "status": "Watching",
+      "trend": "flat",
       "scenes": [
         {
           "year": 2018,
@@ -1095,31 +3494,70 @@
           "image": "assets/sat/atlantic/2024.jpg",
           "index": 0.0826,
           "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2026,
+          "date": "2026-07-27",
+          "cloud": 0.0,
+          "stacId": "S2C_23KKP_20260727_0_L2A",
+          "image": "assets/sat/atlantic/2026.jpg",
+          "index": 0.1151,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        }
+      ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.1098,
+          "cloud": 0.02
+        },
+        {
+          "year": 2020,
+          "index": 0.1423,
+          "cloud": 0.0
+        },
+        {
+          "year": 2022,
+          "index": 0.1164,
+          "cloud": 0.0
+        },
+        {
+          "year": 2024,
+          "index": 0.0826,
+          "cloud": 0.0
+        },
+        {
+          "year": 2026,
+          "index": 0.1151,
+          "cloud": 0.0
         }
       ],
       "milestones": [
         {
           "name": "Baseline mapped",
-          "detail": "Sentinel-2 2018-07-14",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-07-14",
           "pct": 100,
           "state": "done"
         },
         {
-          "name": "Cadence held",
-          "detail": "4 clear scenes in archive",
-          "pct": 100,
+          "name": "Monitoring cadence",
+          "detail": "5 of 5 target years in the archive",
+          "pct": 100.0,
           "state": "done"
         },
         {
-          "name": "Measured change",
-          "detail": "Off track \u00b7 \u0394 index -0.027",
-          "pct": 25.8,
-          "state": "wait"
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 40.2,
+          "state": "active"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "Watching \u00b7 greenness \u0394 +0.005 (+4.8% vs 2018)",
+          "pct": 20.1,
+          "state": "active"
         }
-      ],
-      "trend": "declining",
-      "delta": -0.0272,
-      "status": "Off track"
+      ]
     },
     {
       "id": "menabe",
@@ -1130,12 +3568,18 @@
       "lng": 44.58,
       "goal": "Stop dry-forest loss and restore baobab woodland.",
       "signal": "greenness",
+      "direction": "up",
       "target": 20,
       "unit": "% canopy vs 2018",
       "operator": "Fanamby",
-      "progress": 68.9,
+      "intent": "restore",
+      "progress": 0.0,
       "baseline": 0.0289,
-      "current": 0.084,
+      "current": -0.0067,
+      "delta": -0.0356,
+      "relPct": -44.5,
+      "status": "Off track",
+      "trend": "declining",
       "scenes": [
         {
           "year": 2018,
@@ -1172,493 +3616,70 @@
           "image": "assets/sat/menabe/2024.jpg",
           "index": 0.084,
           "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
-        }
-      ],
-      "milestones": [
-        {
-          "name": "Baseline mapped",
-          "detail": "Sentinel-2 2018-08-22",
-          "pct": 100,
-          "state": "done"
         },
         {
-          "name": "Cadence held",
-          "detail": "4 clear scenes in archive",
-          "pct": 100,
-          "state": "done"
-        },
-        {
-          "name": "Measured change",
-          "detail": "On track \u00b7 \u0394 index +0.055",
-          "pct": 68.9,
-          "state": "active"
+          "year": 2026,
+          "date": "2026-06-26",
+          "cloud": 0.0,
+          "stacId": "S2C_38KMD_20260626_0_L2A",
+          "image": "assets/sat/menabe/2026.jpg",
+          "index": -0.0067,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
         }
       ],
-      "trend": "advancing",
-      "delta": 0.0551,
-      "status": "On track"
-    },
-    {
-      "id": "sunfield",
-      "name": "Sunfield Commons",
-      "place": "Arizona, USA",
-      "category": "energy",
-      "lat": 33.42,
-      "lng": -112.08,
-      "goal": "Confirm community-solar array build-out.",
-      "signal": "bright",
-      "target": 40,
-      "unit": "% bright-surface vs 2018",
-      "operator": "Community solar co-op",
-      "progress": 20.3,
-      "baseline": 0.8841,
-      "current": 0.7879,
-      "scenes": [
+      "series": [
         {
           "year": 2018,
-          "date": "2018-04-20",
-          "cloud": 0.0,
-          "stacId": "S2A_12SUB_20180420_0_L2A",
-          "image": "assets/sat/sunfield/2018.jpg",
-          "index": 0.8841,
-          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+          "index": 0.0289,
+          "cloud": 0.0
         },
         {
           "year": 2020,
-          "date": "2020-06-23",
-          "cloud": 0.0,
-          "stacId": "S2B_12SUB_20200623_1_L2A",
-          "image": "assets/sat/sunfield/2020.jpg",
-          "index": 0.8782,
-          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+          "index": 0.0717,
+          "cloud": 0.0
         },
         {
           "year": 2022,
-          "date": "2022-09-04",
-          "cloud": 0.0,
-          "stacId": "S2B_12SVC_20220904_0_L2A",
-          "image": "assets/sat/sunfield/2022.jpg",
-          "index": 0.5639,
-          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+          "index": 0.0452,
+          "cloud": 0.0
         },
         {
           "year": 2024,
-          "date": "2024-09-13",
-          "cloud": 0.0,
-          "stacId": "S2B_12SVB_20240913_0_L2A",
-          "image": "assets/sat/sunfield/2024.jpg",
-          "index": 0.7879,
-          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+          "index": 0.084,
+          "cloud": 0.0
+        },
+        {
+          "year": 2026,
+          "index": -0.0067,
+          "cloud": 0.0
         }
       ],
       "milestones": [
         {
           "name": "Baseline mapped",
-          "detail": "Sentinel-2 2018-04-20",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-08-22",
           "pct": 100,
           "state": "done"
         },
         {
-          "name": "Cadence held",
-          "detail": "4 clear scenes in archive",
-          "pct": 100,
+          "name": "Monitoring cadence",
+          "detail": "5 of 5 target years in the archive",
+          "pct": 100.0,
           "state": "done"
         },
         {
-          "name": "Measured change",
-          "detail": "Off track \u00b7 \u0394 index -0.096",
-          "pct": 20.3,
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 0.0,
+          "state": "wait"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "Off track \u00b7 greenness \u0394 -0.036 (-44.5% vs 2018)",
+          "pct": 0.0,
           "state": "wait"
         }
-      ],
-      "trend": "declining",
-      "delta": -0.0962,
-      "status": "Off track"
-    },
-    {
-      "id": "noor",
-      "name": "Noor Ouarzazate",
-      "place": "Morocco",
-      "category": "energy",
-      "lat": 30.98,
-      "lng": -6.86,
-      "goal": "Track concentrated-solar field expansion.",
-      "signal": "bright",
-      "target": 35,
-      "unit": "% bright-surface vs 2018",
-      "operator": "MASEN",
-      "progress": 100,
-      "baseline": 0.4865,
-      "current": 0.8936,
-      "scenes": [
-        {
-          "year": 2018,
-          "date": "2018-02-18",
-          "cloud": 0.0,
-          "stacId": "S2B_29RQQ_20180218_1_L2A",
-          "image": "assets/sat/noor/2018.jpg",
-          "index": 0.4865,
-          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
-        },
-        {
-          "year": 2020,
-          "date": "2020-07-25",
-          "cloud": 0.0,
-          "stacId": "S2A_29RPQ_20200725_1_L2A",
-          "image": "assets/sat/noor/2020.jpg",
-          "index": 0.4387,
-          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
-        },
-        {
-          "year": 2022,
-          "date": "2022-12-24",
-          "cloud": 0.0,
-          "stacId": "S2B_29RPQ_20221224_0_L2A",
-          "image": "assets/sat/noor/2022.jpg",
-          "index": 0.8877,
-          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
-        },
-        {
-          "year": 2024,
-          "date": "2024-09-09",
-          "cloud": 0.0,
-          "stacId": "S2A_29RPQ_20240909_0_L2A",
-          "image": "assets/sat/noor/2024.jpg",
-          "index": 0.8936,
-          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
-        }
-      ],
-      "milestones": [
-        {
-          "name": "Baseline mapped",
-          "detail": "Sentinel-2 2018-02-18",
-          "pct": 100,
-          "state": "done"
-        },
-        {
-          "name": "Cadence held",
-          "detail": "4 clear scenes in archive",
-          "pct": 100,
-          "state": "done"
-        },
-        {
-          "name": "Measured change",
-          "detail": "On track \u00b7 \u0394 index +0.407",
-          "pct": 100,
-          "state": "done"
-        }
-      ],
-      "trend": "advancing",
-      "delta": 0.4071,
-      "status": "On track"
-    },
-    {
-      "id": "bhadla",
-      "name": "Bhadla Solar Park",
-      "place": "Rajasthan, India",
-      "category": "energy",
-      "lat": 27.54,
-      "lng": 71.92,
-      "goal": "Measure one of the world\u2019s largest PV parks.",
-      "signal": "bright",
-      "target": 45,
-      "unit": "% bright-surface vs 2018",
-      "operator": "RRECL",
-      "progress": 15.9,
-      "baseline": 0.6089,
-      "current": 0.458,
-      "scenes": [
-        {
-          "year": 2018,
-          "date": "2018-09-18",
-          "cloud": 0.0,
-          "stacId": "S2A_42RYR_20180918_1_L2A",
-          "image": "assets/sat/bhadla/2018.jpg",
-          "index": 0.6089,
-          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
-        },
-        {
-          "year": 2020,
-          "date": "2020-09-27",
-          "cloud": 0.0,
-          "stacId": "S2A_42RYR_20200927_1_L2A",
-          "image": "assets/sat/bhadla/2020.jpg",
-          "index": 0.5713,
-          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
-        },
-        {
-          "year": 2022,
-          "date": "2022-12-11",
-          "cloud": 0.0,
-          "stacId": "S2B_43RBL_20221211_0_L2A",
-          "image": "assets/sat/bhadla/2022.jpg",
-          "index": 0.5287,
-          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
-        },
-        {
-          "year": 2024,
-          "date": "2024-09-26",
-          "cloud": 0.0,
-          "stacId": "S2A_43RBL_20240926_0_L2A",
-          "image": "assets/sat/bhadla/2024.jpg",
-          "index": 0.458,
-          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
-        }
-      ],
-      "milestones": [
-        {
-          "name": "Baseline mapped",
-          "detail": "Sentinel-2 2018-09-18",
-          "pct": 100,
-          "state": "done"
-        },
-        {
-          "name": "Cadence held",
-          "detail": "4 clear scenes in archive",
-          "pct": 100,
-          "state": "done"
-        },
-        {
-          "name": "Measured change",
-          "detail": "Off track \u00b7 \u0394 index -0.151",
-          "pct": 15.9,
-          "state": "wait"
-        }
-      ],
-      "trend": "declining",
-      "delta": -0.1509,
-      "status": "Off track"
-    },
-    {
-      "id": "atacama",
-      "name": "Atacama PV Corridor",
-      "place": "Chile",
-      "category": "energy",
-      "lat": -24.28,
-      "lng": -69.07,
-      "goal": "Watch desert PV blocks come online.",
-      "signal": "bright",
-      "target": 38,
-      "unit": "% bright-surface vs 2018",
-      "operator": "Coordinador El\u00e9ctrico",
-      "progress": 3.9,
-      "baseline": 0.4824,
-      "current": 0.4895,
-      "scenes": [
-        {
-          "year": 2018,
-          "date": "2018-06-08",
-          "cloud": 0.02,
-          "stacId": "S2B_19JDN_20180608_1_L2A",
-          "image": "assets/sat/atacama/2018.jpg",
-          "index": 0.4824,
-          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
-        },
-        {
-          "year": 2020,
-          "date": "2020-04-23",
-          "cloud": 0.02,
-          "stacId": "S2A_19JDN_20200423_1_L2A",
-          "image": "assets/sat/atacama/2020.jpg",
-          "index": 0.5025,
-          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
-        },
-        {
-          "year": 2022,
-          "date": "2022-03-19",
-          "cloud": 0.01,
-          "stacId": "S2B_19JDN_20220319_1_L2A",
-          "image": "assets/sat/atacama/2022.jpg",
-          "index": 0.6836,
-          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
-        },
-        {
-          "year": 2024,
-          "date": "2024-04-27",
-          "cloud": 0.02,
-          "stacId": "S2B_19JDN_20240427_0_L2A",
-          "image": "assets/sat/atacama/2024.jpg",
-          "index": 0.4895,
-          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
-        }
-      ],
-      "milestones": [
-        {
-          "name": "Baseline mapped",
-          "detail": "Sentinel-2 2018-06-08",
-          "pct": 100,
-          "state": "done"
-        },
-        {
-          "name": "Cadence held",
-          "detail": "4 clear scenes in archive",
-          "pct": 100,
-          "state": "done"
-        },
-        {
-          "name": "Measured change",
-          "detail": "Watching \u00b7 \u0394 index +0.007",
-          "pct": 3.9,
-          "state": "active"
-        }
-      ],
-      "trend": "stable",
-      "delta": 0.0071,
-      "status": "Watching"
-    },
-    {
-      "id": "turkana",
-      "name": "Lake Turkana Edge",
-      "place": "Kenya",
-      "category": "energy",
-      "lat": 2.73,
-      "lng": 36.78,
-      "goal": "Confirm wind/solar footprint beside the lake.",
-      "signal": "bright",
-      "target": 22,
-      "unit": "% bright-surface vs 2018",
-      "operator": "LTWP",
-      "progress": 70.5,
-      "baseline": 0.6337,
-      "current": 0.7606,
-      "scenes": [
-        {
-          "year": 2018,
-          "date": "2018-03-10",
-          "cloud": 0.0,
-          "stacId": "S2B_37NBC_20180310_0_L2A",
-          "image": "assets/sat/turkana/2018.jpg",
-          "index": 0.6337,
-          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
-        },
-        {
-          "year": 2020,
-          "date": "2020-12-27",
-          "cloud": 0.0,
-          "stacId": "S2B_37NBC_20201227_1_L2A",
-          "image": "assets/sat/turkana/2020.jpg",
-          "index": 0.6263,
-          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
-        },
-        {
-          "year": 2022,
-          "date": "2022-08-09",
-          "cloud": 0.0,
-          "stacId": "S2B_37NBD_20220809_0_L2A",
-          "image": "assets/sat/turkana/2022.jpg",
-          "index": 0.5241,
-          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
-        },
-        {
-          "year": 2024,
-          "date": "2024-09-19",
-          "cloud": 0.0,
-          "stacId": "S2A_37NBD_20240919_0_L2A",
-          "image": "assets/sat/turkana/2024.jpg",
-          "index": 0.7606,
-          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
-        }
-      ],
-      "milestones": [
-        {
-          "name": "Baseline mapped",
-          "detail": "Sentinel-2 2018-03-10",
-          "pct": 100,
-          "state": "done"
-        },
-        {
-          "name": "Cadence held",
-          "detail": "4 clear scenes in archive",
-          "pct": 100,
-          "state": "done"
-        },
-        {
-          "name": "Measured change",
-          "detail": "On track \u00b7 \u0394 index +0.127",
-          "pct": 70.5,
-          "state": "active"
-        }
-      ],
-      "trend": "advancing",
-      "delta": 0.1269,
-      "status": "On track"
-    },
-    {
-      "id": "danube",
-      "name": "Danube Delta",
-      "place": "Romania",
-      "category": "coasts",
-      "lat": 45.16,
-      "lng": 29.38,
-      "goal": "Recover reed and wetland vegetation.",
-      "signal": "greenness",
-      "target": 14,
-      "unit": "% green cover vs 2018",
-      "operator": "DDBRA",
-      "progress": 21.6,
-      "baseline": 0.1763,
-      "current": 0.0966,
-      "scenes": [
-        {
-          "year": 2018,
-          "date": "2018-08-21",
-          "cloud": 0.0,
-          "stacId": "S2B_35TQK_20180821_1_L2A",
-          "image": "assets/sat/danube/2018.jpg",
-          "index": 0.1763,
-          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
-        },
-        {
-          "year": 2020,
-          "date": "2020-07-11",
-          "cloud": 0.0,
-          "stacId": "S2B_35TQK_20200711_1_L2A",
-          "image": "assets/sat/danube/2020.jpg",
-          "index": 0.1193,
-          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
-        },
-        {
-          "year": 2022,
-          "date": "2022-07-26",
-          "cloud": 0.0,
-          "stacId": "S2A_35TQK_20220726_0_L2A",
-          "image": "assets/sat/danube/2022.jpg",
-          "index": 0.2565,
-          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
-        },
-        {
-          "year": 2024,
-          "date": "2024-06-30",
-          "cloud": 0.0,
-          "stacId": "S2B_35TQK_20240630_0_L2A",
-          "image": "assets/sat/danube/2024.jpg",
-          "index": 0.0966,
-          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
-        }
-      ],
-      "milestones": [
-        {
-          "name": "Baseline mapped",
-          "detail": "Sentinel-2 2018-08-21",
-          "pct": 100,
-          "state": "done"
-        },
-        {
-          "name": "Cadence held",
-          "detail": "4 clear scenes in archive",
-          "pct": 100,
-          "state": "done"
-        },
-        {
-          "name": "Measured change",
-          "detail": "Off track \u00b7 \u0394 index -0.080",
-          "pct": 21.6,
-          "state": "wait"
-        }
-      ],
-      "trend": "declining",
-      "delta": -0.0797,
-      "status": "Off track"
+      ]
     },
     {
       "id": "okavango",
@@ -1669,12 +3690,18 @@
       "lng": 22.86,
       "goal": "Track seasonal wetland green-up.",
       "signal": "greenness",
+      "direction": "up",
       "target": 18,
       "unit": "% green cover vs 2018",
       "operator": "OKACOM",
-      "progress": 52.6,
+      "intent": "hold",
+      "progress": 91.0,
       "baseline": -0.0736,
-      "current": -0.0315,
+      "current": -0.0749,
+      "delta": -0.0013,
+      "relPct": -1.6,
+      "status": "On track",
+      "trend": "stable",
       "scenes": [
         {
           "year": 2018,
@@ -1711,108 +3738,2196 @@
           "image": "assets/sat/okavango/2024.jpg",
           "index": -0.0315,
           "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2026,
+          "date": "2026-07-23",
+          "cloud": 0.0,
+          "stacId": "S2C_34KFD_20260723_0_L2A",
+          "image": "assets/sat/okavango/2026.jpg",
+          "index": -0.0749,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        }
+      ],
+      "series": [
+        {
+          "year": 2018,
+          "index": -0.0736,
+          "cloud": 0.0
+        },
+        {
+          "year": 2020,
+          "index": -0.0361,
+          "cloud": 0.0
+        },
+        {
+          "year": 2022,
+          "index": -0.0677,
+          "cloud": 0.0
+        },
+        {
+          "year": 2024,
+          "index": -0.0315,
+          "cloud": 0.0
+        },
+        {
+          "year": 2026,
+          "index": -0.0749,
+          "cloud": 0.0
         }
       ],
       "milestones": [
         {
           "name": "Baseline mapped",
-          "detail": "Sentinel-2 2018-08-29",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-08-29",
           "pct": 100,
           "state": "done"
         },
         {
-          "name": "Cadence held",
-          "detail": "4 clear scenes in archive",
-          "pct": 100,
+          "name": "Monitoring cadence",
+          "detail": "5 of 5 target years in the archive",
+          "pct": 100.0,
           "state": "done"
         },
         {
-          "name": "Measured change",
-          "detail": "On track \u00b7 \u0394 index +0.042",
-          "pct": 52.6,
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "On track \u00b7 greenness \u0394 -0.001 (-1.6% vs 2018)",
+          "pct": 91.0,
           "state": "active"
         }
-      ],
-      "trend": "advancing",
-      "delta": 0.0421,
-      "status": "On track"
+      ]
     },
     {
-      "id": "chesapeake",
-      "name": "Chesapeake Shore",
-      "place": "Maryland, USA",
-      "category": "coasts",
-      "lat": 38.74,
-      "lng": -76.33,
-      "goal": "Restore shoreline marsh.",
+      "id": "osa",
+      "name": "Osa Peninsula",
+      "place": "Costa Rica",
+      "category": "forests",
+      "lat": 8.54,
+      "lng": -83.5,
+      "goal": "Hold intact rainforest on the Osa.",
       "signal": "greenness",
-      "target": 13,
-      "unit": "% marsh cover vs 2018",
-      "operator": "Chesapeake Conservancy",
-      "progress": 22.7,
-      "baseline": 0.0906,
-      "current": 0.0249,
+      "direction": "up",
+      "target": 12,
+      "unit": "% canopy held vs 2018",
+      "operator": "SINAC",
+      "intent": "hold",
+      "progress": 100.0,
+      "baseline": 0.1744,
+      "current": 0.2264,
+      "delta": 0.052,
+      "relPct": 29.8,
+      "status": "Shifting",
+      "trend": "reversing",
       "scenes": [
         {
           "year": 2018,
-          "date": "2018-01-26",
-          "cloud": 0.08,
-          "stacId": "S2B_18SUH_20180126_0_L2A",
-          "image": "assets/sat/chesapeake/2018.jpg",
-          "index": 0.0906,
+          "date": "2018-03-27",
+          "cloud": 2.3,
+          "stacId": "S2B_16PHQ_20180327_0_L2A",
+          "image": "assets/sat/osa/2018.jpg",
+          "index": 0.1744,
           "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
         },
         {
           "year": 2020,
-          "date": "2020-10-07",
-          "cloud": 0.0,
-          "stacId": "S2A_18SUJ_20201007_1_L2A",
-          "image": "assets/sat/chesapeake/2020.jpg",
-          "index": 0.1247,
+          "date": "2020-03-11",
+          "cloud": 2.18,
+          "stacId": "S2A_16PHQ_20200311_0_L2A",
+          "image": "assets/sat/osa/2020.jpg",
+          "index": 0.1874,
           "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
         },
         {
           "year": 2022,
-          "date": "2022-08-13",
-          "cloud": 0.0,
-          "stacId": "S2B_18SVJ_20220813_0_L2A",
-          "image": "assets/sat/chesapeake/2022.jpg",
-          "index": 0.1546,
+          "date": "2022-02-24",
+          "cloud": 4.01,
+          "stacId": "S2B_16PHQ_20220224_0_L2A",
+          "image": "assets/sat/osa/2022.jpg",
+          "index": 0.2297,
           "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
         },
         {
           "year": 2024,
-          "date": "2024-02-04",
-          "cloud": 0.0,
-          "stacId": "S2B_18SUJ_20240204_0_L2A",
-          "image": "assets/sat/chesapeake/2024.jpg",
-          "index": 0.0249,
+          "date": "2024-01-20",
+          "cloud": 3.65,
+          "stacId": "S2A_16PHQ_20240120_0_L2A",
+          "image": "assets/sat/osa/2024.jpg",
+          "index": 0.2556,
           "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2026,
+          "date": "2026-01-29",
+          "cloud": 4.5,
+          "stacId": "S2C_16PHQ_20260129_0_L2A",
+          "image": "assets/sat/osa/2026.jpg",
+          "index": 0.2264,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        }
+      ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.1744,
+          "cloud": 2.3
+        },
+        {
+          "year": 2020,
+          "index": 0.1874,
+          "cloud": 2.18
+        },
+        {
+          "year": 2022,
+          "index": 0.2297,
+          "cloud": 4.01
+        },
+        {
+          "year": 2024,
+          "index": 0.2556,
+          "cloud": 3.65
+        },
+        {
+          "year": 2026,
+          "index": 0.2264,
+          "cloud": 4.5
         }
       ],
       "milestones": [
         {
           "name": "Baseline mapped",
-          "detail": "Sentinel-2 2018-01-26",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-03-27",
           "pct": 100,
           "state": "done"
         },
         {
-          "name": "Cadence held",
-          "detail": "4 clear scenes in archive",
-          "pct": 100,
+          "name": "Monitoring cadence",
+          "detail": "5 of 5 target years in the archive",
+          "pct": 100.0,
           "state": "done"
         },
         {
-          "name": "Measured change",
-          "detail": "Off track \u00b7 \u0394 index -0.066",
-          "pct": 22.7,
-          "state": "wait"
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "Shifting \u00b7 greenness \u0394 +0.052 (+29.8% vs 2018)",
+          "pct": 100.0,
+          "state": "done"
+        }
+      ]
+    },
+    {
+      "id": "daintree",
+      "name": "Daintree Edge",
+      "place": "Queensland, Australia",
+      "category": "forests",
+      "lat": -16.17,
+      "lng": 145.42,
+      "goal": "Hold ancient rainforest at the coastal edge.",
+      "signal": "greenness",
+      "direction": "up",
+      "target": 10,
+      "unit": "% canopy held vs 2018",
+      "operator": "QPWS",
+      "intent": "hold",
+      "progress": 100.0,
+      "baseline": 0.1431,
+      "current": 0.1934,
+      "delta": 0.0503,
+      "relPct": 35.2,
+      "status": "On track",
+      "trend": "advancing",
+      "scenes": [
+        {
+          "year": 2018,
+          "date": "2018-06-01",
+          "cloud": 0.29,
+          "stacId": "S2A_55KCB_20180601_0_L2A",
+          "image": "assets/sat/daintree/2018.jpg",
+          "index": 0.1431,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2020,
+          "date": "2020-07-30",
+          "cloud": 0.06,
+          "stacId": "S2A_55KCB_20200730_1_L2A",
+          "image": "assets/sat/daintree/2020.jpg",
+          "index": 0.1297,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2022,
+          "date": "2022-08-24",
+          "cloud": 1.32,
+          "stacId": "S2B_55KCB_20220824_0_L2A",
+          "image": "assets/sat/daintree/2022.jpg",
+          "index": 0.1225,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2024,
+          "date": "2024-06-09",
+          "cloud": 0.01,
+          "stacId": "S2A_55KCB_20240609_0_L2A",
+          "image": "assets/sat/daintree/2024.jpg",
+          "index": 0.1581,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2026,
+          "date": "2026-06-04",
+          "cloud": 0.56,
+          "stacId": "S2B_55KCB_20260604_0_L2A",
+          "image": "assets/sat/daintree/2026.jpg",
+          "index": 0.1934,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
         }
       ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.1431,
+          "cloud": 0.29
+        },
+        {
+          "year": 2020,
+          "index": 0.1297,
+          "cloud": 0.06
+        },
+        {
+          "year": 2022,
+          "index": 0.1225,
+          "cloud": 1.32
+        },
+        {
+          "year": 2024,
+          "index": 0.1581,
+          "cloud": 0.01
+        },
+        {
+          "year": 2026,
+          "index": 0.1934,
+          "cloud": 0.56
+        }
+      ],
+      "milestones": [
+        {
+          "name": "Baseline mapped",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-06-01",
+          "pct": 100,
+          "state": "done"
+        },
+        {
+          "name": "Monitoring cadence",
+          "detail": "5 of 5 target years in the archive",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "On track \u00b7 greenness \u0394 +0.050 (+35.2% vs 2018)",
+          "pct": 100.0,
+          "state": "done"
+        }
+      ]
+    },
+    {
+      "id": "ghats",
+      "name": "Western Ghats",
+      "place": "Kerala, India",
+      "category": "forests",
+      "lat": 10.17,
+      "lng": 76.57,
+      "goal": "Recover evergreen canopy in a biodiversity hotspot.",
+      "signal": "greenness",
+      "direction": "up",
+      "target": 18,
+      "unit": "% canopy vs 2018",
+      "operator": "Kerala Forest Department",
+      "intent": "restore",
+      "progress": 0.0,
+      "baseline": 0.0673,
+      "current": 0.0208,
+      "delta": -0.0465,
+      "relPct": -58.1,
+      "status": "Off track",
       "trend": "declining",
-      "delta": -0.0657,
-      "status": "Off track"
+      "scenes": [
+        {
+          "year": 2018,
+          "date": "2018-02-23",
+          "cloud": 0.07,
+          "stacId": "S2B_43PFM_20180223_0_L2A",
+          "image": "assets/sat/ghats/2018.jpg",
+          "index": 0.0673,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2020,
+          "date": "2020-01-12",
+          "cloud": 0.0,
+          "stacId": "S2A_43PFM_20200112_1_L2A",
+          "image": "assets/sat/ghats/2020.jpg",
+          "index": 0.0809,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2022,
+          "date": "2022-01-06",
+          "cloud": 0.08,
+          "stacId": "S2B_43PFM_20220106_0_L2A",
+          "image": "assets/sat/ghats/2022.jpg",
+          "index": 0.0781,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2024,
+          "date": "2024-01-21",
+          "cloud": 0.0,
+          "stacId": "S2A_43PFM_20240121_0_L2A",
+          "image": "assets/sat/ghats/2024.jpg",
+          "index": 0.0882,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2026,
+          "date": "2026-02-19",
+          "cloud": 0.0,
+          "stacId": "S2C_43PFM_20260219_0_L2A",
+          "image": "assets/sat/ghats/2026.jpg",
+          "index": 0.0208,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        }
+      ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.0673,
+          "cloud": 0.07
+        },
+        {
+          "year": 2020,
+          "index": 0.0809,
+          "cloud": 0.0
+        },
+        {
+          "year": 2022,
+          "index": 0.0781,
+          "cloud": 0.08
+        },
+        {
+          "year": 2024,
+          "index": 0.0882,
+          "cloud": 0.0
+        },
+        {
+          "year": 2026,
+          "index": 0.0208,
+          "cloud": 0.0
+        }
+      ],
+      "milestones": [
+        {
+          "name": "Baseline mapped",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-02-23",
+          "pct": 100,
+          "state": "done"
+        },
+        {
+          "name": "Monitoring cadence",
+          "detail": "5 of 5 target years in the archive",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 0.0,
+          "state": "wait"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "Off track \u00b7 greenness \u0394 -0.046 (-58.1% vs 2018)",
+          "pct": 0.0,
+          "state": "wait"
+        }
+      ]
+    },
+    {
+      "id": "atewa",
+      "name": "Atewa Range",
+      "place": "Ghana",
+      "category": "forests",
+      "lat": 6.17,
+      "lng": -0.58,
+      "goal": "Hold upland forest that feeds Accra\u2019s water.",
+      "signal": "greenness",
+      "direction": "up",
+      "target": 14,
+      "unit": "% canopy held vs 2018",
+      "operator": "Forestry Commission Ghana",
+      "intent": "hold",
+      "progress": 0.0,
+      "baseline": 0.0555,
+      "current": -0.0202,
+      "delta": -0.0757,
+      "relPct": -94.6,
+      "status": "Off track",
+      "trend": "declining",
+      "scenes": [
+        {
+          "year": 2018,
+          "date": "2018-01-02",
+          "cloud": 0.04,
+          "stacId": "S2A_30NYN_20180102_1_L2A",
+          "image": "assets/sat/atewa/2018.jpg",
+          "index": 0.0555,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2020,
+          "date": "2020-01-27",
+          "cloud": 0.01,
+          "stacId": "S2B_30NYN_20200127_1_L2A",
+          "image": "assets/sat/atewa/2020.jpg",
+          "index": 0.0355,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2022,
+          "date": "2022-12-27",
+          "cloud": 0.0,
+          "stacId": "S2A_30NYN_20221227_0_L2A",
+          "image": "assets/sat/atewa/2022.jpg",
+          "index": 0.0729,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2024,
+          "date": "2024-01-31",
+          "cloud": 0.01,
+          "stacId": "S2A_30NYN_20240131_1_L2A",
+          "image": "assets/sat/atewa/2024.jpg",
+          "index": 0.0234,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2026,
+          "date": "2026-01-25",
+          "cloud": 0.0,
+          "stacId": "S2B_30NYN_20260125_0_L2A",
+          "image": "assets/sat/atewa/2026.jpg",
+          "index": -0.0202,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        }
+      ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.0555,
+          "cloud": 0.04
+        },
+        {
+          "year": 2020,
+          "index": 0.0355,
+          "cloud": 0.01
+        },
+        {
+          "year": 2022,
+          "index": 0.0729,
+          "cloud": 0.0
+        },
+        {
+          "year": 2024,
+          "index": 0.0234,
+          "cloud": 0.01
+        },
+        {
+          "year": 2026,
+          "index": -0.0202,
+          "cloud": 0.0
+        }
+      ],
+      "milestones": [
+        {
+          "name": "Baseline mapped",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-01-02",
+          "pct": 100,
+          "state": "done"
+        },
+        {
+          "name": "Monitoring cadence",
+          "detail": "5 of 5 target years in the archive",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 0.0,
+          "state": "wait"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "Off track \u00b7 greenness \u0394 -0.076 (-94.6% vs 2018)",
+          "pct": 0.0,
+          "state": "wait"
+        }
+      ]
+    },
+    {
+      "id": "valdivia",
+      "name": "Valdivian Forest",
+      "place": "Chile",
+      "category": "forests",
+      "lat": -40.12,
+      "lng": -73.48,
+      "goal": "Protect temperate rainforest fragments.",
+      "signal": "greenness",
+      "direction": "up",
+      "target": 12,
+      "unit": "% canopy held vs 2018",
+      "operator": "CONAF",
+      "intent": "hold",
+      "progress": 0.0,
+      "baseline": 0.2001,
+      "current": 0.1054,
+      "delta": -0.0947,
+      "relPct": -47.3,
+      "status": "Off track",
+      "trend": "declining",
+      "scenes": [
+        {
+          "year": 2018,
+          "date": "2018-06-03",
+          "cloud": 0.02,
+          "stacId": "S2A_18GXA_20180603_1_L2A",
+          "image": "assets/sat/valdivia/2018.jpg",
+          "index": 0.2001,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2020,
+          "date": "2020-04-08",
+          "cloud": 0.0,
+          "stacId": "S2B_18GXA_20200408_1_L2A",
+          "image": "assets/sat/valdivia/2020.jpg",
+          "index": 0.1552,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2022,
+          "date": "2022-11-24",
+          "cloud": 1.54,
+          "stacId": "S2B_18GXA_20221124_0_L2A",
+          "image": "assets/sat/valdivia/2022.jpg",
+          "index": 0.1597,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2024,
+          "date": "2024-04-12",
+          "cloud": 0.0,
+          "stacId": "S2A_18GXA_20240412_0_L2A",
+          "image": "assets/sat/valdivia/2024.jpg",
+          "index": 0.1895,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2026,
+          "date": "2026-01-07",
+          "cloud": 0.0,
+          "stacId": "S2B_18GXA_20260107_0_L2A",
+          "image": "assets/sat/valdivia/2026.jpg",
+          "index": 0.1054,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        }
+      ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.2001,
+          "cloud": 0.02
+        },
+        {
+          "year": 2020,
+          "index": 0.1552,
+          "cloud": 0.0
+        },
+        {
+          "year": 2022,
+          "index": 0.1597,
+          "cloud": 1.54
+        },
+        {
+          "year": 2024,
+          "index": 0.1895,
+          "cloud": 0.0
+        },
+        {
+          "year": 2026,
+          "index": 0.1054,
+          "cloud": 0.0
+        }
+      ],
+      "milestones": [
+        {
+          "name": "Baseline mapped",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-06-03",
+          "pct": 100,
+          "state": "done"
+        },
+        {
+          "name": "Monitoring cadence",
+          "detail": "5 of 5 target years in the archive",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 0.0,
+          "state": "wait"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "Off track \u00b7 greenness \u0394 -0.095 (-47.3% vs 2018)",
+          "pct": 0.0,
+          "state": "wait"
+        }
+      ]
+    },
+    {
+      "id": "miombo",
+      "name": "North Luangwa",
+      "place": "Zambia",
+      "category": "forests",
+      "lat": -11.45,
+      "lng": 32.35,
+      "goal": "Hold miombo woodland on the park edge.",
+      "signal": "greenness",
+      "direction": "up",
+      "target": 14,
+      "unit": "% canopy held vs 2018",
+      "operator": "DNPW / FZS",
+      "intent": "hold",
+      "progress": 0.0,
+      "baseline": 0.0739,
+      "current": -0.0613,
+      "delta": -0.1352,
+      "relPct": -169.0,
+      "status": "Off track",
+      "trend": "declining",
+      "scenes": [
+        {
+          "year": 2018,
+          "date": "2018-06-01",
+          "cloud": 0.0,
+          "stacId": "S2B_36LVN_20180601_1_L2A",
+          "image": "assets/sat/miombo/2018.jpg",
+          "index": 0.0739,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2020,
+          "date": "2020-11-07",
+          "cloud": 0.0,
+          "stacId": "S2B_36LVN_20201107_1_L2A",
+          "image": "assets/sat/miombo/2020.jpg",
+          "index": -0.0588,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2022,
+          "date": "2022-05-11",
+          "cloud": 0.0,
+          "stacId": "S2B_36LVN_20220511_0_L2A",
+          "image": "assets/sat/miombo/2022.jpg",
+          "index": 0.1458,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2024,
+          "date": "2024-06-04",
+          "cloud": 0.0,
+          "stacId": "S2A_36LVN_20240604_0_L2A",
+          "image": "assets/sat/miombo/2024.jpg",
+          "index": 0.0814,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2026,
+          "date": "2026-07-16",
+          "cloud": 0.0,
+          "stacId": "S2A_36LVN_20260716_0_L2A",
+          "image": "assets/sat/miombo/2026.jpg",
+          "index": -0.0613,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        }
+      ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.0739,
+          "cloud": 0.0
+        },
+        {
+          "year": 2020,
+          "index": -0.0588,
+          "cloud": 0.0
+        },
+        {
+          "year": 2022,
+          "index": 0.1458,
+          "cloud": 0.0
+        },
+        {
+          "year": 2024,
+          "index": 0.0814,
+          "cloud": 0.0
+        },
+        {
+          "year": 2026,
+          "index": -0.0613,
+          "cloud": 0.0
+        }
+      ],
+      "milestones": [
+        {
+          "name": "Baseline mapped",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-06-01",
+          "pct": 100,
+          "state": "done"
+        },
+        {
+          "name": "Monitoring cadence",
+          "detail": "5 of 5 target years in the archive",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 0.0,
+          "state": "wait"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "Off track \u00b7 greenness \u0394 -0.135 (-169.0% vs 2018)",
+          "pct": 0.0,
+          "state": "wait"
+        }
+      ]
+    },
+    {
+      "id": "boreal",
+      "name": "Wood Buffalo Edge",
+      "place": "Alberta, Canada",
+      "category": "forests",
+      "lat": 59.39,
+      "lng": -112.0,
+      "goal": "Watch boreal canopy at the park fringe.",
+      "signal": "greenness",
+      "direction": "up",
+      "target": 10,
+      "unit": "% canopy held vs 2018",
+      "operator": "Parks Canada",
+      "intent": "hold",
+      "progress": 0.0,
+      "baseline": 0.0591,
+      "current": 0.0154,
+      "delta": -0.0437,
+      "relPct": -54.6,
+      "status": "Off track",
+      "trend": "declining",
+      "scenes": [
+        {
+          "year": 2018,
+          "date": "2018-10-24",
+          "cloud": 0.0,
+          "stacId": "S2B_12VVL_20181024_0_L2A",
+          "image": "assets/sat/boreal/2018.jpg",
+          "index": 0.0591,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2020,
+          "date": "2020-06-18",
+          "cloud": 0.0,
+          "stacId": "S2B_12VVM_20200618_1_L2A",
+          "image": "assets/sat/boreal/2020.jpg",
+          "index": 0.1264,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2022,
+          "date": "2022-08-12",
+          "cloud": 0.0,
+          "stacId": "S2A_12VVL_20220812_0_L2A",
+          "image": "assets/sat/boreal/2022.jpg",
+          "index": 0.1651,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2026,
+          "date": "2026-06-15",
+          "cloud": 0.0,
+          "stacId": "S2C_12VVM_20260615_0_L2A",
+          "image": "assets/sat/boreal/2026.jpg",
+          "index": 0.0154,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        }
+      ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.0591,
+          "cloud": 0.0
+        },
+        {
+          "year": 2020,
+          "index": 0.1264,
+          "cloud": 0.0
+        },
+        {
+          "year": 2022,
+          "index": 0.1651,
+          "cloud": 0.0
+        },
+        {
+          "year": 2026,
+          "index": 0.0154,
+          "cloud": 0.0
+        }
+      ],
+      "milestones": [
+        {
+          "name": "Baseline mapped",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-10-24",
+          "pct": 100,
+          "state": "done"
+        },
+        {
+          "name": "Monitoring cadence",
+          "detail": "4 of 5 target years in the archive",
+          "pct": 80.0,
+          "state": "done"
+        },
+        {
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 0.0,
+          "state": "wait"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "Off track \u00b7 greenness \u0394 -0.044 (-54.6% vs 2018)",
+          "pct": 0.0,
+          "state": "wait"
+        }
+      ]
+    },
+    {
+      "id": "sunfield",
+      "name": "Sunfield Commons",
+      "place": "Arizona, USA",
+      "category": "energy",
+      "lat": 33.42,
+      "lng": -112.08,
+      "goal": "Confirm community-solar array build-out.",
+      "signal": "bright",
+      "direction": "either",
+      "target": 40,
+      "unit": "% bright-surface vs 2018",
+      "operator": "Community solar co-op",
+      "intent": "restore",
+      "progress": 54.1,
+      "baseline": 0.8841,
+      "current": 0.6928,
+      "delta": -0.1913,
+      "relPct": 21.6,
+      "status": "On track",
+      "trend": "advancing",
+      "scenes": [
+        {
+          "year": 2018,
+          "date": "2018-04-20",
+          "cloud": 0.0,
+          "stacId": "S2A_12SUB_20180420_0_L2A",
+          "image": "assets/sat/sunfield/2018.jpg",
+          "index": 0.8841,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2020,
+          "date": "2020-06-23",
+          "cloud": 0.0,
+          "stacId": "S2B_12SUB_20200623_1_L2A",
+          "image": "assets/sat/sunfield/2020.jpg",
+          "index": 0.8782,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2022,
+          "date": "2022-09-04",
+          "cloud": 0.0,
+          "stacId": "S2B_12SVC_20220904_0_L2A",
+          "image": "assets/sat/sunfield/2022.jpg",
+          "index": 0.5639,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2024,
+          "date": "2024-09-13",
+          "cloud": 0.0,
+          "stacId": "S2B_12SVB_20240913_0_L2A",
+          "image": "assets/sat/sunfield/2024.jpg",
+          "index": 0.7879,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2026,
+          "date": "2026-05-08",
+          "cloud": 0.0,
+          "stacId": "S2C_12SVB_20260508_0_L2A",
+          "image": "assets/sat/sunfield/2026.jpg",
+          "index": 0.6928,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        }
+      ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.8841,
+          "cloud": 0.0
+        },
+        {
+          "year": 2020,
+          "index": 0.8782,
+          "cloud": 0.0
+        },
+        {
+          "year": 2022,
+          "index": 0.5639,
+          "cloud": 0.0
+        },
+        {
+          "year": 2024,
+          "index": 0.7879,
+          "cloud": 0.0
+        },
+        {
+          "year": 2026,
+          "index": 0.6928,
+          "cloud": 0.0
+        }
+      ],
+      "milestones": [
+        {
+          "name": "Baseline mapped",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-04-20",
+          "pct": 100,
+          "state": "done"
+        },
+        {
+          "name": "Monitoring cadence",
+          "detail": "5 of 5 target years in the archive",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "On track \u00b7 bright \u0394 -0.191 (+21.6% vs 2018)",
+          "pct": 54.1,
+          "state": "active"
+        }
+      ]
+    },
+    {
+      "id": "noor",
+      "name": "Noor Ouarzazate",
+      "place": "Morocco",
+      "category": "energy",
+      "lat": 30.98,
+      "lng": -6.86,
+      "goal": "Track concentrated-solar field expansion.",
+      "signal": "bright",
+      "direction": "either",
+      "target": 35,
+      "unit": "% bright-surface vs 2018",
+      "operator": "MASEN",
+      "intent": "restore",
+      "progress": 28.1,
+      "baseline": 0.4865,
+      "current": 0.4387,
+      "delta": -0.0478,
+      "relPct": 9.8,
+      "status": "Watching",
+      "trend": "advancing",
+      "scenes": [
+        {
+          "year": 2018,
+          "date": "2018-02-18",
+          "cloud": 0.0,
+          "stacId": "S2B_29RQQ_20180218_1_L2A",
+          "image": "assets/sat/noor/2018.jpg",
+          "index": 0.4865,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2020,
+          "date": "2020-07-25",
+          "cloud": 0.0,
+          "stacId": "S2A_29RPQ_20200725_1_L2A",
+          "image": "assets/sat/noor/2020.jpg",
+          "index": 0.4387,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        }
+      ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.4865,
+          "cloud": 0.0
+        },
+        {
+          "year": 2020,
+          "index": 0.4387,
+          "cloud": 0.0
+        }
+      ],
+      "milestones": [
+        {
+          "name": "Baseline mapped",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-02-18",
+          "pct": 100,
+          "state": "done"
+        },
+        {
+          "name": "Monitoring cadence",
+          "detail": "2 of 5 target years in the archive",
+          "pct": 40.0,
+          "state": "active"
+        },
+        {
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 56.2,
+          "state": "active"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "Watching \u00b7 bright \u0394 -0.048 (+9.8% vs 2018)",
+          "pct": 28.1,
+          "state": "active"
+        }
+      ]
+    },
+    {
+      "id": "bhadla",
+      "name": "Bhadla Solar Park",
+      "place": "Rajasthan, India",
+      "category": "energy",
+      "lat": 27.54,
+      "lng": 71.92,
+      "goal": "Measure one of the world\u2019s largest PV parks.",
+      "signal": "bright",
+      "direction": "either",
+      "target": 45,
+      "unit": "% bright-surface vs 2018",
+      "operator": "RRECL",
+      "intent": "restore",
+      "progress": 63.2,
+      "baseline": 0.6089,
+      "current": 0.782,
+      "delta": 0.1731,
+      "relPct": 28.4,
+      "status": "On track",
+      "trend": "advancing",
+      "scenes": [
+        {
+          "year": 2018,
+          "date": "2018-09-18",
+          "cloud": 0.0,
+          "stacId": "S2A_42RYR_20180918_1_L2A",
+          "image": "assets/sat/bhadla/2018.jpg",
+          "index": 0.6089,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2020,
+          "date": "2020-09-27",
+          "cloud": 0.0,
+          "stacId": "S2A_42RYR_20200927_1_L2A",
+          "image": "assets/sat/bhadla/2020.jpg",
+          "index": 0.5713,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2022,
+          "date": "2022-12-11",
+          "cloud": 0.0,
+          "stacId": "S2B_43RBL_20221211_0_L2A",
+          "image": "assets/sat/bhadla/2022.jpg",
+          "index": 0.5287,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2024,
+          "date": "2024-09-26",
+          "cloud": 0.0,
+          "stacId": "S2A_43RBL_20240926_0_L2A",
+          "image": "assets/sat/bhadla/2024.jpg",
+          "index": 0.458,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2026,
+          "date": "2026-04-29",
+          "cloud": 0.0,
+          "stacId": "S2C_42RYR_20260429_0_L2A",
+          "image": "assets/sat/bhadla/2026.jpg",
+          "index": 0.782,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        }
+      ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.6089,
+          "cloud": 0.0
+        },
+        {
+          "year": 2020,
+          "index": 0.5713,
+          "cloud": 0.0
+        },
+        {
+          "year": 2022,
+          "index": 0.5287,
+          "cloud": 0.0
+        },
+        {
+          "year": 2024,
+          "index": 0.458,
+          "cloud": 0.0
+        },
+        {
+          "year": 2026,
+          "index": 0.782,
+          "cloud": 0.0
+        }
+      ],
+      "milestones": [
+        {
+          "name": "Baseline mapped",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-09-18",
+          "pct": 100,
+          "state": "done"
+        },
+        {
+          "name": "Monitoring cadence",
+          "detail": "5 of 5 target years in the archive",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "On track \u00b7 bright \u0394 +0.173 (+28.4% vs 2018)",
+          "pct": 63.2,
+          "state": "active"
+        }
+      ]
+    },
+    {
+      "id": "atacama",
+      "name": "Atacama PV Corridor",
+      "place": "Chile",
+      "category": "energy",
+      "lat": -24.28,
+      "lng": -69.07,
+      "goal": "Watch desert PV blocks come online.",
+      "signal": "bright",
+      "direction": "either",
+      "target": 38,
+      "unit": "% bright-surface vs 2018",
+      "operator": "Coordinador El\u00e9ctrico",
+      "intent": "restore",
+      "progress": 100.0,
+      "baseline": 0.4824,
+      "current": 0.669,
+      "delta": 0.1866,
+      "relPct": 38.7,
+      "status": "On track",
+      "trend": "advancing",
+      "scenes": [
+        {
+          "year": 2018,
+          "date": "2018-06-08",
+          "cloud": 0.02,
+          "stacId": "S2B_19JDN_20180608_1_L2A",
+          "image": "assets/sat/atacama/2018.jpg",
+          "index": 0.4824,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2020,
+          "date": "2020-04-23",
+          "cloud": 0.02,
+          "stacId": "S2A_19JDN_20200423_1_L2A",
+          "image": "assets/sat/atacama/2020.jpg",
+          "index": 0.5025,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2022,
+          "date": "2022-03-19",
+          "cloud": 0.01,
+          "stacId": "S2B_19JDN_20220319_1_L2A",
+          "image": "assets/sat/atacama/2022.jpg",
+          "index": 0.6836,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2024,
+          "date": "2024-04-27",
+          "cloud": 0.02,
+          "stacId": "S2B_19JDN_20240427_0_L2A",
+          "image": "assets/sat/atacama/2024.jpg",
+          "index": 0.4895,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2026,
+          "date": "2026-04-12",
+          "cloud": 0.02,
+          "stacId": "S2C_19JDN_20260412_0_L2A",
+          "image": "assets/sat/atacama/2026.jpg",
+          "index": 0.669,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        }
+      ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.4824,
+          "cloud": 0.02
+        },
+        {
+          "year": 2020,
+          "index": 0.5025,
+          "cloud": 0.02
+        },
+        {
+          "year": 2022,
+          "index": 0.6836,
+          "cloud": 0.01
+        },
+        {
+          "year": 2024,
+          "index": 0.4895,
+          "cloud": 0.02
+        },
+        {
+          "year": 2026,
+          "index": 0.669,
+          "cloud": 0.02
+        }
+      ],
+      "milestones": [
+        {
+          "name": "Baseline mapped",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-06-08",
+          "pct": 100,
+          "state": "done"
+        },
+        {
+          "name": "Monitoring cadence",
+          "detail": "5 of 5 target years in the archive",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "On track \u00b7 bright \u0394 +0.187 (+38.7% vs 2018)",
+          "pct": 100.0,
+          "state": "done"
+        }
+      ]
+    },
+    {
+      "id": "turkana",
+      "name": "Lake Turkana Edge",
+      "place": "Kenya",
+      "category": "energy",
+      "lat": 2.73,
+      "lng": 36.78,
+      "goal": "Confirm wind/solar footprint beside the lake.",
+      "signal": "bright",
+      "direction": "either",
+      "target": 22,
+      "unit": "% bright-surface vs 2018",
+      "operator": "LTWP",
+      "intent": "restore",
+      "progress": 100.0,
+      "baseline": 0.6337,
+      "current": 0.4725,
+      "delta": -0.1612,
+      "relPct": 25.4,
+      "status": "On track",
+      "trend": "advancing",
+      "scenes": [
+        {
+          "year": 2018,
+          "date": "2018-03-10",
+          "cloud": 0.0,
+          "stacId": "S2B_37NBC_20180310_0_L2A",
+          "image": "assets/sat/turkana/2018.jpg",
+          "index": 0.6337,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2020,
+          "date": "2020-12-27",
+          "cloud": 0.0,
+          "stacId": "S2B_37NBC_20201227_1_L2A",
+          "image": "assets/sat/turkana/2020.jpg",
+          "index": 0.6263,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2022,
+          "date": "2022-08-09",
+          "cloud": 0.0,
+          "stacId": "S2B_37NBD_20220809_0_L2A",
+          "image": "assets/sat/turkana/2022.jpg",
+          "index": 0.5241,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2024,
+          "date": "2024-09-19",
+          "cloud": 0.0,
+          "stacId": "S2A_37NBD_20240919_0_L2A",
+          "image": "assets/sat/turkana/2024.jpg",
+          "index": 0.7606,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2026,
+          "date": "2026-07-14",
+          "cloud": 0.0,
+          "stacId": "S2C_36NZH_20260714_0_L2A",
+          "image": "assets/sat/turkana/2026.jpg",
+          "index": 0.4725,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        }
+      ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.6337,
+          "cloud": 0.0
+        },
+        {
+          "year": 2020,
+          "index": 0.6263,
+          "cloud": 0.0
+        },
+        {
+          "year": 2022,
+          "index": 0.5241,
+          "cloud": 0.0
+        },
+        {
+          "year": 2024,
+          "index": 0.7606,
+          "cloud": 0.0
+        },
+        {
+          "year": 2026,
+          "index": 0.4725,
+          "cloud": 0.0
+        }
+      ],
+      "milestones": [
+        {
+          "name": "Baseline mapped",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-03-10",
+          "pct": 100,
+          "state": "done"
+        },
+        {
+          "name": "Monitoring cadence",
+          "detail": "5 of 5 target years in the archive",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "On track \u00b7 bright \u0394 -0.161 (+25.4% vs 2018)",
+          "pct": 100.0,
+          "state": "done"
+        }
+      ]
+    },
+    {
+      "id": "benban",
+      "name": "Benban Solar Park",
+      "place": "Egypt",
+      "category": "energy",
+      "lat": 24.45,
+      "lng": 32.74,
+      "goal": "Confirm one of Africa\u2019s largest PV complexes.",
+      "signal": "bright",
+      "direction": "either",
+      "target": 40,
+      "unit": "% bright-surface vs 2018",
+      "operator": "NREA",
+      "intent": "restore",
+      "progress": 39.0,
+      "baseline": 0.7595,
+      "current": 0.878,
+      "delta": 0.1185,
+      "relPct": 15.6,
+      "status": "Watching",
+      "trend": "advancing",
+      "scenes": [
+        {
+          "year": 2018,
+          "date": "2018-08-09",
+          "cloud": 0.0,
+          "stacId": "S2B_36RVN_20180809_1_L2A",
+          "image": "assets/sat/benban/2018.jpg",
+          "index": 0.7595,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2020,
+          "date": "2020-10-22",
+          "cloud": 0.0,
+          "stacId": "S2A_36RVN_20201022_1_L2A",
+          "image": "assets/sat/benban/2020.jpg",
+          "index": 0.7238,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2022,
+          "date": "2022-06-29",
+          "cloud": 0.0,
+          "stacId": "S2B_36RVN_20220629_0_L2A",
+          "image": "assets/sat/benban/2022.jpg",
+          "index": 0.7692,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2024,
+          "date": "2024-07-28",
+          "cloud": 0.0,
+          "stacId": "S2B_36RVN_20240728_0_L2A",
+          "image": "assets/sat/benban/2024.jpg",
+          "index": 0.7635,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2026,
+          "date": "2026-07-23",
+          "cloud": 0.0,
+          "stacId": "S2C_36RVN_20260723_0_L2A",
+          "image": "assets/sat/benban/2026.jpg",
+          "index": 0.878,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        }
+      ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.7595,
+          "cloud": 0.0
+        },
+        {
+          "year": 2020,
+          "index": 0.7238,
+          "cloud": 0.0
+        },
+        {
+          "year": 2022,
+          "index": 0.7692,
+          "cloud": 0.0
+        },
+        {
+          "year": 2024,
+          "index": 0.7635,
+          "cloud": 0.0
+        },
+        {
+          "year": 2026,
+          "index": 0.878,
+          "cloud": 0.0
+        }
+      ],
+      "milestones": [
+        {
+          "name": "Baseline mapped",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-08-09",
+          "pct": 100,
+          "state": "done"
+        },
+        {
+          "name": "Monitoring cadence",
+          "detail": "5 of 5 target years in the archive",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 78.0,
+          "state": "active"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "Watching \u00b7 bright \u0394 +0.118 (+15.6% vs 2018)",
+          "pct": 39.0,
+          "state": "active"
+        }
+      ]
+    },
+    {
+      "id": "tengger",
+      "name": "Tengger Solar",
+      "place": "Ningxia, China",
+      "category": "energy",
+      "lat": 37.55,
+      "lng": 105.05,
+      "goal": "Track desert PV expansion in Ningxia.",
+      "signal": "bright",
+      "direction": "either",
+      "target": 35,
+      "unit": "% bright-surface vs 2018",
+      "operator": "State Grid / local IPPs",
+      "intent": "restore",
+      "progress": 91.1,
+      "baseline": 0.4706,
+      "current": 0.3205,
+      "delta": -0.1501,
+      "relPct": 31.9,
+      "status": "On track",
+      "trend": "advancing",
+      "scenes": [
+        {
+          "year": 2018,
+          "date": "2018-11-01",
+          "cloud": 0.0,
+          "stacId": "S2A_48SVG_20181101_1_L2A",
+          "image": "assets/sat/tengger/2018.jpg",
+          "index": 0.4706,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2020,
+          "date": "2020-11-10",
+          "cloud": 0.0,
+          "stacId": "S2A_48SVG_20201110_1_L2A",
+          "image": "assets/sat/tengger/2020.jpg",
+          "index": 0.4859,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2022,
+          "date": "2022-07-23",
+          "cloud": 0.0,
+          "stacId": "S2A_48SVG_20220723_0_L2A",
+          "image": "assets/sat/tengger/2022.jpg",
+          "index": 0.5111,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2024,
+          "date": "2024-10-10",
+          "cloud": 0.0,
+          "stacId": "S2A_48SVG_20241010_0_L2A",
+          "image": "assets/sat/tengger/2024.jpg",
+          "index": 0.4611,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2026,
+          "date": "2026-09-02",
+          "cloud": 0.0,
+          "stacId": "S2A_48SVG_20260902_1_L2A",
+          "image": "assets/sat/tengger/2026.jpg",
+          "index": 0.3205,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        }
+      ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.4706,
+          "cloud": 0.0
+        },
+        {
+          "year": 2020,
+          "index": 0.4859,
+          "cloud": 0.0
+        },
+        {
+          "year": 2022,
+          "index": 0.5111,
+          "cloud": 0.0
+        },
+        {
+          "year": 2024,
+          "index": 0.4611,
+          "cloud": 0.0
+        },
+        {
+          "year": 2026,
+          "index": 0.3205,
+          "cloud": 0.0
+        }
+      ],
+      "milestones": [
+        {
+          "name": "Baseline mapped",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-11-01",
+          "pct": 100,
+          "state": "done"
+        },
+        {
+          "name": "Monitoring cadence",
+          "detail": "5 of 5 target years in the archive",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "On track \u00b7 bright \u0394 -0.150 (+31.9% vs 2018)",
+          "pct": 91.1,
+          "state": "active"
+        }
+      ]
+    },
+    {
+      "id": "ivanpah",
+      "name": "Ivanpah",
+      "place": "California, USA",
+      "category": "energy",
+      "lat": 35.57,
+      "lng": -115.47,
+      "goal": "Watch concentrated-solar towers in the Mojave.",
+      "signal": "bright",
+      "direction": "either",
+      "target": 20,
+      "unit": "% bright-surface vs 2018",
+      "operator": "NRG / BrightSource",
+      "intent": "restore",
+      "progress": 100.0,
+      "baseline": 0.4811,
+      "current": 0.7108,
+      "delta": 0.2297,
+      "relPct": 47.7,
+      "status": "On track",
+      "trend": "advancing",
+      "scenes": [
+        {
+          "year": 2018,
+          "date": "2018-10-18",
+          "cloud": 0.03,
+          "stacId": "S2B_11SPV_20181018_1_L2A",
+          "image": "assets/sat/ivanpah/2018.jpg",
+          "index": 0.4811,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2020,
+          "date": "2020-09-02",
+          "cloud": 0.01,
+          "stacId": "S2A_11SPV_20200902_1_L2A",
+          "image": "assets/sat/ivanpah/2020.jpg",
+          "index": 0.5006,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2022,
+          "date": "2022-11-06",
+          "cloud": 0.02,
+          "stacId": "S2B_11SPV_20221106_0_L2A",
+          "image": "assets/sat/ivanpah/2022.jpg",
+          "index": 0.4753,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2024,
+          "date": "2024-08-27",
+          "cloud": 0.02,
+          "stacId": "S2B_11SPV_20240827_0_L2A",
+          "image": "assets/sat/ivanpah/2024.jpg",
+          "index": 0.5218,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2026,
+          "date": "2026-08-02",
+          "cloud": 0.01,
+          "stacId": "S2C_11SPV_20260802_0_L2A",
+          "image": "assets/sat/ivanpah/2026.jpg",
+          "index": 0.7108,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        }
+      ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.4811,
+          "cloud": 0.03
+        },
+        {
+          "year": 2020,
+          "index": 0.5006,
+          "cloud": 0.01
+        },
+        {
+          "year": 2022,
+          "index": 0.4753,
+          "cloud": 0.02
+        },
+        {
+          "year": 2024,
+          "index": 0.5218,
+          "cloud": 0.02
+        },
+        {
+          "year": 2026,
+          "index": 0.7108,
+          "cloud": 0.01
+        }
+      ],
+      "milestones": [
+        {
+          "name": "Baseline mapped",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-10-18",
+          "pct": 100,
+          "state": "done"
+        },
+        {
+          "name": "Monitoring cadence",
+          "detail": "5 of 5 target years in the archive",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "On track \u00b7 bright \u0394 +0.230 (+47.7% vs 2018)",
+          "pct": 100.0,
+          "state": "done"
+        }
+      ]
+    },
+    {
+      "id": "gemini",
+      "name": "Gemini Solar",
+      "place": "Nevada, USA",
+      "category": "energy",
+      "lat": 36.4,
+      "lng": -114.69,
+      "goal": "Measure a new desert PV plant coming online.",
+      "signal": "bright",
+      "direction": "either",
+      "target": 50,
+      "unit": "% bright-surface vs 2018",
+      "operator": "Quinbrook / Arevia",
+      "intent": "restore",
+      "progress": 27.3,
+      "baseline": 0.5244,
+      "current": 0.5961,
+      "delta": 0.0717,
+      "relPct": 13.7,
+      "status": "Watching",
+      "trend": "advancing",
+      "scenes": [
+        {
+          "year": 2018,
+          "date": "2018-06-30",
+          "cloud": 0.01,
+          "stacId": "S2B_11SQA_20180630_1_L2A",
+          "image": "assets/sat/gemini/2018.jpg",
+          "index": 0.5244,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2020,
+          "date": "2020-05-25",
+          "cloud": 0.0,
+          "stacId": "S2A_11SQA_20200525_2_L2A",
+          "image": "assets/sat/gemini/2020.jpg",
+          "index": 0.6861,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2022,
+          "date": "2022-07-04",
+          "cloud": 0.0,
+          "stacId": "S2A_11SQA_20220704_1_L2A",
+          "image": "assets/sat/gemini/2022.jpg",
+          "index": 0.7328,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2024,
+          "date": "2024-01-30",
+          "cloud": 0.01,
+          "stacId": "S2B_11SQA_20240130_0_L2A",
+          "image": "assets/sat/gemini/2024.jpg",
+          "index": 0.4059,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2026,
+          "date": "2026-03-25",
+          "cloud": 0.01,
+          "stacId": "S2C_11SQA_20260325_0_L2A",
+          "image": "assets/sat/gemini/2026.jpg",
+          "index": 0.5961,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        }
+      ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.5244,
+          "cloud": 0.01
+        },
+        {
+          "year": 2020,
+          "index": 0.6861,
+          "cloud": 0.0
+        },
+        {
+          "year": 2022,
+          "index": 0.7328,
+          "cloud": 0.0
+        },
+        {
+          "year": 2024,
+          "index": 0.4059,
+          "cloud": 0.01
+        },
+        {
+          "year": 2026,
+          "index": 0.5961,
+          "cloud": 0.01
+        }
+      ],
+      "milestones": [
+        {
+          "name": "Baseline mapped",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-06-30",
+          "pct": 100,
+          "state": "done"
+        },
+        {
+          "name": "Monitoring cadence",
+          "detail": "5 of 5 target years in the archive",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 54.6,
+          "state": "active"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "Watching \u00b7 bright \u0394 +0.072 (+13.7% vs 2018)",
+          "pct": 27.3,
+          "state": "active"
+        }
+      ]
+    },
+    {
+      "id": "hornsdale",
+      "name": "Hornsdale",
+      "place": "South Australia",
+      "category": "energy",
+      "lat": -33.06,
+      "lng": 138.52,
+      "goal": "Confirm wind-farm footprint on the ridgeline.",
+      "signal": "bright",
+      "direction": "either",
+      "target": 18,
+      "unit": "% bright-surface vs 2018",
+      "operator": "Neoen",
+      "intent": "restore",
+      "progress": 0.4,
+      "baseline": 0.8863,
+      "current": 0.8857,
+      "delta": -0.0006,
+      "relPct": 0.1,
+      "status": "Watching",
+      "trend": "flat",
+      "scenes": [
+        {
+          "year": 2018,
+          "date": "2018-01-17",
+          "cloud": 0.0,
+          "stacId": "S2B_54HTJ_20180117_0_L2A",
+          "image": "assets/sat/hornsdale/2018.jpg",
+          "index": 0.8863,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2020,
+          "date": "2020-11-17",
+          "cloud": 0.0,
+          "stacId": "S2A_54HTJ_20201117_1_L2A",
+          "image": "assets/sat/hornsdale/2020.jpg",
+          "index": 0.885,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2022,
+          "date": "2022-03-12",
+          "cloud": 0.0,
+          "stacId": "S2A_54HTJ_20220312_0_L2A",
+          "image": "assets/sat/hornsdale/2022.jpg",
+          "index": 0.8838,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2024,
+          "date": "2024-04-15",
+          "cloud": 0.0,
+          "stacId": "S2B_54HTJ_20240415_0_L2A",
+          "image": "assets/sat/hornsdale/2024.jpg",
+          "index": 0.8857,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        }
+      ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.8863,
+          "cloud": 0.0
+        },
+        {
+          "year": 2020,
+          "index": 0.885,
+          "cloud": 0.0
+        },
+        {
+          "year": 2022,
+          "index": 0.8838,
+          "cloud": 0.0
+        },
+        {
+          "year": 2024,
+          "index": 0.8857,
+          "cloud": 0.0
+        }
+      ],
+      "milestones": [
+        {
+          "name": "Baseline mapped",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-01-17",
+          "pct": 100,
+          "state": "done"
+        },
+        {
+          "name": "Monitoring cadence",
+          "detail": "4 of 5 target years in the archive",
+          "pct": 80.0,
+          "state": "done"
+        },
+        {
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 0.8,
+          "state": "wait"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "Watching \u00b7 bright \u0394 -0.001 (+0.1% vs 2018)",
+          "pct": 0.4,
+          "state": "wait"
+        }
+      ]
+    },
+    {
+      "id": "aldhafra",
+      "name": "Al Dhafra PV",
+      "place": "Abu Dhabi, UAE",
+      "category": "energy",
+      "lat": 24.05,
+      "lng": 54.55,
+      "goal": "Track a utility-scale desert PV field.",
+      "signal": "bright",
+      "direction": "either",
+      "target": 42,
+      "unit": "% bright-surface vs 2018",
+      "operator": "EWEC / TAQA",
+      "intent": "restore",
+      "progress": 100.0,
+      "baseline": 0.947,
+      "current": 0.4111,
+      "delta": -0.5359,
+      "relPct": 56.6,
+      "status": "On track",
+      "trend": "advancing",
+      "scenes": [
+        {
+          "year": 2018,
+          "date": "2018-10-24",
+          "cloud": 0.0,
+          "stacId": "S2B_40QBM_20181024_0_L2A",
+          "image": "assets/sat/aldhafra/2018.jpg",
+          "index": 0.947,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2020,
+          "date": "2020-12-29",
+          "cloud": 0.06,
+          "stacId": "S2B_39QZG_20201229_0_L2A",
+          "image": "assets/sat/aldhafra/2020.jpg",
+          "index": 0.811,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2022,
+          "date": "2022-01-13",
+          "cloud": 0.05,
+          "stacId": "S2B_39QZG_20220113_0_L2A",
+          "image": "assets/sat/aldhafra/2022.jpg",
+          "index": 0.8018,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2024,
+          "date": "2024-10-12",
+          "cloud": 0.07,
+          "stacId": "S2B_39QZG_20241012_0_L2A",
+          "image": "assets/sat/aldhafra/2024.jpg",
+          "index": 0.8647,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        },
+        {
+          "year": 2026,
+          "date": "2026-02-24",
+          "cloud": 0.08,
+          "stacId": "S2B_40QBM_20260224_0_L2A",
+          "image": "assets/sat/aldhafra/2026.jpg",
+          "index": 0.4111,
+          "source": "Sentinel-2 L2A \u00b7 Earth Search STAC"
+        }
+      ],
+      "series": [
+        {
+          "year": 2018,
+          "index": 0.947,
+          "cloud": 0.0
+        },
+        {
+          "year": 2020,
+          "index": 0.811,
+          "cloud": 0.06
+        },
+        {
+          "year": 2022,
+          "index": 0.8018,
+          "cloud": 0.05
+        },
+        {
+          "year": 2024,
+          "index": 0.8647,
+          "cloud": 0.07
+        },
+        {
+          "year": 2026,
+          "index": 0.4111,
+          "cloud": 0.08
+        }
+      ],
+      "milestones": [
+        {
+          "name": "Baseline mapped",
+          "detail": "First clear Sentinel-2 scene \u00b7 2018-10-24",
+          "pct": 100,
+          "state": "done"
+        },
+        {
+          "name": "Monitoring cadence",
+          "detail": "5 of 5 target years in the archive",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Halfway to goal",
+          "detail": "Measured change has reached half the stated target",
+          "pct": 100.0,
+          "state": "done"
+        },
+        {
+          "name": "Stated goal",
+          "detail": "On track \u00b7 bright \u0394 -0.536 (+56.6% vs 2018)",
+          "pct": 100.0,
+          "state": "done"
+        }
+      ]
     }
   ]
 }

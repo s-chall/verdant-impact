@@ -14,35 +14,30 @@ See projects worldwide. Watch satellites measure the milestone.
 
 ## Elevator pitch (2–3 sentences)
 
-Environmental giving usually ends with a receipt. Verdant puts **24 live sites** on one globe. Click a coast, forest, reef, or energy project: you get a real **Sentinel-2 timeline**, milestone progress, and an **automatic satellite check** — no login, no human-review queue. Agents read the pixels; the readout can come back on track, watching, or off track.
+Environmental giving usually ends with a receipt. Verdant puts **ongoing sites worldwide** on one globe. Click a coast, forest, reef, or energy project: you get a real **Sentinel-2 timeline**, milestone progress, and an **automatic satellite check** — no login, no human-review queue. Agents read the pixels; the readout can come back on track, watching, shifting, or off track.
 
 ---
 
 ## Inspiration
 
-Philanthropy can move money. Satellites, weather models, and field surveys can observe the planet. Those two systems almost never meet.
+Philanthropy can move money. Satellites can observe the planet. Those two systems almost never meet in a way a judge can *see*.
 
-Blockchain can prove a transfer happened. It cannot prove a mangrove grew, a reef recovered, or a solar array generated power. We wanted a product where **refusal is a feature**: if the evidence is missing, stale, or only one source deep, the interface says so — and the funds do not move.
-
-The test: a donor should be able to finish this sentence without trusting our marketing:
-
-> I can see what this project promised, what independent evidence observed, why the claim passed or failed, who reviewed it, and what happened to my funding.
+The wow is not a wallet. It is being able to scan many live projects, open one, watch years of imagery, and run a check that measures whether the milestone moved.
 
 ---
 
 ## What it does
 
-Verdant is a visual **proof-of-impact portfolio** for environmental donors.
+Verdant is a **satellite-measured project map**.
 
-1. Discover a project by place and measurable outcome (Demak coastal recovery, reef restoration, community solar).
-2. See the **measured signal** and **decision gate** before any fund CTA.
-3. Open **Evidence Studio**: real Sentinel-2 2017/2021 + NDVI for Demak; an evidence recipe that correctly refuses for reef/solar.
-4. Watch six agents run in sequence. They can pass, hold, or refuse.
-5. Read the **funding consequence**: `Human review · vault remains locked` or `More evidence needed · vault remains locked`.
-6. Optionally sign as a demo reviewer — the signature is local and **still does not release funds**.
-7. Monitor live Open-Meteo conditions, NASA EONET events (labeled as observations, not proof), and Solana **devnet finality**.
+1. Browse coasts, forests, reefs, and energy sites worldwide (list + globe).
+2. Open a site. Goal in one sentence. Status is computed from the archive.
+3. Scrub the **Sentinel-2 timeline** (2018 → 2026, low-cloud scenes from Earth Search STAC).
+4. Read **milestone bars**: baseline mapped, monitoring cadence, halfway to goal, stated goal.
+5. **Run satellite check** — scan animation, pixel grid, year-by-year index, automatic score.
+6. Live Open-Meteo at that coordinate is labeled as observation, not proof.
 
-Demo login: `/?demo=1` (or Explore the demo). Contribution button is **Preview contribution (demo)** — no transaction is sent.
+No login. `/?demo=1` opens Demak. `/?project=noor` opens any site.
 
 ---
 
@@ -50,91 +45,83 @@ Demo login: `/?demo=1` (or Explore the demo). Contribution button is **Preview c
 
 ### Design rule
 
-Agents **recommend**. They do not mint truth and they do not release money. Blockchain records **decisions**, not environmental facts.
+Agents **score automatically** so a judge is not asked to be a reviewer. They do not mint legal MRV and they do not move money.
 
-### Pipeline (the thing to diagram on Devpost)
+### Pipeline
 
 ```text
-Observations (Sentinel-2, weather, field recipe)
+Seed sites (place, goal, signal)
         ↓
-   ┌─────────────────────────────────────────────┐
-   │  1. Image Quality   clouds / shadows / GSD  │
-   │  2. Boundary        overlap with site mask  │
-   │  3. Change Detection  2017 vs 2021 / NDVI   │
-   │  4. Anomaly         loss, flood, conflict   │
-   │  5. Explanation     plain language for donor│
-   │  6. Verification    recommend | hold | refuse│
-   └─────────────────────────────────────────────┘
+Earth Search STAC  →  Sentinel-2 L2A thumbnails (2018/2020/2022/2024/2026)
         ↓
-Evidence manifest (JSON) → SHA-256 (local)
+Preview index (greenness / water / brightness)
         ↓
-Human reviewer (required) ──X──► no auto-release
+Status + milestone % (on track / watching / shifting / off track)
         ↓
-Funding state: vault remains locked
+Static publish: dist/data/projects.json + dist/assets/sat/
         ↓
-(Next) anchor hash + reviewer signature on Solana milestone vault
+Browser: globe + list + timeline + Run satellite check
 ```
 
-Each agent is a **specialist with a stop condition**. Later agents do not override a missing independent source. The donor sees the same trace a reviewer would: source, date, boundary, missing inputs, recommendation, vault state.
+Each check step is a **specialist with a stop condition**: load scenes, sample pixels, compute index, read trend, emit score. Later steps do not pretend to be a trained remote-sensing model.
 
 ### What is actually running today
 
 | Layer | Implementation | Honest status |
 | --- | --- | --- |
-| UI / orchestration | Single-page app in `dist/index.html` | Working demo |
-| Demak imagery | Packaged Sentinel-2 L2A true-color + NDVI (2017-08-27, 2021-07-27) | **Real observations** |
-| Agent execution | Sequential, visible choreography (~0.7s/step) with project-specific rules | **Simulated inference** — rules are explicit, not a trained model |
-| Live intel | Open-Meteo (Demak / reef / Arizona), NASA EONET, Solana `getLatestBlockhash` on **devnet** | Live observations, **not** impact proof |
-| Identity | Phantom `signMessage` or Demo Explorer | Client-side only |
-| Manifest | SHA-256 of a local JSON recommendation | Hash is real; **not written on-chain yet** |
-| Funding | Preview amounts; vault state stays `locked` | **No USDC send, no vault program** |
+| UI | `dist/index.html` + `app.js` | Working demo |
+| Archive | `scripts/aggregate_projects.py` → packaged JPEG + JSON | **Real STAC scenes** |
+| Index | Preview-image green / water / brightness | **Simplified**, not full NDVI |
+| Check animation | Sequential agents + canvas grid | Visible pipeline, not a trained model |
+| Live intel | Open-Meteo at the clicked site | Observation, **not** impact proof |
+| Funding | Not in this demo | **No USDC, no vault program** |
 
 ### Why this is “agentic” without faking AGI
 
-- **Division of labor:** quality vs geometry vs change vs contradiction vs language vs gate.
-- **Tool-like inputs:** catalog metadata, a reconstructed monitoring boundary, NDVI layers, an evidence recipe (two-source rule).
-- **Visible control flow:** the donor watches the run; failure is first-class UI.
-- **Human-in-the-loop:** verification agent stops at `human_review` even when imagery authenticates.
-- **Side-effect isolation:** agents cannot move money. The only side effects in the demo are a local hash, a ledger row, and an optional local reviewer signature.
+- **Division of labor:** scenes vs pixels vs index vs trend vs score.
+- **Tool-like inputs:** STAC metadata, packaged thumbnails, a stated target.
+- **Visible control flow:** the donor watches the run.
+- **No human queue** in the demo: the readout is automatic so judges are not asked to review.
+- **Side-effect isolation:** agents cannot move money.
 
 ---
 
 ## Challenges we ran into
 
-- **Pretty vs true.** Early portfolio copy said “verified” and “thriving” while the studio correctly held the claim. Judges would have believed the headline. We rewrote the UI to the controlled vocabulary: Observed / Human review / More evidence needed / Vault locked.
-- **Geography.** A globe pin that looked “coastal” was on Kenya, not Demak, Java. One wrong coordinate would have killed the evidence story.
-- **Subtle satellite change.** The real 2017 vs 2021 pair is honest but not cinematic. We had to show dates, NDVI, and the gate — not a fake before/after filter on the same PNG.
-- **Live APIs that are off-thesis.** EONET will show a Texas wildfire while you talk about Java mangroves. We label those events `Observed · not in project boundary` so they cannot be mistaken for proof.
+- **Pretty vs true.** A globe of only “thriving” sites would be a lie. The archive is allowed to come back off track.
+- **Clicking a 3D Earth is a poor judge UX.** The list is the reliable path; the globe is the wow.
+- **Preview JPEG is not NDVI.** We say so on first look, in the check result, and in the README.
+- **Humans in the loop added work for judges.** The demo scores automatically. Custody and reviewer consoles stay in “what’s next.”
 
 ---
 
 ## Accomplishments we’re proud of
 
-- A 150-second path where **refusal is the climax**, not a bug: Demak holds for review; reef/solar refuse for missing independent evidence.
+- A 150-second path: **many sites → one timeline → milestone bars → automatic check**.
 - Real Sentinel-2 assets in the product, not stock-photo “satellites.”
-- Live environmental intelligence that **disclaims itself**.
-- An evidence manifest hash the donor can see, without pretending it is already on Solana.
+- An aggregator that can be re-run to grow the archive.
+- Live weather that **disclaims itself**.
 
 ---
 
 ## What we learned
 
-Impact products die when they confuse a dashboard score with a claim. The durable idea is a **gate**: two sources, a human signature, a funding state that can stay locked. Agents are how you *show* that gate working — they are not a substitute for measurement or custody.
+Impact products die when they confuse a dashboard score with a claim. The durable idea is still a **gate**. This demo shows the measurement half of that gate at worldwide scale, without asking a judge to sign as a reviewer.
 
 ---
 
 ## What's next
 
-1. Three coastal projects end-to-end with official GeoJSON boundaries and scheduled Sentinel search.
-2. Solana **devnet milestone vault**: USDC in, evidence-hash + reviewer signature, release or refund.
-3. A real reviewer console (not a local demo button).
-4. Only then: additional biomes (reef, solar, forest) with domain-specific models — no copy-paste of NDVI onto coral.
+1. Official GeoJSON boundaries and a real NDVI/COG pipeline.
+2. Solana **devnet milestone vault**: USDC in, evidence-hash, release or refund.
+3. A reviewer console — after the automatic score, not instead of it.
+4. Domain-specific models per biome — no copy-paste of mangrove logic onto coral.
 
 ---
 
 ## Built with
 
-HTML/CSS/JS · Sentinel-2 L2A · NDVI · Open-Meteo · NASA EONET · Solana devnet RPC · Phantom (optional) · globe.gl · D3 · TopoJSON
+HTML/CSS/JS · Python aggregator · Sentinel-2 L2A · Element84 Earth Search STAC · Open-Meteo · globe.gl · Pillow / NumPy
 
 ---
 
@@ -146,7 +133,7 @@ npx --yes serve dist
 
 Then open [http://localhost:3000/?demo=1](http://localhost:3000/?demo=1)
 
-Happy path: **globe → filter a biome → click a site → scrub years → Run satellite check**.
+Happy path: **list or globe → filter a biome → open a site → scrub years → Run satellite check**.
 
 Pitch beats: [DEMO_SCRIPT.md](DEMO_SCRIPT.md)
 
@@ -155,14 +142,14 @@ Pitch beats: [DEMO_SCRIPT.md](DEMO_SCRIPT.md)
 ## Six slides if the laptop dies
 
 1. Receipt vs evidence  
-2. Four questions: what changed / how measured / who verified / what happened to the money  
-3. Demak studio (real Sentinel pair)  
-4. Reef/solar refusal  
-5. Real vs simulated (table above)  
-6. Next: vault + reviewer; today you watched the gate  
+2. Many projects on one Earth  
+3. Click → Sentinel timeline  
+4. Milestone bars (how close)  
+5. Automatic satellite check  
+6. Next: vault + NDVI; today you watched the measurement  
 
 ---
 
 ## Suggested Devpost answers to “is this AI?”
 
-**Yes, as an agent system with a human gate — not as a model that “verifies impact.”** Six specialists inspect quality, boundary, change, anomalies, language, and the release rule. They emit a recommendation and a hash. A person still has to sign. Money does not move on a confidence percentage.
+**Yes, as an agent pipeline — not as a model that “verifies impact.”** Specialists load scenes, sample pixels, compute a simple index, read trend, and emit a score. The index is a preview-image proxy. Money does not move on that percentage.

@@ -5,65 +5,97 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#07110e" />
   <title>Verdant — Satellite-measured environmental progress</title>
-  <meta name="description" content="See environmental projects worldwide. Open one for a Sentinel-2 timeline, milestone progress, and an automatic satellite check." />
+  <meta name="description" content="Browse environmental projects worldwide. Open a site for a Sentinel-2 timeline, milestone progress, and an automatic satellite check. No login." />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%2307110e'/%3E%3Cpath d='M17 37c17 2 21-15 33-20-1 21-11 33-27 29-5-1-8-5-6-9Z' fill='%23b8ff6a'/%3E%3C/svg%3E" />
   <link rel="stylesheet" href="app.css" />
 </head>
 <body>
   <header class="top">
-    <div class="brand" aria-label="Verdant">
-      <span class="mark"></span>
-      <strong>Verdant</strong>
+    <div class="brand">
+      <span class="mark" aria-hidden="true"></span>
+      <div>
+        <strong>Verdant</strong>
+        <p>Satellites measure whether the project moved.</p>
+      </div>
     </div>
-    <p class="pitch">See ongoing projects worldwide. Click a site. Watch the satellite record. Run an automatic check.</p>
-    <nav class="filters" aria-label="Project type">
-      <button class="on" data-cat="all">All</button>
-      <button data-cat="coasts">Coasts</button>
-      <button data-cat="forests">Forests</button>
-      <button data-cat="reefs">Reefs</button>
-      <button data-cat="energy">Energy</button>
-    </nav>
+    <p class="stats" id="stats">Loading archive…</p>
   </header>
 
-  <div id="globe" class="globe" role="img" aria-label="Globe of environmental projects"></div>
-  <div class="legend">
-    <span><i class="up"></i>On track</span>
-    <span><i class="mid"></i>Watching</span>
-    <span><i class="shift"></i>Shifting</span>
-    <span><i class="down"></i>Off track</span>
-  </div>
-  <p class="hint">Drag the Earth · <span id="count">…</span> Sentinel-2 sites</p>
+  <main class="app">
+    <section class="rail" aria-label="Projects">
+      <p class="rail-title">Ongoing projects</p>
+      <nav class="filters" aria-label="Project type">
+        <button class="on" data-cat="all">All</button>
+        <button data-cat="coasts">Coasts</button>
+        <button data-cat="forests">Forests</button>
+        <button data-cat="reefs">Reefs</button>
+        <button data-cat="energy">Energy</button>
+      </nav>
+      <div class="legend">
+        <span><i class="up"></i>On track</span>
+        <span><i class="mid"></i>Watching</span>
+        <span><i class="shift"></i>Shifting</span>
+        <span><i class="down"></i>Off track</span>
+      </div>
+      <ul class="list" id="list"></ul>
+    </section>
 
-  <aside class="panel" id="panel" hidden>
-    <button class="x" id="closePanel" aria-label="Close">×</button>
-    <p class="kicker" id="pPlace"></p>
-    <h1 id="pName"></h1>
-    <p class="goal" id="pGoal"></p>
-    <div class="stateline">
-      <b id="pStatus"></b>
-      <span id="pOperator"></span>
-    </div>
-    <div class="bar"><i id="pBar"></i></div>
-    <small class="bar-label" id="pBarLabel"></small>
+    <section class="globe-wrap">
+      <div id="globe" class="globe" role="img" aria-label="Globe of environmental projects"></div>
+      <p class="hint">Click a pulse or a name in the list</p>
+    </section>
 
-    <h2>Satellite timeline</h2>
-    <div class="stage">
-      <img id="satImg" alt="Sentinel-2 observation" />
-      <div class="scan" id="scan"></div>
-      <div class="cap"><span id="satDate"></span><span id="satMeta"></span></div>
-    </div>
-    <div class="years" id="years"></div>
+    <aside class="sheet" id="sheet">
+      <div id="intro">
+        <p class="kicker">What this is</p>
+        <h1>See work happening across the planet. Then watch the satellite record.</h1>
+        <ol class="steps">
+          <li><b>1</b><span>Browse coasts, forests, reefs, and energy sites worldwide.</span></li>
+          <li><b>2</b><span>Open a site to scrub its Sentinel-2 timeline.</span></li>
+          <li><b>3</b><span>See how close each milestone is to the stated goal.</span></li>
+          <li><b>4</b><span>Run an automatic check. Agents read the pixels. No human queue.</span></li>
+        </ol>
+        <p class="fine">Index is a preview-image green / water / brightness score from public Sentinel-2 L2A scenes — not a full NDVI product. Weather is context, not proof.</p>
+      </div>
 
-    <h2>Milestones</h2>
-    <ol class="miles" id="miles"></ol>
+      <div id="detail" hidden>
+        <button class="x" id="closePanel" aria-label="Close project">×</button>
+        <p class="kicker" id="pPlace"></p>
+        <h1 id="pName"></h1>
+        <p class="goal" id="pGoal"></p>
+        <div class="stateline">
+          <b id="pStatus"></b>
+          <span id="pOperator"></span>
+        </div>
+        <div class="bar"><i id="pBar"></i></div>
+        <small class="bar-label" id="pBarLabel"></small>
 
-    <button class="run" id="runBtn">Run satellite check</button>
-    <ul class="agents" id="agents" hidden>
-      <li>Quality</li><li>Boundary</li><li>Index</li><li>Change</li><li>Score</li>
-    </ul>
-    <p class="result" id="result" hidden></p>
-    <p class="live" id="live"></p>
-  </aside>
+        <h2>Satellite timeline</h2>
+        <div class="stage">
+          <img id="satImg" alt="Sentinel-2 observation" />
+          <canvas id="grid" class="grid" width="240" height="180" aria-hidden="true"></canvas>
+          <div class="scan" id="scan"></div>
+          <div class="cap"><span id="satDate"></span><span id="satMeta"></span></div>
+        </div>
+        <div class="years" id="years"></div>
+        <div class="spark" id="spark" aria-label="Index over time"></div>
+
+        <h2>Milestones</h2>
+        <ol class="miles" id="miles"></ol>
+
+        <button class="run" id="runBtn">Run satellite check</button>
+        <ul class="agents" id="agents" hidden>
+          <li>Scenes</li><li>Pixels</li><li>Index</li><li>Trend</li><li>Score</li>
+        </ul>
+        <div class="compare" id="compare" hidden>
+          <figure><img id="beforeImg" alt="Baseline scene" /><figcaption id="beforeCap">Baseline</figcaption></figure>
+          <figure><img id="afterImg" alt="Latest scene" /><figcaption id="afterCap">Latest</figcaption></figure>
+        </div>
+        <p class="result" id="result" hidden></p>
+        <p class="live" id="live"></p>
+      </div>
+    </aside>
+  </main>
 
   <script src="https://cdn.jsdelivr.net/npm/globe.gl@2.45.0/dist/globe.gl.min.js"></script>
   <script src="app.js"></script>
