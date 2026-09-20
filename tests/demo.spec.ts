@@ -5,6 +5,7 @@ test('demo opens Demak, runs agents, result visible', async ({ page }) => {
   await expect(page.locator('#today')).not.toHaveText(/Friday/i);
   await expect(page.locator('#pName')).toHaveText('Demak Coastal Recovery');
   await expect(page.locator('#detail')).toBeVisible();
+  await expect(page.locator('#pOperator')).toHaveText('Building with Nature');
   await page.locator('#runBtn').click();
   await expect(page.locator('#result')).toBeVisible({ timeout: 20_000 });
   await expect(page.locator('#result')).toContainText('Automatic check');
@@ -29,12 +30,14 @@ test('query change from Palawan to mangrove opens Demak', async ({ page }) => {
   await expect(page.locator('#pName')).toHaveText('Demak Coastal Recovery');
 });
 
-test('home puts Solana nonprofit funding on the first screen', async ({ page }) => {
+test('home lists nonprofits receiving USDC on Solana', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('#intro h1')).toContainText(/USDC/i);
   await expect(page.locator('#intro h1')).toContainText(/Solana/i);
   await expect(page.locator('#solChip')).toBeVisible();
-  await expect(page.getByText('Pick a quest')).toBeVisible();
+  await expect(page.locator('#list')).toContainText('Building with Nature');
+  await expect(page.locator('#list')).toContainText(/USDC/);
+  await expect(page.getByText('Nonprofits getting the money')).toBeVisible();
 });
 
 test('session reefs does not override mangrove deep link', async ({ page }) => {
@@ -49,6 +52,7 @@ test('session reefs does not override mangrove deep link', async ({ page }) => {
 test('preview USDC stays locked and does not claim a send', async ({ page }) => {
   await page.goto('/?demo=1');
   await expect(page.locator('#vaultCard')).toContainText(/locked/i);
+  await expect(page.locator('#vaultAddr')).not.toHaveText('');
   await page.locator('#fundBtn').click();
   await expect(page.locator('#fundDlg')).toBeVisible();
   await expect(page.locator('#fundDlg')).toContainText(/not deployed/i);
@@ -57,4 +61,3 @@ test('preview USDC stays locked and does not claim a send', async ({ page }) => 
   await expect(page.locator('#vaultCard')).toContainText(/locked/i);
   await expect(page.locator('#activity li').first()).toContainText(/USDC preview/i);
 });
-
