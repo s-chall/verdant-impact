@@ -1,39 +1,40 @@
 # Verdant
 
-**Fund environmental change, then watch the evidence prove—or refuse to prove—that it happened.**
+**See environmental projects worldwide. Click one. Watch the satellite record. Run an automatic check.**
 
-Verdant is a proof-of-impact portfolio for environmental philanthropy. Donors fund a measurable milestone, inspect independent observations, and see whether the claim is held for human review or refused. Money does not release on a pretty picture.
+Verdant shows ongoing coastal, forest, reef, and energy sites on a globe. Each site is backed by a **Sentinel-2 timeline** pulled from the public Earth Search STAC catalog. A check compares the first and latest scene with a simple index — no login, no wallet, no human-review queue for judges.
 
 ## Open the demo
-
-No hosted URL is recorded in this repo yet. Run it locally:
 
 ```bash
 npx --yes serve dist
 ```
 
-Then open:
+- [http://localhost:3000/](http://localhost:3000/) — globe of 24 sites
+- [http://localhost:3000/?demo=1](http://localhost:3000/?demo=1) — opens Demak
+- [http://localhost:3000/?project=noor](http://localhost:3000/?project=noor) — any project id
 
-- [http://localhost:3000/?demo=1](http://localhost:3000/?demo=1) — skips login, lands as Demo Explorer, opens Demak
-- [http://localhost:3000/?demo=1&studio=1](http://localhost:3000/?demo=1&studio=1) — jumps straight into Evidence Studio
-- or [http://localhost:3000/](http://localhost:3000/) → **Explore the demo**
+**Judge path:** scan the globe → filter Coasts / Forests / Reefs / Energy → click a pulse → scrub the year timeline → **Run satellite check**.
 
-**Happy path:** Explore the demo → Demak Coastal Recovery → **Run evidence check** → flip **2017 / 2021 / NDVI** → **Run evidence agents**.
+## Refresh the satellite archive
 
-Pitch timing: [DEMO_SCRIPT.md](DEMO_SCRIPT.md) · Devpost paste: [DEVPOST.md](DEVPOST.md)
+```bash
+python3 scripts/aggregate_projects.py
+```
 
-## What is real vs simulated
+That script queries Element84 Earth Search for low-cloud Sentinel-2 L2A thumbnails (2018, 2020, 2022, 2024), stores JPEGs under `dist/assets/sat/`, and writes `dist/data/projects.json`.
 
-| Real | Simulated / not built |
+## What is real vs derived
+
+| Real | Derived / simplified |
 | --- | --- |
-| Sentinel-2 true-color + NDVI for Demak (27 Aug 2017, 27 Jul 2021) | Evidence agents are a visible choreography, not model inference |
-| Live Open-Meteo, NASA EONET, Solana **devnet finality** | Milestone vaults, USDC sends, and on-chain release are **not** deployed |
-| Phantom *signed-message* login (optional) | Contribution CTA is a **preview only** — no transaction is sent |
-| Curated, sourced project links | News is not auto-ingested; project config is embedded in the page |
+| 24 site coordinates and operators | Milestone *targets* are product rules, not legal MRV |
+| Sentinel-2 L2A scenes + cloud % from STAC | Index is a preview-image green/water/brightness score, not a full NDVI pipeline |
+| Live Open-Meteo at the clicked site | Weather is context, not proof |
+| Automatic check (no human step) | No Solana vaults, no USDC, no reviewer backend |
 
 ## Docs
 
 - [Product specification](PROJECT_SPEC.md)
-- [Hackathon presentation review](HACKATHON_PRESENTATION_REVIEW.md)
+- [Devpost write-up](DEVPOST.md)
 - [150-second demo script](DEMO_SCRIPT.md)
-- [Devpost write-up + agentic architecture](DEVPOST.md)

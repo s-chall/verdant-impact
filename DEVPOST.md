@@ -6,15 +6,15 @@ Paste these blocks into Devpost. Keep the honesty: agents are a visible pipeline
 
 ## Tagline (≤60 characters)
 
-Fund change, then watch evidence prove or refuse it.
+See projects worldwide. Watch satellites measure the milestone.
 
-**Backup:** Proof-of-impact funding for environmental philanthropy.
+**Backup:** Proof-of-impact, measured from Sentinel-2.
 
 ---
 
 ## Elevator pitch (2–3 sentences)
 
-Environmental giving usually ends with a receipt and a later PDF. Verdant puts donor money behind an **evidence gate**: a milestone names the boundary, the signal, and the second source — then six visible agents inspect the claim and are allowed to **refuse**. A human still has to sign, and the vault stays locked until they do.
+Environmental giving usually ends with a receipt. Verdant puts **24 live sites** on one globe. Click a coast, forest, reef, or energy project: you get a real **Sentinel-2 timeline**, milestone progress, and an **automatic satellite check** — no login, no human-review queue. Agents read the pixels; the readout can come back on track, watching, or off track.
 
 ---
 
@@ -146,7 +146,7 @@ npx --yes serve dist
 
 Then open [http://localhost:3000/?demo=1](http://localhost:3000/?demo=1)
 
-Happy path: **Explore the demo → Demak → Run evidence check → 2017 / 2021 / NDVI → Run evidence agents**.
+Happy path: **globe → filter a biome → click a site → scrub years → Run satellite check**.
 
 Pitch beats: [DEMO_SCRIPT.md](DEMO_SCRIPT.md)
 

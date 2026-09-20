@@ -1,15 +1,14 @@
 # 150-second demo script
 
-Open [`/?demo=1`](http://localhost:3000/?demo=1). That skips Phantom, signs in as Demo Explorer, and opens Demak.
+Open [http://localhost:3000/?demo=1](http://localhost:3000/?demo=1) (or the hosted URL). No login.
 
 | t | Action | Line |
 | --- | --- | --- |
-| 0:00 | Confirm Demo Explorer (login already skipped) | Environmental giving ends in a receipt. Verdant ends in evidence. |
-| 0:15 | Demak drawer: point at **Measured signal** and **Decision gate** | Donors fund a milestone, not a vibe. |
-| 0:35 | **Run evidence check**. Flip **2017 → 2021 → NDVI** | These are real Sentinel-2 passes. Pretty is not proof. |
-| 1:05 | **Run evidence agents**. Point at **Human review · vault remains locked**, the missing-evidence panel, and the local `sha256` manifest | The system can recommend. It cannot release. |
-| 1:35 | Close studio. Open **Reef Revival** or **Sunfield Commons** → run agents → refuse | Refusal is the feature. One photo cannot unlock funds. |
-| 2:00 | Evidence Monitor (live cards) | Weather and NASA events tell us *when* to look — they are not the proof. |
-| 2:20 | Close | Next we bind a signed evidence hash to a Solana milestone vault. Today you watched the gate. |
-
-Do not click the contribution preview unless you want to show that **no Solana transaction is sent**.
+| 0:00 | Globe of ~24 pulses | Environmental projects, live on one Earth. |
+| 0:20 | Click **Coasts / Forests / Reefs / Energy** | Judges pick a biome in one tap. |
+| 0:35 | Demak (or another coast) | Goal in one sentence. Status is on track / watching / off track. |
+| 0:50 | Scrub **2018 → 2024** | These are real Sentinel-2 scenes from STAC, not stock photos. |
+| 1:10 | Point at **milestones** | Baseline mapped, cadence held, measured change. |
+| 1:25 | **Run satellite check** | Automatic. Reads pixels. No human in the loop. |
+| 1:50 | Filter **Energy**, open Noor or Turkana | Same gate, different biome. |
+| 2:10 | Close | More sites, more scenes, same idea: satellites measure whether the milestone moved. |
